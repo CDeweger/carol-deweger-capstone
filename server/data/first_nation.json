@@ -1,0 +1,82 @@
+[
+    {
+        "program_type": "first_nation",
+        "id": "fn1",
+        "program_name": "Vancouver Aboriginal Friendship Centre Society",
+        "location": "Vancouver",
+        "image": "https://www.bcbusiness.ca/CDN/35/image/Vancouver-Aboriginal-Friendship-Centre-Society_max.jpg",
+        "description": "A sewing club and community garden for elders, sports programs like a basketball league for youth and recreational soccer for adults, pre-employment assistance, support groups for Indigenous parents, a mat and blanket shelter, and more",
+        "donation_in_need": "",
+        "surplus_donation": ""
+    },
+    {
+        "program_type": "first_nation",
+        "id": "fn2",
+        "program_name": "Downtown Eastside Women’s Centre",
+        "location": "Vancouver",
+        "image": "https://www.bcbusiness.ca/CDN/35/image/Downtown-Eastside-Womens-Centre_max.jpg",
+        "description": "Drop-in centre and 24-hour emergency shelter, a kitchen that provides 500 meals each day, and Indigenous women’s projects that include Indigenous plant walks, outings for Indigenous women, counselling, cultural and community art projects and workshops.",
+        "donation_in_need": "",
+        "surplus_donation": ""
+    },
+    {
+        "program_type": "first_nation",
+        "id": "fn3",
+        "program_name": "Pacific Association of First Nations Women",
+        "location": "Vancouver",
+        "image": "https://www.bcbusiness.ca/CDN/35/image/Pacific-Association-of-First-Nations-Women_max.jpg",
+        "description": "Weekly Zoom drum circles, an elder support program, mentorship programs for youth, Indigenous language classes, home care services, counselling for Indigenous people with missing or murdered family members, an Urban Butterflies program for girls and the PAFNW Awards Fund, which provides postsecondary scholarships for Indigenous women",
+        "donation_in_need": "",
+        "surplus_donation": ""
+    },
+    {
+        "program_type": "first_nation",
+        "id": "fn4",
+        "program_name": "IndigenEYEZ",
+        "location": "Vancouver",
+        "image": "https://www.bcbusiness.ca/CDN/35/image/IndigenEYEZ_max.png",
+        "description": "Two streams of programs—one is youth camps that empower Indigenous kids and teens, the other is a two-day workshop for anyone who works with Indigenous communities (nurses, employers, youth leaders, et cetera) that teaches ways to engage with members",
+        "donation_in_need": "",
+        "surplus_donation": ""
+    },
+    {
+        "program_type": "first_nation",
+        "id": "fn5",
+        "program_name": "Aboriginal Mother Centre Society",
+        "location": "Vancouver",
+        "image": "https://www.bcbusiness.ca/CDN/35/image/Aboriginal-Mothers-Centre-Society_max.png",
+        "description": "A transformational housing program that offers 16 suites for mothers and children who are at risk of homelessness or child welfare intervention, plus childcare and other programs including parenting workshops, housing and resources workshops, life skills workshops and self-care workshops",
+        "donation_in_need": "",
+        "surplus_donation": ""
+    },
+    {
+        "program_type": "first_nation",
+        "id": "fn6",
+        "program_name": "Red Fox Healthy Living Society",
+        "location": "Vancouver",
+        "image": "https://www.bcbusiness.ca/CDN/35/image/Red-Fox-Society_max.png",
+        "description": "Provide employment training (life skills coaching, work experience and team-building activities) and leadership training for work in the recreation, child care, cultural and food security fields, offer recreational activities at schools, community centres and parks throughout the city, and organize Indigenous cultural programs in collaboration with community partners",
+        "donation_in_need": "",
+        "surplus_donation": ""
+    },
+    {
+        "program_type": "first_nation",
+        "id": "fn7",
+        "program_name": "Kílala Lelum Urban Indigenous Health and Healing Cooperative",
+        "location": "Vancouver",
+        "image": "https://www.bcbusiness.ca/CDN/35/image/Klala-Lelum-Urban-Indigenous-Health-and-Healing-Cooperative_max.jpg",
+        "description": "Partner Indigenous elders living in the Downtown Eastside with health-care professionals to provide physical, mental, emotional, and spiritual care",
+        "donation_in_need": "",
+        "surplus_donation": ""
+    },
+    {
+        "program_type": "first_nation",
+        "id": "fn8",
+        "program_name": "Urban Native Youth Association",
+        "location": "Vancouver",
+        "image": "https://www.bcbusiness.ca/CDN/35/image/Urban-Native-Youth-Association_max.jpg",
+        "description": "UNYA has four major program areas—education and training (including an alternative education program for Indigenous youth), health and wellness (including a mediation program, Aboriginal outreach team and clinical counselling), housing and transition (including an Aboriginal youth safe house), and Community and Connection (including mentorship, sports and recreation and a Two-Spirit collective)",
+        "donation_in_need": "",
+        "surplus_donation": ""
+    }
+]

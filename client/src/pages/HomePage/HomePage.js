@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
-import FeaturedNPG from "../../components/FeaturedNPG/FeaturedNPG";
+import FeaturedNPO from "../../components/FeaturedNPO/FeaturedNPO";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 class HomePage extends Component {
   state = {
     shelterList: [],
+    foodProgramList: [],
   };
+
   getShelterList = () => {
     axios
       .get(`${API_URL}shelter`)
@@ -21,17 +23,31 @@ class HomePage extends Component {
       });
   };
 
+  getfoodProgramList = () => {
+    axios
+      .get(`${API_URL}food-program`)
+      .then((res) => {
+        this.setState({
+          foodProgramList: res.data,
+        });
+      })
+      .catch((_err) => {
+        console.log("error");
+      });
+  };
+
   componentDidMount() {
     this.getShelterList();
+    this.getfoodProgramList();
   }
 
   render() {
     console.log(this.state.shelterList);
+    console.log(this.state.foodProgramList);
 
     return (
       <div>
-        <h1>This is the homepage</h1>
-        <FeaturedNPG shelterList={this.state.shelterList} />
+        <FeaturedNPO shelterList={this.state.shelterList} />
       </div>
     );
   }

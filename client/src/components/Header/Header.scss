@@ -1,0 +1,24 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.header-title {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+.header {
+  &__nav-list {
+    @include flex(center, _, _);
+    list-style-type: none;
+    padding-left: 0;
+
+    &--item {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.FeaturedNPO {
+  @include flex(space-evenly, center, _);
+  padding: 2rem;
+  &__info {
+    width: 50%vw;
+  }
+  &__img-box {
+    // width: 20rem;
+    // height: 20rem;
+    &--img {
+      width: 30rem;
+      height: 25rem;
+      border-radius: 20px;
+      border-color: 2px solid red;
+      object-fit: cover;
+    }
+  }
+}
