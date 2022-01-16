@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const shelterRoute = require("./routes/shelter");
 // const gamesRoutes = require("../server/routes/games");
 
 dotenv.config();
@@ -22,9 +23,12 @@ app.use(express.json());
 
 // app.use(express.static("public"));
 
+//test
 app.get("/", (req, res) => {
   res.send("hello from server!");
 });
+
+app.use("/shelter", shelterRoute);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server listening on ${PORT}`);
