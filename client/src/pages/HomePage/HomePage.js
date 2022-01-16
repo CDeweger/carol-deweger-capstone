@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import FeaturedNPO from "../../components/FeaturedNPO/FeaturedNPO";
+import NPOCategory from "../../components/NPOCategory/NPOCategory";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -48,6 +49,7 @@ class HomePage extends Component {
     return (
       <div>
         <FeaturedNPO shelterList={this.state.shelterList} />
+        <NPOCategory />
       </div>
     );
   }

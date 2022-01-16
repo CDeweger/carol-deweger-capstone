@@ -3,6 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const shelterRoute = require("./routes/shelter");
 const foodProgramRoute = require("./routes/foodProgram");
+const firstNationRoute = require("./routes/firstNation");
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.get("/", (req, res) => {
 
 app.use("/shelter", shelterRoute);
 app.use("/food-program", foodProgramRoute);
+app.use("/first-nation", firstNationRoute);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server listening on ${PORT}`);

@@ -1,0 +1,18 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.NPOCategory {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  &__category {
+    margin-top: 2rem;
+  }
+  &__button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
