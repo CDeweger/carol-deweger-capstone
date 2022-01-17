@@ -23,5 +23,11 @@
 
   &__info {
     margin-left: 2rem;
+    &--need {
+      color: red;
+    }
+    &--surplus {
+      color: green;
+    }
   }
 }

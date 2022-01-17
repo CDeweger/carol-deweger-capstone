@@ -15,8 +15,8 @@ const FirstNationCard = (props) => {
         <h2>{props.firstNationList.program_name}</h2>
         <p>Location:{props.firstNationList.location}</p>
         <p>{props.firstNationList.description}</p>
-        <p>Donation in need:</p>
-        <p>Surplus donation:</p>
+        <p className="FirstNationCard__info--need">Donation in need:</p>
+        <p className="FirstNationCard__info--surplus">Surplus donation:</p>
         <button className="button">Leran More</button>
       </div>
     </div>
