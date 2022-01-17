@@ -9,6 +9,11 @@
   width: 50%;
   text-align: center;
 }
+.header-link {
+  &:visited {
+    color: black;
+  }
+}
 
 .header {
   &__nav-list {
@@ -19,6 +24,9 @@
     &--item {
       margin-left: 1rem;
       margin-right: 1rem;
+      &:hover {
+        border-bottom: 1px solid black;
+      }
     }
   }
 }

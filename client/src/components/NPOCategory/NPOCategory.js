@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NPOCategory.scss";
 
 const NPOCategory = () => {
@@ -8,11 +9,13 @@ const NPOCategory = () => {
       <p>Find out what they need and what you can do to help.</p>
       <div>__________</div>
       <div className="NPOCategory__category">
-        <button className="button NPOCategory__button">Homeless Shelter</button>
-        <button className="button NPOCategory__button">
+        <Link className="button NPOCategory__button">Homeless Shelter</Link>
+        <Link className="button NPOCategory__button">
           Food Bank and Soup Kitchen
-        </button>
-        <button className="button NPOCategory__button">First Nation</button>
+        </Link>
+        <Link to={"/first-nation"} className="button NPOCategory__button">
+          First Nation
+        </Link>
       </div>
     </div>
   );

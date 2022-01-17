@@ -24,7 +24,7 @@ class HomePage extends Component {
       });
   };
 
-  getfoodProgramList = () => {
+  getFoodProgramList = () => {
     axios
       .get(`${API_URL}food-program`)
       .then((res) => {
@@ -39,7 +39,7 @@ class HomePage extends Component {
 
   componentDidMount() {
     this.getShelterList();
-    this.getfoodProgramList();
+    this.getFoodProgramList();
   }
 
   render() {
