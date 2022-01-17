@@ -6,16 +6,14 @@ const shelterRouter = express.Router();
 
 //function for read file
 const readData = () => {
-  const sheltersData = fs.readFileSync(
-    "./data/homeless-shelter-locations.json"
-  );
+  const sheltersData = fs.readFileSync("./data/homeless-shelter.json");
   return JSON.parse(sheltersData);
 };
 
 // function for write file
 const writeFile = (sheltersData) => {
   fs.writeFileSync(
-    "./data/homeless-shelter-locations.json",
+    "./data/homeless-shelter.json",
     JSON.stringify(sheltersData, null, 2)
   );
 };

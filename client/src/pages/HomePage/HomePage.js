@@ -7,7 +7,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 class HomePage extends Component {
   state = {
-    shelterList: [],
+    shelterList: null,
     foodProgramList: [],
   };
 
@@ -43,8 +43,11 @@ class HomePage extends Component {
   }
 
   render() {
-    console.log(this.state.shelterList);
-    console.log(this.state.foodProgramList);
+    if (!this.state.shelterList) {
+      return null;
+    }
+    // console.log(this.state.shelterList);
+    // console.log(this.state.foodProgramList);
 
     return (
       <div>

@@ -20,13 +20,35 @@
     @include flex(center, _, _);
     list-style-type: none;
     padding-left: 0;
+    margin-bottom: 5rem;
 
     &--item {
-      margin-left: 1rem;
-      margin-right: 1rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      display: inline-block;
+      position: relative;
       &:hover {
-        border-bottom: 1px solid black;
+        .nav__submenu {
+          display: block;
+        }
+        // font-size: 1.2rem;
+        border-bottom: 2px solid black;
       }
     }
+  }
+
+  .nav__submenu {
+    display: none;
+    position: absolute;
+    width: 12rem;
+  }
+  // &__dropdown {
+  //   &:hover {
+  //     display: block;
+  //   }
+  // }
+  &__dropdown-content {
+    @include flex(center, _, column);
+    //display: none;
   }
 }

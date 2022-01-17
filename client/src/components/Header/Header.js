@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Submenu from "../Submenu/Submenu";
 
 import FeaturedNPO from "../FeaturedNPO/FeaturedNPO";
 import "./Header.scss";
@@ -13,12 +14,21 @@ const Header = () => {
 
         <nav className="header__nav">
           <ul className="header__nav-list">
-            <Link className="header-link" to={"/"}>
-              <li className="header__nav-list--item">Home</li>
-            </Link>
-            <li className="header__nav-list--item">About</li>
-            <li className="header__nav-list--item">Category</li>
-            <li className="header__nav-list--item">Login</li>
+            <li className="header__nav-list--item">
+              <Link className="header-link" to={"/"}>
+                Home
+              </Link>
+            </li>
+            <li className="header__nav-list--item">
+              <Link>About</Link>
+            </li>
+            <li className="header__nav-list--item">
+              <Link>Category</Link>
+              <Submenu />
+            </li>
+            <li className="header__nav-list--item">
+              <Link>Login</Link>
+            </li>
           </ul>
         </nav>
       </div>

@@ -2,7 +2,6 @@ import React from "react";
 import "./FirstNationCard.scss";
 
 const FirstNationCard = (props) => {
-  console.log(props);
   return (
     <div className="FirstNationCard">
       <div className="FirstNationCard__img-box">
@@ -16,6 +15,8 @@ const FirstNationCard = (props) => {
         <h2>{props.firstNationList.program_name}</h2>
         <p>Location:{props.firstNationList.location}</p>
         <p>{props.firstNationList.description}</p>
+        <p>Donation in need:</p>
+        <p>Surplus donation:</p>
         <button className="button">Leran More</button>
       </div>
     </div>

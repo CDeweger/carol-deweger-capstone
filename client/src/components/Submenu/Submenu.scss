@@ -1,0 +1,13 @@
+.nav__submenu {
+  display: none;
+  padding-left: 0;
+}
+
+.nav__submenu-list {
+  &:hover {
+    border-bottom: 2px solid black;
+  }
+  &--shelter {
+    margin-top: 0.5rem;
+  }
+}
