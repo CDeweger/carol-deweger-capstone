@@ -23,4 +23,9 @@ firstNationRouter.get("/", (req, res) => {
   return res.status(200).send(firstNationData);
 });
 
+// firstNationRouter.post("/", (req, res) => {
+//   let firstNationData = readData();
+
+// });
+
 module.exports = firstNationRouter;

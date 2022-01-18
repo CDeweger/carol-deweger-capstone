@@ -1,6 +1,6 @@
 [
     {
-        "program_type": "first_nation",
+        "program_type": "First Nation",
         "id": "fn1",
         "program_name": "Vancouver Aboriginal Friendship Centre Society",
         "location": "Vancouver",
@@ -11,7 +11,7 @@
         "website": "http://vafcs.org"
     },
     {
-        "program_type": "first_nation",
+        "program_type": "First Nation",
         "id": "fn2",
         "program_name": "Downtown Eastside Women’s Centre",
         "location": "Vancouver",
@@ -22,7 +22,7 @@
         "website": "https://dewc.ca/"
     },
     {
-        "program_type": "first_nation",
+        "program_type": "First Nation",
         "id": "fn3",
         "program_name": "Pacific Association of First Nations Women",
         "location": "Vancouver",
@@ -33,7 +33,7 @@
         "website": "https://pafnw.wordpress.com/"
     },
     {
-        "program_type": "first_nation",
+        "program_type": "First Nation",
         "id": "fn4",
         "program_name": "IndigenEYEZ",
         "location": "Vancouver",
@@ -44,7 +44,7 @@
         "website": "https://indigeneyez.com/"
     },
     {
-        "program_type": "first_nation",
+        "program_type": "First Nation",
         "id": "fn5",
         "program_name": "Aboriginal Mother Centre Society",
         "location": "Vancouver",
@@ -55,7 +55,7 @@
         "website": "https://www.aboriginalmothercentre.ca/"
     },
     {
-        "program_type": "first_nation",
+        "program_type": "First Nation",
         "id": "fn6",
         "program_name": "Red Fox Healthy Living Society",
         "location": "Vancouver",
@@ -66,7 +66,7 @@
         "website": "https://redfoxsociety.org/"
     },
     {
-        "program_type": "first_nation",
+        "program_type": "First Nation",
         "id": "fn7",
         "program_name": "Kílala Lelum Urban Indigenous Health and Healing Cooperative",
         "location": "Vancouver",
@@ -77,7 +77,7 @@
         "website": "https://kilalalelum.ca/"
     },
     {
-        "program_type": "first_nation",
+        "program_type": "First Nation",
         "id": "fn8",
         "program_name": "Urban Native Youth Association",
         "location": "Vancouver",
