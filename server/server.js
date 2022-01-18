@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const shelterRoute = require("./routes/shelter");
 const foodProgramRoute = require("./routes/foodProgram");
 const firstNationRoute = require("./routes/firstNation");
+const singupAndLoginRoute = require("./routes/singupAndLogin");
 
 dotenv.config();
 
@@ -63,11 +64,6 @@ app.get("/profile", authorize, (req, res) => {
 });
 
 // app.use((req, res, next) => {
-//   console.log("Incoming request");
-//   next();
-// });
-
-// app.use((req, res, next) => {
 //   console.log(`${req.method} request to ${req.path}`);
 //   next();
 // });
@@ -82,6 +78,7 @@ app.get("/", (req, res) => {
 app.use("/shelter", shelterRoute);
 app.use("/food-program", foodProgramRoute);
 app.use("/first-nation", firstNationRoute);
+app.use("/", singupAndLoginRoute);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server listening on ${PORT}`);

@@ -5,14 +5,16 @@ a {
 ul {
   list-style-type: none;
 }
+:visited {
+  color: black;
+}
 
 .button {
   background-color: black;
   color: white;
   border: none;
   padding: 0.7rem 2rem;
-}
-
-:visited {
-  color: black;
+  :visited {
+    color: white;
+  }
 }
