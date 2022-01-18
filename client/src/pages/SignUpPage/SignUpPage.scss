@@ -4,8 +4,51 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
+.signupPage {
+  border: 1px black solid;
+  padding: 2rem 0;
+  margin: auto;
+  width: 18rem;
+  background-color: black;
+  &__heading {
+    color: white;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    width: 7rem;
+  }
+}
+
 .signup-form {
+  text-align: left;
+
   &__field {
-    @include flex(_, center, column);
+    width: 14rem;
+    margin: auto;
+    @include flex(_, flex-start, column);
+  }
+  &__label {
+    color: white;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+    margin-top: 1rem;
+    // width: 10rem;
+    // margin-right: auto;
+  }
+  &__input {
+    width: 14rem;
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
+  }
+  &__button {
+    border-radius: 25px;
+    border: white 1px solid;
+    background-color: black;
+    color: white;
+    padding: 0.6rem 3rem;
+    margin: auto;
+
+    margin-top: 2rem;
+    width: 10rem;
   }
 }
