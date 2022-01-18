@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import FirstNationCard from "../../components/FirstNationCard/FirstNationCard";
 import "./FirstNationPage.scss";
+import FeaturedNPO from "../../components/FeaturedNPO/FeaturedNPO";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -37,6 +38,7 @@ class FirstNationPage extends Component {
         <h1 className="FirstNationPage__heading">
           First Nation Non-Profit Organizations
         </h1>
+        {/* <FeaturedNPO firstNationList={this.state.firstNationList} /> */}
         {this.state.firstNationList.map((firstNation) => {
           return (
             <FirstNationCard

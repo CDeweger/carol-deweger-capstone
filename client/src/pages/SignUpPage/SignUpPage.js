@@ -4,6 +4,7 @@ import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const signupURL = `${API_URL}signup`;
+const loginURL = `${API_URL}login`;
 
 class SignUpPage extends Component {
   state = {
@@ -13,12 +14,42 @@ class SignUpPage extends Component {
     errorMessage: "",
   };
 
+  login = (e) => {
+    e.preventDefault();
+    axios
+      .post(loginURL, {
+        username: e.target.username.value,
+        password: e.target.password.value,
+      })
+
+      .then((response) => {
+        console.log(response);
+
+        this.setState({
+          isLoggedIn: true,
+        });
+
+        sessionStorage.setItem("token", response.data.token);
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({ isLoginError: true, errorMessage: err });
+      });
+  };
+
   signup = (e) => {
     e.preventDefault();
     axios
       .post(signupURL, {
-        name: e.target.name.value,
         username: e.target.username.value,
+        name: e.target.name.value,
+        type: e.target.type.value,
+        location: e.target.location.value,
+        website: e.target.website.value,
+        description: e.target.description.value,
+
+        // name: e.target.name.value,
+        //username: e.target.username.value,
         password: e.target.password.value,
       })
       .then((response) => {
@@ -36,16 +67,20 @@ class SignUpPage extends Component {
         <h1 className="signupPage__heading">Sign Up</h1>
         <form className="signup-form" onSubmit={this.signup}>
           <div className="signup-form__field">
-            <label className="signup-form__label">E-mail/Account</label>
-            <input className="signup-form__input" type="email" name="email" />
+            <label className="signup-form__label">E-mail/Username</label>
+            <input
+              className="signup-form__input"
+              type="email"
+              name="username"
+            />
           </div>
           <div className="signup-form__field">
             <label className="signup-form__label">Organization Name</label>
-            <input className="signup-form__input" type="text" name="NPOName" />
+            <input className="signup-form__input" type="text" name="name" />
           </div>
           <div className="signup-form__field">
             <label className="signup-form__label">Program Type</label>
-            <select className="signup-form__input">
+            <select name="type" className="signup-form__input">
               <option disabled>Please select</option>
               <option>Homeless Shelter</option>
               <option>Food Bank and Soup Kitchen</option>
@@ -91,6 +126,28 @@ class SignUpPage extends Component {
       </div>
     );
   }
+
+  renderLogin = () => {
+    // const { isLoginError, errorMessage } = this.state;
+    return (
+      <div>
+        <h1>Login</h1>
+        {/* {isLoginError && <label style={{ color: "red" }}>{errorMessage}</label>} */}
+        <form ref={(form) => (this.loginForm = form)} onSubmit={this.login}>
+          {/* <form onSubmit={this.login}> */}
+          <div className="form-group">
+            Username: <input type="text" name="username" />
+          </div>
+          <div className="form-group">
+            Password: <input type="password" name="password" />
+          </div>
+          <button className="btn btn-primary" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
+    );
+  };
 
   render() {
     const { isLoggedIn, isSignedUp } = this.state;
