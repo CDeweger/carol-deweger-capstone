@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
-const firstNationRoute = require("./routes/organizationList");
+const organizationRoute = require("./routes/organization");
 const singupAndLoginRoute = require("./routes/singupAndLogin");
 const donationRoute = require("./routes/donation");
 
@@ -16,7 +16,7 @@ app.use(express.json());
 
 // app.use(express.static("public"));
 
-app.use("/organization", firstNationRoute);
+app.use("/organization", organizationRoute);
 app.use("/", singupAndLoginRoute);
 app.use("/donation", donationRoute);
 
