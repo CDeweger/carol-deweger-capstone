@@ -7,9 +7,23 @@ const singupAndLoginRouter = express.Router();
 const JWT_SECRET =
   "53b99e8b91f67d12e04508c91d59b87620edd27c0f28ec01a517cee81d4b87bf";
 
+//function for read file
+const readFile = () => {
+  const firstNationData = fs.readFileSync("./data/first-nation.json");
+  return JSON.parse(firstNationData);
+};
+
+// function for write file
+const writeFile = (firstNationData) => {
+  fs.writeFileSync(
+    "./data/first-nation.json",
+    JSON.stringify(firstNationData, null, 2)
+  );
+};
+
 function authorize(req, res, next) {
   console.log("authorize middleware entered");
-
+  console.log(req.headers.authorization);
   if (!req.headers.authorization)
     return res.status(401).json({ message: "not authorized" });
   const authToken = req.headers.authorization.split(" ")[1];
@@ -24,24 +38,17 @@ function authorize(req, res, next) {
       return res.status(401).json({ message: "token expired" });
     }
 
+    // const organization = readFile();
+    // const npoLocation = organization.find((org) => {
+    //   if (org.program_name === decoded.name) {
+    //     return org.location;
+    //   }
+    // });
+    // req.location = npoLocation;
     req.decoded = decoded;
     next();
   });
 }
-
-//function for read file
-const readFile = () => {
-  const firstNationData = fs.readFileSync("./data/first-nation.json");
-  return JSON.parse(firstNationData);
-};
-
-// function for write file
-const writeFile = (firstNationData) => {
-  fs.writeFileSync(
-    "./data/first-nation.json",
-    JSON.stringify(firstNationData, null, 2)
-  );
-};
 
 const users = {};
 

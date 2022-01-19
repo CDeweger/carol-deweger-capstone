@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import axios from "axios";
 import FirstNationCard from "../../components/FirstNationCard/FirstNationCard";
 import "./FirstNationPage.scss";
-import FeaturedNPO from "../../components/FeaturedNPO/FeaturedNPO";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -18,7 +16,9 @@ class FirstNationPage extends Component {
       .get(`${API_URL}first-nation`)
       .then((res) => {
         this.setState({
-          firstNationList: res.data,
+          firstNationList: res.data.filter(
+            (type) => type.program_type === "First Nation"
+          ),
         });
       })
       .catch((_err) => {

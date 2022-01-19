@@ -15,29 +15,6 @@ class SignUpPage extends Component {
     errorMessage: "",
   };
 
-  // login = (e) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post(loginURL, {
-  //       username: e.target.username.value,
-  //       password: e.target.password.value,
-  //     })
-
-  //     .then((response) => {
-  //       console.log(response);
-
-  //       this.setState({
-  //         isLoggedIn: true,
-  //       });
-
-  //       sessionStorage.setItem("token", response.data.token);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       this.setState({ isLoginError: true, errorMessage: err });
-  //     });
-  // };
-
   signup = (e) => {
     e.preventDefault();
     axios
@@ -82,7 +59,7 @@ class SignUpPage extends Component {
             <select name="type" className="signup-form__input">
               <option disabled>Please select</option>
               <option>Homeless Shelter</option>
-              <option>Food Bank and Soup Kitchen</option>
+              <option>Free/Low Cost Food Program</option>
               <option>First Nation</option>
             </select>
           </div>
@@ -125,30 +102,6 @@ class SignUpPage extends Component {
       </div>
     );
   }
-
-  // renderLogin = () => {
-  //   // const { isLoginError, errorMessage } = this.state;
-  //   return (
-  //     <div>
-  //       <h1>Login</h1>
-  //       {/* {isLoginError && <label style={{ color: "red" }}>{errorMessage}</label>} */}
-  //       {/* <form ref={(form) => (this.loginForm = form)} onSubmit={this.login}> */}
-  //       <form onSubmit={this.login}>
-  //         <div className="form-group">
-  //           Username: <input type="text" name="username" />
-  //         </div>
-  //         <div className="form-group">
-  //           Password: <input type="password" name="password" />
-  //         </div>
-  //         <button className="btn btn-primary" type="submit">
-  //           Login
-  //         </button>
-  //       </form>
-  //     </div>
-  //   );
-  // };
-
-  renderLogin = () => {};
 
   render() {
     const { isLoggedIn, isSignedUp } = this.state;

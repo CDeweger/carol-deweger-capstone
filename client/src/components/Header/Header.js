@@ -27,7 +27,7 @@ const Header = () => {
               <Submenu />
             </li>
             <li className="header__nav-list--item">
-              <Link>Login</Link>
+              <Link to={"/login"}>Login</Link>
             </li>
           </ul>
         </nav>

@@ -2,28 +2,27 @@ import React from "react";
 import "./FeaturedNPO.scss";
 
 const FeaturedNPO = (props) => {
-  // if (!props.shelterList) {
-  //   return <p></p>;
-  // }
+  console.log(props);
+
+  const randomeNum = Math.floor(Math.random() * 19);
+
   return (
     <div className="FeaturedNPO">
       <div className="FeaturedNPO__info">
-        <h1>{props.shelterList[1].program_name}</h1>
+        <h1>{props.organizationList[randomeNum].program_name}</h1>
         <p>
           Program type:
-          {props.shelterList[1].program_type === "homeless-shelter" ? (
-            <span>Homeless shelter</span>
-          ) : null}
+          {props.organizationList[randomeNum].program_type}
         </p>
-        <p>Category:{props.shelterList[1].description}</p>
-        <p>Location:{props.shelterList[1].location}</p>
+        <p>{props.organizationList[randomeNum].description}</p>
+        <p>Location:{props.organizationList[randomeNum].location}</p>
 
         <button className="button">Learn More</button>
       </div>
       <div className="FeaturedNPO__img-box">
         <img
           className="FeaturedNPO__img-box--img"
-          src={props.shelterList[1].image}
+          src={props.organizationList[randomeNum].image}
         />
       </div>
     </div>
