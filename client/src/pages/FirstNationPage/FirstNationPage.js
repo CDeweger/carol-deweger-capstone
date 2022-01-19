@@ -38,7 +38,6 @@ class FirstNationPage extends Component {
         <h1 className="FirstNationPage__heading">
           First Nation Non-Profit Organizations
         </h1>
-        {/* <FeaturedNPO firstNationList={this.state.firstNationList} /> */}
         {this.state.firstNationList.map((firstNation) => {
           return (
             <FirstNationCard

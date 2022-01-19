@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
-const postDonationURL = `${API_URL}donation`;
+//const postDonationURL = `${API_URL}donation`;
+const postDonationURL = `${API_URL}organization`;
 
 class DonationPage extends Component {
   state = {
@@ -38,7 +39,7 @@ class DonationPage extends Component {
     axios
       .post(postDonationURL, {
         organizationID: this.state.currUser.id,
-        program_name: this.state.currUser.program_name,
+        //  program_name: this.state.currUser.program_name,
         item: e.target.item.value,
         status: e.target.status.value,
         info: e.target.info.value,

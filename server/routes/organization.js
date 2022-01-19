@@ -23,4 +23,27 @@ organizationRouter.get("/", (req, res) => {
   return res.status(200).send(organizationData);
 });
 
+organizationRouter.post("/", (req, res) => {
+  let organizationData = readData();
+
+  const newDonationObj = {
+    id: uuidv4(),
+    organizationID: req.body.organizationID,
+    itemName: req.body.item,
+    information: req.body.info,
+    status: req.body.status,
+  };
+
+  const organizationID = req.body.organizationID;
+  organizationData.find((organization) => {
+    if (organization.id === organizationID) {
+      organization.donation.push(newDonationObj);
+      return;
+    }
+  });
+
+  writeFile(organizationData);
+  res.status(201).json(newDonationObj);
+});
+
 module.exports = organizationRouter;
