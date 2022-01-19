@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import DonationPage from "../../components/DonationPage/DonationPage";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const profileURL = `${API_URL}profile`;
@@ -7,8 +8,10 @@ const profileURL = `${API_URL}profile`;
 class ProfilePage extends Component {
   state = {
     isLoading: true,
-    userInfo: {},
+    userInfo: null,
+    user: null,
   };
+
   componentDidMount() {
     // here grab token from sessionStorage
     const token = sessionStorage.getItem("token");
@@ -19,23 +22,21 @@ class ProfilePage extends Component {
       })
       .then((response) => {
         console.log(response);
-        this.setState(
-          {
-            userInfo: response.data,
-            isLoading: false,
-          }
-          //   () => {
-          //     this.setState({
-          //       isLoading: false,
-          //     });
-          //   }
-        );
+        this.setState({
+          userInfo: response.data,
+          isLoading: false,
+        });
       })
       .catch((err) => console.log(err));
   }
+
   render() {
     const { isLoading, userInfo } = this.state;
-    return isLoading ? <h1>Loading...</h1> : <h1>Welcome {userInfo.name}!</h1>;
+    return isLoading ? (
+      <h1>Loading...</h1>
+    ) : (
+      <DonationPage userInfo={userInfo} />
+    );
   }
 }
 

@@ -57,7 +57,9 @@ class SignUpPage extends Component {
           <div className="signup-form__field">
             <label className="signup-form__label">Program Type</label>
             <select name="type" className="signup-form__input">
-              <option disabled>Please select</option>
+              <option disabled selected>
+                Please select
+              </option>
               <option>Homeless Shelter</option>
               <option>Free/Low Cost Food Program</option>
               <option>First Nation</option>
@@ -88,7 +90,9 @@ class SignUpPage extends Component {
             />
           </div>
           <div className="signup-form__field">
-            <label className="signup-form__label">Confrim Password</label>
+            <label className="signup-form__label" name="confirm-password">
+              Confrim Password
+            </label>
             <input
               className="signup-form__input"
               type="password"

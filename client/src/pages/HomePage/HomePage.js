@@ -12,7 +12,7 @@ class HomePage extends Component {
 
   getOrganizationList = () => {
     axios
-      .get(`${API_URL}first-nation`)
+      .get(`${API_URL}organization`)
       .then((res) => {
         this.setState({
           organizationList: res.data,

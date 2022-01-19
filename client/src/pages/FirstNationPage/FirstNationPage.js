@@ -13,7 +13,7 @@ class FirstNationPage extends Component {
 
   getFirstNationList = () => {
     axios
-      .get(`${API_URL}first-nation`)
+      .get(`${API_URL}organization`)
       .then((res) => {
         this.setState({
           firstNationList: res.data.filter(

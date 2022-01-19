@@ -9,15 +9,15 @@ const JWT_SECRET =
 
 //function for read file
 const readFile = () => {
-  const firstNationData = fs.readFileSync("./data/first-nation.json");
-  return JSON.parse(firstNationData);
+  const organizationList = fs.readFileSync("./data/organizationList.json");
+  return JSON.parse(organizationList);
 };
 
 // function for write file
-const writeFile = (firstNationData) => {
+const writeFile = (organizationList) => {
   fs.writeFileSync(
-    "./data/first-nation.json",
-    JSON.stringify(firstNationData, null, 2)
+    "./data/organizationList.json",
+    JSON.stringify(organizationList, null, 2)
   );
 };
 
@@ -67,7 +67,7 @@ singupAndLoginRouter.post("/signup", (req, res) => {
   };
   // res.json({ success: "true" });
 
-  const firstNationData = readFile();
+  const organizationList = readFile();
   const newNpoObj = {
     program_type: req.body.type,
     id: uuidv4(),
@@ -80,8 +80,8 @@ singupAndLoginRouter.post("/signup", (req, res) => {
     website: req.body.website,
   };
 
-  firstNationData.push(newNpoObj);
-  writeFile(firstNationData);
+  organizationList.push(newNpoObj);
+  writeFile(organizationList);
   res.status(201).json(newNpoObj);
 });
 

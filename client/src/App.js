@@ -6,6 +6,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import FirstNationPage from "./pages/FirstNationPage/FirstNationPage";
+import DonationPage from "./components/DonationPage/DonationPage";
 
 const App = () => {
   return (
@@ -17,12 +18,13 @@ const App = () => {
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/profile" exact component={ProfilePage} />
+          <Route path="/test" exact component={DonationPage} />
 
           <Route path="/first-nation" exact component={FirstNationPage} />
 
-          <Route path="*" exact>
+          {/* <Route path="*" exact>
             <Redirect to="/" exact component={HomePage} />
-          </Route>
+          </Route> */}
         </Switch>
       </BrowserRouter>
     </div>
