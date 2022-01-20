@@ -28,6 +28,7 @@ organizationRouter.post("/", (req, res) => {
 
   const newDonationObj = {
     id: uuidv4(),
+    date: Date.now(),
     organizationID: req.body.organizationID,
     itemName: req.body.item,
     information: req.body.info,
@@ -45,5 +46,21 @@ organizationRouter.post("/", (req, res) => {
   writeFile(organizationData);
   res.status(201).json(newDonationObj);
 });
+
+//get item by ID
+// organizationRouter.get("/:organizationID/:itemID", (req,res)=> {
+//   let organizationData = readData();
+
+//   let tragetItem = req.
+// })
+
+organizationRouter.patch(
+  "/profile/:organizationID/item/:itemID/edit",
+  (req, res) => {
+    let organizationData = readData();
+
+    let traget = organizationData.find;
+  }
+);
 
 module.exports = organizationRouter;

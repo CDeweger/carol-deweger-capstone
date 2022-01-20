@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import DonationList from "../DonationList/DonationList";
+import EditDonationCard from "../EditDonationCard/EditDonationCard";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const postDonationURL = `${API_URL}organization`;
@@ -10,8 +11,6 @@ class DonationPage extends Component {
     organizationList: null,
     currUser: null,
   };
-  // let timestamp = new Date();
-  // let date = timestamp.toLocaleString("en-US");
 
   getOrganization = () => {
     axios
@@ -88,6 +87,8 @@ class DonationPage extends Component {
           </form>
         </div>
         <DonationList currUser={this.state.currUser} />
+
+        {/* <EditDonationCard /> */}
       </>
     );
   }

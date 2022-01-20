@@ -5,7 +5,6 @@ import LoginPage from "../LoginPage/LoginPage";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const signupURL = `${API_URL}signup`;
-//const loginURL = `${API_URL}login`;
 
 class SignUpPage extends Component {
   state = {
@@ -112,12 +111,6 @@ class SignUpPage extends Component {
 
     if (!isSignedUp) return this.renderSignUp();
     return null;
-    // if (!isLoggedIn) return this.renderLogin();
-    // if (this.props.location.pathname === "/login") {
-    //   return <LoginPage />;
-    // }
-
-    //return <div>hello from signup page</div>;
   }
 }
 

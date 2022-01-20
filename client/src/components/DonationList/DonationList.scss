@@ -12,8 +12,14 @@
 .donationList-card {
   border: 1px solid black;
   width: 10rem;
-  margin: 3rem 1rem;
+  margin: 2rem 1rem;
   border-radius: 5px;
+
+  &__inner {
+    width: 8rem;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
 
   &__in-need {
     background-color: pink;
