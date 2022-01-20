@@ -9,6 +9,7 @@ const loginURL = `${API_URL}login`;
 class LoginPage extends Component {
   state = {
     isLoggedIn: false,
+    username: null,
   };
 
   login = (e) => {
@@ -24,6 +25,7 @@ class LoginPage extends Component {
 
         this.setState({
           isLoggedIn: true,
+          username: e.target.username.value,
         });
 
         sessionStorage.setItem("token", response.data.token);
@@ -33,6 +35,19 @@ class LoginPage extends Component {
       .catch((err) => {
         console.log(err);
         this.setState({ isLoginError: true, errorMessage: err });
+      });
+
+    this.getUserinfo(this.state.username);
+  };
+
+  getUserinfo = (username) => {
+    axios
+      .get(`${API_URL}login/:username`)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((_err) => {
+        console.log("err");
       });
   };
 

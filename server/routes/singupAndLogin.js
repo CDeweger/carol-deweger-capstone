@@ -69,6 +69,7 @@ singupAndLoginRouter.post("/signup", (req, res) => {
 
   const organizationList = readFile();
   const newNpoObj = {
+    username: req.body.username,
     program_type: req.body.type,
     id: uuidv4(),
     program_name: req.body.name,
@@ -94,6 +95,11 @@ singupAndLoginRouter.post("/login", (req, res) => {
 
     res.json({ token });
   }
+});
+
+singupAndLoginRouter.get("/login/:username", (req, res) => {
+  const organizationList = readFile();
+  let currUser = organizationList.find((user) => user.id === req.params.id);
 });
 
 singupAndLoginRouter.get("/profile", authorize, (req, res) => {
