@@ -30,4 +30,21 @@
       color: green;
     }
   }
+  &__donation-tag {
+    &--in-need {
+      background-color: pink;
+      color: grey;
+      margin: 0.3125rem;
+      padding: 0.3125rem 0.625rem;
+      border-radius: 5px;
+    }
+
+    &--surplus {
+      background-color: #d0f0c0;
+      color: grey;
+      margin: 0.3125rem;
+      padding: 0.3125rem 0.625rem;
+      border-radius: 5px;
+    }
+  }
 }

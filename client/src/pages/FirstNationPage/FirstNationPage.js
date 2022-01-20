@@ -33,6 +33,10 @@ class FirstNationPage extends Component {
   render() {
     console.log(this.state.firstNationList);
 
+    if (!this.state.firstNationList) {
+      return null;
+    }
+
     return (
       <div className="FirstNationPage">
         <h1 className="FirstNationPage__heading">

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import DonationList from "../DonationList/DonationList";
 
 const API_URL = process.env.REACT_APP_API_URL;
-//const postDonationURL = `${API_URL}donation`;
 const postDonationURL = `${API_URL}organization`;
 
 class DonationPage extends Component {
@@ -52,6 +52,7 @@ class DonationPage extends Component {
       })
       .catch((err) => console.log(err));
     e.target.reset();
+    document.location.reload(true);
   };
   render() {
     console.log(this.props);
@@ -61,30 +62,33 @@ class DonationPage extends Component {
       return null;
     }
     return (
-      <div>
+      <>
         <div>
-          <h1>{this.state.currUser.program_name}</h1>
-          <p>{this.state.currUser.program_type}</p>
-          <p>{this.state.currUser.location}</p>
-          <p>{this.state.currUser.description}</p>
+          <div>
+            <h1>{this.state.currUser.program_name}</h1>
+            <p>{this.state.currUser.program_type}</p>
+            <p>{this.state.currUser.location}</p>
+            <p>{this.state.currUser.description}</p>
+          </div>
+          <h1>Create a New Post</h1>
+          <form onSubmit={this.handleSubmit}>
+            <label>Item</label>
+            <input type="text" name="item"></input>
+            <label>Status</label>
+            <select name="status">
+              <option disabled selected>
+                Please select
+              </option>
+              <option>In Need</option>
+              <option>Surplus</option>
+            </select>
+            <label>More information</label>
+            <input name="info" type="text"></input>
+            <button>Create</button>
+          </form>
         </div>
-        <h1>Create a New Post</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label>Item</label>
-          <input type="text" name="item"></input>
-          <label>Status</label>
-          <select name="status">
-            <option disabled selected>
-              Please select
-            </option>
-            <option>In Need</option>
-            <option>Surplus</option>
-          </select>
-          <label>More information</label>
-          <input name="info" type="text"></input>
-          <button>Create</button>
-        </form>
-      </div>
+        <DonationList currUser={this.state.currUser} />
+      </>
     );
   }
 }

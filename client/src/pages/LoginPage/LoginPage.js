@@ -27,12 +27,13 @@ class LoginPage extends Component {
         });
 
         sessionStorage.setItem("token", response.data.token);
+        this.props.history.push("/profile");
       })
+
       .catch((err) => {
         console.log(err);
         this.setState({ isLoginError: true, errorMessage: err });
       });
-    this.props.history.push("/profile");
   };
 
   renderLogin = () => {
@@ -59,9 +60,11 @@ class LoginPage extends Component {
     const { isLoggedIn } = this.state;
     if (!isLoggedIn) return this.renderLogin();
 
-    if (this.props.location.pathname === "/profile") {
-      return <ProfilePage />;
-    }
+    return null;
+
+    // if (this.props.location.pathname === "/profile") {
+    //   return <ProfilePage />;
+    //}
   }
 }
 

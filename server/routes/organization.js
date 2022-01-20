@@ -37,7 +37,7 @@ organizationRouter.post("/", (req, res) => {
   const organizationID = req.body.organizationID;
   organizationData.find((organization) => {
     if (organization.id === organizationID) {
-      organization.donation.push(newDonationObj);
+      organization.donations.push(newDonationObj);
       return;
     }
   });

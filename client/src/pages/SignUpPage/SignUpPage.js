@@ -32,9 +32,9 @@ class SignUpPage extends Component {
         this.setState({
           isSignedUp: true,
         });
+        this.props.history.push("/login");
       })
       .catch((err) => console.log(err));
-    this.props.history.push("/login");
   };
 
   renderSignUp() {
@@ -111,10 +111,11 @@ class SignUpPage extends Component {
     const { isLoggedIn, isSignedUp } = this.state;
 
     if (!isSignedUp) return this.renderSignUp();
+    return null;
     // if (!isLoggedIn) return this.renderLogin();
-    if (this.props.location.pathname === "/login") {
-      return <LoginPage />;
-    }
+    // if (this.props.location.pathname === "/login") {
+    //   return <LoginPage />;
+    // }
 
     //return <div>hello from signup page</div>;
   }

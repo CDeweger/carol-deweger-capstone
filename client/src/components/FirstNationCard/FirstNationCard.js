@@ -2,6 +2,9 @@ import React from "react";
 import "./FirstNationCard.scss";
 
 const FirstNationCard = (props) => {
+  if (!props.firstNationList.donations) {
+    return null;
+  }
   console.log(props);
   return (
     <div className="FirstNationCard">
@@ -18,17 +21,25 @@ const FirstNationCard = (props) => {
         <p>{props.firstNationList.description}</p>
         <p className="FirstNationCard__info--need">
           Donations in need:
-          {props.firstNationList.donation.map((oneDonation) => {
-            if (oneDonation.status === "In Need") {
-              return <span>{oneDonation.itemName}.</span>;
+          {props.firstNationList.donations.map((donation) => {
+            if (donation.status === "In Need") {
+              return (
+                <span className="FirstNationCard__donation-tag--in-need">
+                  {donation.itemName}
+                </span>
+              );
             }
           })}
         </p>
         <p className="FirstNationCard__info--surplus">
           Surplus donations:
-          {props.firstNationList.donation.map((oneDonation) => {
-            if (oneDonation.status === "Surplus") {
-              return <span>{oneDonation.itemName}.</span>;
+          {props.firstNationList.donations.map((donation) => {
+            if (donation.status === "Surplus") {
+              return (
+                <span className="FirstNationCard__donation-tag--surplus">
+                  {donation.itemName}
+                </span>
+              );
             }
           })}
         </p>

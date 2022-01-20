@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import DonationPage from "../../components/DonationPage/DonationPage";
+// import DonationList from "../../components/DonationList/DonationList";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const profileURL = `${API_URL}profile`;
@@ -35,7 +36,10 @@ class ProfilePage extends Component {
     return isLoading ? (
       <h1>Loading...</h1>
     ) : (
-      <DonationPage userInfo={userInfo} />
+      <>
+        <DonationPage userInfo={userInfo} />
+        {/* <DonationList userInfo={userInfo} /> */}
+      </>
     );
   }
 }

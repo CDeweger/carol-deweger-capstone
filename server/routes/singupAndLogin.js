@@ -75,7 +75,7 @@ singupAndLoginRouter.post("/signup", (req, res) => {
     location: req.body.location,
     image: "",
     description: req.body.description,
-    donation: [],
+    donations: [],
     website: req.body.website,
   };
 
