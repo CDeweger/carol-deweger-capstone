@@ -6,8 +6,10 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import FirstNationPage from "./pages/FirstNationPage/FirstNationPage";
-import DonationPage from "./components/DonationPage/DonationPage";
-import EditDonationCard from "./components/EditDonationCard/EditDonationCard";
+//import DonationPage from "./components/DonationPage/DonationPage";
+//import EditDonationCard from "./components/EditDonationCard/EditDonationCard";
+import DonationCard from "./components/DonationCard/DonationCard";
+import EditDonationCardModal from "./components/EditDonationCardModal/EditDonationCardModal";
 
 const App = () => {
   return (
@@ -19,11 +21,7 @@ const App = () => {
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/profile" exact component={ProfilePage} />
-          <Route
-            path="/profile/:id/item/:id/edit"
-            exact
-            component={EditDonationCard}
-          />
+          {/* <Route path="/profile/:itemId/edit" exact component={DonationCard} /> */}
 
           <Route path="/first-nation" exact component={FirstNationPage} />
 

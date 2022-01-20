@@ -47,20 +47,10 @@ organizationRouter.post("/", (req, res) => {
   res.status(201).json(newDonationObj);
 });
 
-//get item by ID
-// organizationRouter.get("/:organizationID/:itemID", (req,res)=> {
-//   let organizationData = readData();
+organizationRouter.patch("/:itemID/edit", (req, res) => {
+  let organizationData = readData();
 
-//   let tragetItem = req.
-// })
-
-organizationRouter.patch(
-  "/profile/:organizationID/item/:itemID/edit",
-  (req, res) => {
-    let organizationData = readData();
-
-    let traget = organizationData.find;
-  }
-);
+  let traget = organizationData.find;
+});
 
 module.exports = organizationRouter;

@@ -1,25 +1,50 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import EditDonationCardModal from "../EditDonationCardModal/EditDonationCardModal";
+import DeleteDonationCardModal from "../DeleteDonationCardModal/DeleteDonationCardModal";
+const API_URL = process.env.REACT_APP_API_URL;
+
 class DonationCard extends Component {
   state = {
-    showModal: false,
+    showEditModal: false,
+    showDeleteModal: false,
   };
 
-  showModal = () => {
-    this.setState({ showModal: true });
+  showEditModal = () => {
+    this.setState({ showEditModal: true });
+    //this.props.histroy.push(`profile/${this.props.donationList.id}`);
   };
 
-  closeModal = () => {
-    this.setState({ showModal: false });
+  closeEditModal = () => {
+    this.setState({ showEditModal: false });
+  };
+
+  showDeleteModal = () => {
+    this.setState({ showDeleteModal: true });
+  };
+
+  closeDeleteModal = () => {
+    this.setState({ showDeleteModal: false });
   };
 
   render() {
-    // console.log(this.props);
-    let modal = <></>;
-    if (this.state.showModal) {
-      modal = (
+    console.log(this.props);
+    let editModal = <></>;
+    if (this.state.showEditModal) {
+      editModal = (
         <EditDonationCardModal
-          closeModal={this.closeModal}
+          closeEditModal={this.closeEditModal}
+          donationList={this.props.donationList}
+        />
+      );
+    }
+
+    let deleteModal = <></>;
+    if (this.state.showDeleteModal) {
+      deleteModal = (
+        <DeleteDonationCardModal
+          closeDeleteModal={this.closeDeleteModal}
           donationList={this.props.donationList}
         />
       );
@@ -27,7 +52,8 @@ class DonationCard extends Component {
 
     return (
       <>
-        {modal}
+        {editModal}
+        {deleteModal}
         <div className="donationList-card">
           <div className="donationList-card__inner">
             <p>{this.props.donationList.itemName}</p>
@@ -40,8 +66,11 @@ class DonationCard extends Component {
               )}
             </p>
             <p>{new Date(this.props.donationList.date).toLocaleDateString()}</p>
-            <button>Delete</button>
-            <button onClick={this.showModal}>Edit</button>
+            <button onClick={this.showDeleteModal}>Delete</button>
+            <button onClick={this.showEditModal}>
+              {/* <Link to={`profile/${this.props.donationList.id}`}>Edit</Link> */}
+              Edit
+            </button>
           </div>
         </div>
       </>

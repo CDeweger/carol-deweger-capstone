@@ -4,7 +4,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 class EditDonationCardModal extends Component {
   handleCancel = () => {
-    this.props.closeModal();
+    this.props.closeEditModal();
   };
 
   handleSubmit = () => {};

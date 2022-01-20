@@ -248,6 +248,14 @@
         "itemName": "soup",
         "information": "thank you",
         "status": "Surplus"
+      },
+      {
+        "id": "a3150a5b-edf6-43f6-91a4-04f8b9f1b129",
+        "date": 1642672027049,
+        "organizationID": "fda83fb2-34a7-4e58-9694-1a6d42fe5998",
+        "itemName": "soup",
+        "information": "need soup",
+        "status": "In Need"
       }
     ],
     "website": "http://localhost:3000/test"
