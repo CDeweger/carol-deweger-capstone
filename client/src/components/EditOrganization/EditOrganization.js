@@ -23,12 +23,22 @@ class EditOrganization extends Component {
   componentDidMount() {
     this.getTargetOrganization();
   }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    // axios
+    // .patch()
+
+    // const
+  };
   render() {
+    console.log(this.props);
     return (
       <div>
         <h1>hello from edit</h1>
         <p></p>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>Location</label>
           <input></input>
           <label>Website</label>

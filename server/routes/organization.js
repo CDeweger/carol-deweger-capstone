@@ -60,10 +60,25 @@ organizationRouter.post("/", (req, res) => {
   res.status(201).json(newDonationObj);
 });
 
-organizationRouter.patch("/:itemID/edit", (req, res) => {
-  let organizationData = readData();
+organizationRouter.patch("/:id/edit", (req, res) => {
+  const organizationData = readData();
+  const itemId = req.params.id;
 
-  let traget = organizationData.find;
+  // console.log(itemId);
+
+  let targetItem = organizationData.find((item) => item.id === itemId);
+
+  // console.log(targetItem);
+  if (targetItem) {
+    targetItem.location = req.body.location;
+    targetItem.website = req.body.website;
+    targetItem.description = req.body.description;
+    targetItem.image = req.body.image;
+    writeFile(organizationData);
+    res.status(200).send(targetItem);
+  } else {
+    res.status(400).send("not found");
+  }
 });
 
 module.exports = organizationRouter;
