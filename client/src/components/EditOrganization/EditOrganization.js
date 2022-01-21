@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Dropzone from "react-dropzone";
 const API_URL = process.env.REACT_APP_API_URL;
 
 class EditOrganization extends Component {
   state = {
     targetOrganization: null,
+    selectedFile: null,
   };
   getTargetOrganization = (id) => {
     axios
@@ -21,33 +23,87 @@ class EditOrganization extends Component {
   };
 
   componentDidMount() {
-    this.getTargetOrganization();
+    this.getTargetOrganization(this.props.match.params.id);
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
 
-    // axios
-    // .patch()
-
-    // const
+    axios.patch(`${API_URL}organization/${this.props.match.params.id}/edit`, {
+      location: e.target.location.value,
+      website: e.target.website.value,
+      description: e.target.description.value,
+      image: e.target.image.value,
+    });
   };
+  fileSelectedHandler = (e) => {
+    //console.log(e.target.files[0]);
+    this.setState({
+      selectedFile: e.target.files[0],
+    });
+  };
+
+  fileUploadHandler = () => {
+    const formData = new FormData();
+    formData.append(
+      "file",
+      this.state.selectedFile
+      // this.state.selectedFile.name
+    );
+    formData.append("upload_preset", "wg0wjivl");
+    formData.append("api_key", "174461568921514");
+    axios
+      .post("https://api.cloudinary.com/v1_1/dml1rigkl/image/upload", formData)
+      .then((res) => {
+        console.log(res);
+        // const data = response.data;
+        // const fileURL = data.secure_url
+      });
+  };
+
   render() {
-    console.log(this.props);
+    console.log(this.state.targetOrganization);
+    if (!this.state.targetOrganization) {
+      return null;
+    }
     return (
       <div>
         <h1>hello from edit</h1>
         <p></p>
         <form onSubmit={this.handleSubmit}>
           <label>Location</label>
-          <input></input>
+          <input
+            name="location"
+            defaultValue={this.state.targetOrganization.location}
+          ></input>
           <label>Website</label>
-          <input></input>
+          <input
+            defaultValue={this.state.targetOrganization.website}
+            name="website"
+          ></input>
           <label>Description</label>
-          <input></input>
-          <label>Image</label>
-          <input type="file" name="image"></input>
+          <input
+            defaultValue={this.state.targetOrganization.description}
+            name="description"
+          ></input>
+          {/* <label>Image</label>
+          <input
+            type="file"
+            name="image"
+            onChange={this.fileSelectedHandler}
+          ></input> */}
+          <button>Update</button>
         </form>
+
+        <div>
+          <label>Image</label>
+          <input
+            type="file"
+            name="image"
+            onChange={this.fileSelectedHandler}
+          ></input>
+          <button onClick={this.fileUploadHandler}>Upload</button>
+        </div>
       </div>
     );
   }
