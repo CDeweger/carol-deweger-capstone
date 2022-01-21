@@ -23,6 +23,19 @@ organizationRouter.get("/", (req, res) => {
   return res.status(200).send(organizationData);
 });
 
+organizationRouter.get("/:organizationId", (req, res) => {
+  const organizationId = req.params.organizationId;
+  const tragetOrganizationData = readData().find((organization) => {
+    return organization.id === organizationId;
+  });
+
+  if (tragetOrganizationData) {
+    res.status(200).json(tragetOrganizationData);
+  } else {
+    res.status(404).send("not fund");
+  }
+});
+
 organizationRouter.post("/", (req, res) => {
   let organizationData = readData();
 

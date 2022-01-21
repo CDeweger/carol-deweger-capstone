@@ -34,7 +34,7 @@ class LoginPage extends Component {
 
       .catch((err) => {
         console.log(err);
-        this.setState({ isLoginError: true, errorMessage: err });
+        // this.setState({ isLoginError: true, errorMessage: err });
       });
 
     this.getUserinfo(this.state.username);
@@ -42,7 +42,7 @@ class LoginPage extends Component {
 
   getUserinfo = (username) => {
     axios
-      .get(`${API_URL}login/:username`)
+      .get(`${API_URL}login/${username}`)
       .then((res) => {
         console.log(res.data);
       })
@@ -76,10 +76,6 @@ class LoginPage extends Component {
     if (!isLoggedIn) return this.renderLogin();
 
     return null;
-
-    // if (this.props.location.pathname === "/profile") {
-    //   return <ProfilePage />;
-    //}
   }
 }
 

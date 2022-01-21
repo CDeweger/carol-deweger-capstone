@@ -5,6 +5,8 @@ import Header from "./components/Header/Header";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import EditOrganization from "./components/EditOrganization/EditOrganization";
+import LogoutPage from "./pages/LogoutPage/LogoutPage";
 import FirstNationPage from "./pages/FirstNationPage/FirstNationPage";
 //import DonationPage from "./components/DonationPage/DonationPage";
 //import EditDonationCard from "./components/EditDonationCard/EditDonationCard";
@@ -12,6 +14,7 @@ import DonationCard from "./components/DonationCard/DonationCard";
 import EditDonationCardModal from "./components/EditDonationCardModal/EditDonationCardModal";
 
 const App = () => {
+  const isLoggedIn = sessionStorage.getItem("token");
   return (
     <div>
       <BrowserRouter>
@@ -19,10 +22,15 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/signup" exact component={SignupPage} />
-          <Route path="/login" exact component={LoginPage} />
           <Route path="/profile" exact component={ProfilePage} />
-          {/* <Route path="/profile/:itemId/edit" exact component={DonationCard} /> */}
+          <Route path="/profile/:id/edit" exact component={EditOrganization} />
 
+          <Route
+            path="/login"
+            exact
+            component={!isLoggedIn ? LoginPage : ProfilePage}
+          />
+          <Route path="/logout" exact component={LogoutPage} />
           <Route path="/first-nation" exact component={FirstNationPage} />
 
           {/* <Route path="*" exact>

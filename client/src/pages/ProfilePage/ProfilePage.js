@@ -16,7 +16,7 @@ class ProfilePage extends Component {
   componentDidMount() {
     // here grab token from sessionStorage
     const token = sessionStorage.getItem("token");
-
+    // window.location.reload(true);
     axios
       .get(profileURL, {
         headers: { Authorization: `Bearer ${token}` },
@@ -31,6 +31,8 @@ class ProfilePage extends Component {
       .catch((err) => console.log(err));
   }
 
+  componentDidUpdate() {}
+
   render() {
     const { isLoading, userInfo } = this.state;
     return isLoading ? (
@@ -38,6 +40,7 @@ class ProfilePage extends Component {
     ) : (
       <>
         <DonationPage userInfo={userInfo} />
+        {/* {window.location.reload(true)} */}
         {/* <DonationList userInfo={userInfo} /> */}
       </>
     );

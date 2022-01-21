@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import DonationList from "../DonationList/DonationList";
 import EditDonationCard from "../EditDonationCard/EditDonationCard";
@@ -38,16 +39,12 @@ class DonationPage extends Component {
     axios
       .post(postDonationURL, {
         organizationID: this.state.currUser.id,
-        //  program_name: this.state.currUser.program_name,
         item: e.target.item.value,
         status: e.target.status.value,
         info: e.target.info.value,
       })
       .then((response) => {
         console.log(response);
-        // this.setState({
-        //   isSignedUp: true,
-        // });
       })
       .catch((err) => console.log(err));
     e.target.reset();
@@ -68,6 +65,9 @@ class DonationPage extends Component {
             <p>{this.state.currUser.program_type}</p>
             <p>{this.state.currUser.location}</p>
             <p>{this.state.currUser.description}</p>
+            <Link to={`profile/${this.state.currUser.id}/edit`}>
+              Edit Profile
+            </Link>
           </div>
           <h1>Create a New Post</h1>
           <form onSubmit={this.handleSubmit}>

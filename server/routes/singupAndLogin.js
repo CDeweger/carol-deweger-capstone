@@ -2,6 +2,7 @@ const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
+const { Console } = require("console");
 
 const singupAndLoginRouter = express.Router();
 const JWT_SECRET =
@@ -70,6 +71,7 @@ singupAndLoginRouter.post("/signup", (req, res) => {
   const organizationList = readFile();
   const newNpoObj = {
     username: req.body.username,
+    password: req.body.password,
     program_type: req.body.type,
     id: uuidv4(),
     program_name: req.body.name,
@@ -87,9 +89,17 @@ singupAndLoginRouter.post("/signup", (req, res) => {
 
 singupAndLoginRouter.post("/login", (req, res) => {
   const { username, password } = req.body;
-  const user = users[username];
-  if (user && user.password === password) {
-    const token = jwt.sign({ name: user.name }, JWT_SECRET, {
+  const organizationList = readFile();
+  let currUser = organizationList.find((user) => {
+    return user.username === username;
+  });
+  //const user = users[username];
+  if (!currUser) {
+    res.status(401).json("not found");
+  }
+
+  if (currUser && currUser.password === password) {
+    const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
       expiresIn: "24h",
     });
 
@@ -98,8 +108,14 @@ singupAndLoginRouter.post("/login", (req, res) => {
 });
 
 singupAndLoginRouter.get("/login/:username", (req, res) => {
+  //console.log(req.params);
   const organizationList = readFile();
-  let currUser = organizationList.find((user) => user.id === req.params.id);
+  let currUser = organizationList.find((user) => {
+    //console.log(user.username);
+    return user.username === req.params.username;
+  });
+  //console.log(currUser);
+  res.json(currUser);
 });
 
 singupAndLoginRouter.get("/profile", authorize, (req, res) => {

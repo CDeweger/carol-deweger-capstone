@@ -6,6 +6,8 @@ import FeaturedNPO from "../FeaturedNPO/FeaturedNPO";
 import "./Header.scss";
 
 const Header = () => {
+  const isLoggedIn = sessionStorage.getItem("token");
+
   return (
     <>
       {/* <FeaturedNPO /> */}
@@ -20,15 +22,20 @@ const Header = () => {
               </Link>
             </li>
             <li className="header__nav-list--item">
-              <Link>About</Link>
+              <Link to={"/"}>About</Link>
             </li>
             <li className="header__nav-list--item">
-              <Link>Category</Link>
+              <span>Category</span>
               <Submenu />
             </li>
             <li className="header__nav-list--item">
-              <Link to={"/login"}>Login</Link>
+              {!isLoggedIn ? (
+                <Link to={"/login"}>Login</Link>
+              ) : (
+                <Link to={"/profile"}>Profile</Link>
+              )}
             </li>
+            <li>{isLoggedIn && <Link to={"/logout"}>Logout</Link>}</li>
           </ul>
         </nav>
       </div>
