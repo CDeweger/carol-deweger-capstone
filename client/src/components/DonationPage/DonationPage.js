@@ -11,6 +11,9 @@ class DonationPage extends Component {
   state = {
     organizationList: null,
     currUser: null,
+    // upload image
+    selectedFile: null,
+    imageUploaded: null,
   };
 
   getOrganization = () => {
@@ -50,6 +53,32 @@ class DonationPage extends Component {
     e.target.reset();
     document.location.reload(true);
   };
+
+  fileSelectedHandler = (e) => {
+    //console.log(e.target.files[0]);
+    this.setState({
+      selectedFile: e.target.files[0],
+    });
+  };
+
+  fileUploadHandler = () => {
+    const formData = new FormData();
+    formData.append("file", this.state.selectedFile);
+    formData.append("upload_preset", "wg0wjivl");
+    axios
+      .post("https://api.cloudinary.com/v1_1/dml1rigkl/image/upload", formData)
+      .then((res) => {
+        console.log(res);
+        // const data = response.data;
+        // const fileURL = data.secure_url
+
+        this.setState({
+          imageUploaded: res.data.secure_url,
+        });
+      });
+    alert("image uploaded");
+  };
+
   render() {
     console.log(this.props);
     console.log(this.state.currUser);
@@ -113,6 +142,20 @@ class DonationPage extends Component {
                 <button className="donation-page__button">Create</button>
               </div>
             </form>
+            {/* uplaod image */}
+            <div>
+              <form>
+                <label>Image</label>
+                <input
+                  type="file"
+                  name="image"
+                  onChange={this.fileSelectedHandler}
+                ></input>
+                <button type="button" onClick={this.fileUploadHandler}>
+                  Upload
+                </button>
+              </form>
+            </div>
           </div>
         </div>
         <DonationList currUser={this.state.currUser} />

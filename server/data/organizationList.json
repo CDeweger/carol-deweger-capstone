@@ -205,9 +205,17 @@
     "id": "a9b7f5a2-f121-4cc4-83e3-a41252bda6a4",
     "program_name": "Carol DeWeger",
     "location": "Vancouveraaa",
-    "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642848512/scvvs59hwfoe25w9hdbx.jpg",
+    "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642887947/pyqp9iztj1vr4sgchc7v.png",
     "description": "helloaaa",
     "donations": [
+      {
+        "id": "405e4e69-b3e2-4377-9a09-ad8e49c9fcbe",
+        "date": 1642892420130,
+        "organizationID": "a9b7f5a2-f121-4cc4-83e3-a41252bda6a4",
+        "itemName": "soupzzz",
+        "information": "need soup",
+        "status": "Surplus"
+      },
       {
         "id": "d49ad492-7e41-4335-bc4d-fee12804c9fa",
         "date": 1642803869833,
@@ -223,14 +231,6 @@
         "itemName": "some food item",
         "information": "need soup",
         "status": "In Need"
-      },
-      {
-        "id": "0058746b-6d24-48ff-8c3d-21c016c9dea9",
-        "date": 1642838985721,
-        "organizationID": "a9b7f5a2-f121-4cc4-83e3-a41252bda6a4",
-        "itemName": "soup",
-        "information": "cccffffdddgggg",
-        "status": "Please select"
       }
     ],
     "website": "http://localhost:3000/testaaa"

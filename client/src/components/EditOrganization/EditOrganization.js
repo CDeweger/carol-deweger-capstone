@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Dropzone from "react-dropzone";
 const API_URL = process.env.REACT_APP_API_URL;
 
 class EditOrganization extends Component {
