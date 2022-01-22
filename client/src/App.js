@@ -13,6 +13,7 @@ import FirstNationPage from "./pages/FirstNationPage/FirstNationPage";
 import DonationCard from "./components/DonationCard/DonationCard";
 import EditDonationCardModal from "./components/EditDonationCardModal/EditDonationCardModal";
 // import UploadImage from "./components/UploadImage/UploadImage";
+import AlexSample from "./components/AlexSample/AlexSample";
 
 const App = () => {
   const isLoggedIn = sessionStorage.getItem("token");
@@ -25,8 +26,7 @@ const App = () => {
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/profile" exact component={ProfilePage} />
           <Route path="/profile/:id/edit" exact component={EditOrganization} />
-          {/* <Route path="/test" exact component={UploadImage} /> */}
-
+          <Route path="/test" exact component={AlexSample} />}
           <Route
             path="/login"
             exact
@@ -34,7 +34,6 @@ const App = () => {
           />
           <Route path="/logout" exact component={LogoutPage} />
           <Route path="/first-nation" exact component={FirstNationPage} />
-
           {/* <Route path="*" exact>
             <Redirect to="/" exact component={HomePage} />
           </Route> */}
