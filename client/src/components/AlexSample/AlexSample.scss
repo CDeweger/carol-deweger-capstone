@@ -1,4 +1,7 @@
 .clicked {
-  transform: rotateX(10deg);
-  background-color: pink;
+  transform: scale(2);
+}
+
+.unclick {
+  transform: scale(1);
 }

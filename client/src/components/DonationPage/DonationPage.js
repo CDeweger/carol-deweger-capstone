@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import DonationList from "../DonationList/DonationList";
-import EditDonationCard from "../EditDonationCard/EditDonationCard";
+import "./DonationPage.scss";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const postDonationURL = `${API_URL}organization/item`;
@@ -59,38 +59,63 @@ class DonationPage extends Component {
     }
     return (
       <>
-        <div>
-          <div>
-            <h1>{this.state.currUser.program_name}</h1>
-            <p>{this.state.currUser.program_type}</p>
-            <p>{this.state.currUser.location}</p>
-            <p>{this.state.currUser.description}</p>
-            <img src={this.state.currUser.image} />
-            <Link to={`profile/${this.state.currUser.id}/edit`}>
-              Edit Profile
-            </Link>
+        <div className="donation-page">
+          <div className="donation-page__profile">
+            <div className="donation-page__img-box">
+              <img
+                className="donation-page__img-box--img"
+                src={this.state.currUser.image}
+              />
+            </div>
+            <div className="donation-page__profile-info">
+              <h1>{this.state.currUser.program_name}</h1>
+              <p>{this.state.currUser.program_type}</p>
+              <p>{this.state.currUser.location}</p>
+              <p>{this.state.currUser.description}</p>
+              <Link to={`profile/${this.state.currUser.id}/edit`}>
+                Edit Profile
+              </Link>
+            </div>
           </div>
           {/* the form to create a new post */}
-          <h1>Create a New Post</h1>
-          <form onSubmit={this.handleSubmit}>
-            <label>Item</label>
-            <input type="text" name="item"></input>
-            <label>Status</label>
-            <select name="status">
-              <option disabled selected>
-                Please select
-              </option>
-              <option>In Need</option>
-              <option>Surplus</option>
-            </select>
-            <label>More information</label>
-            <input name="info" type="text"></input>
-            <button>Create</button>
-          </form>
+          <div className="donation-page__new-post">
+            <h1 className="donation-page__title">Create a New Post</h1>
+            <form className="donation-page__" onSubmit={this.handleSubmit}>
+              <div className="donation-page__item-status">
+                <div className="donation-page__form-div donation-page__item">
+                  <label htmlFor="item">Item</label>
+                  <input
+                    className="donation-page__"
+                    type="text"
+                    name="item"
+                  ></input>
+                </div>
+                <div className="donation-page__form-div donation-page__status">
+                  <label htmlFor="status">Status</label>
+                  <select className="donation-page__" name="status">
+                    <option disabled selected>
+                      Please select
+                    </option>
+                    <option>In Need</option>
+                    <option>Surplus</option>
+                  </select>
+                </div>
+              </div>
+              <div className="donation-page__form-div">
+                <label className="donation-page__info-label" htmlFor="info">
+                  More information
+                </label>
+                <input
+                  className="donation-page__info-input"
+                  name="info"
+                  type="text"
+                ></input>
+                <button className="donation-page__button">Create</button>
+              </div>
+            </form>
+          </div>
         </div>
         <DonationList currUser={this.state.currUser} />
-
-        {/* <EditDonationCard /> */}
       </>
     );
   }

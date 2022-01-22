@@ -14,9 +14,11 @@
 
   &__container {
     background-color: white;
-    width: 60vw;
-    height: 40vh;
+    width: 50vw;
+    height: 50vh;
     margin: auto;
+    margin-top: 10rem;
+    border-radius: 10px;
   }
   &__inner-container {
     padding: 2rem;

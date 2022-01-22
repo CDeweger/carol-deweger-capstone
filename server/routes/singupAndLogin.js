@@ -76,7 +76,7 @@ singupAndLoginRouter.post("/signup", (req, res) => {
     id: uuidv4(),
     program_name: req.body.name,
     location: req.body.location,
-    image: "",
+    image: "https://content.hostgator.com/img/weebly_image_sample.png",
     description: req.body.description,
     donations: [],
     website: req.body.website,

@@ -1,0 +1,54 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.donation-page {
+  &__profile {
+    @include flex(center, center, _);
+  }
+  &__img-box {
+    width: 40vw;
+    &--img {
+      width: 40vw;
+      object-fit: cover;
+      @include img-card;
+    }
+  }
+  &__profile-info {
+    margin-left: 6rem;
+  }
+  &__new-post {
+    width: 40vw;
+    margin: auto;
+  }
+  &__title {
+    text-align: center;
+    margin-top: 6rem;
+  }
+  &__form-div {
+    @include flex(_, _, column);
+  }
+  &__item-status {
+    @include flex(space-between, _, _);
+  }
+  &__item {
+    width: 48%;
+  }
+  &__status {
+    width: 48%;
+  }
+  &__info-label {
+    margin-top: 1rem;
+  }
+  &__info-input {
+    padding-bottom: 10rem;
+  }
+
+  &__button {
+    width: 20%;
+    margin-left: auto;
+    margin-top: 1rem;
+  }
+}

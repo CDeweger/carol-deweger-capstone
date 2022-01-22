@@ -3,11 +3,12 @@ import "./AlexSample.scss";
 
 class AlexSample extends Component {
   state = {
-    isClick: false,
+    isChecked: false,
   };
-  handleClick = () => {
+
+  handleChange = (e) => {
     this.setState({
-      isClick: true,
+      isChecked: e.target.checked,
     });
   };
   render() {
@@ -15,11 +16,10 @@ class AlexSample extends Component {
       <div>
         <form>
           <input
-            className={` ${this.state.isClick ? "clicked" : "unclick"}`}
-            onClick={this.handleClick}
+            className={` ${this.state.isChecked ? "clicked" : "unclick"}`}
+            onChange={this.handleChange}
             type="checkbox"
-            id="vehicle1"
-            name="vehicle1"
+            name="bike1"
             value="Bike"
           />
           <label for="vehicle1"> I have a bike</label>

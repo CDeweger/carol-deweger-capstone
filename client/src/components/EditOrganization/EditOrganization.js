@@ -36,6 +36,7 @@ class EditOrganization extends Component {
       description: e.target.description.value,
       image: this.state.imageUploaded,
     });
+    this.props.history.push("/profile");
   };
   fileSelectedHandler = (e) => {
     //console.log(e.target.files[0]);
@@ -59,6 +60,7 @@ class EditOrganization extends Component {
           imageUploaded: res.data.secure_url,
         });
       });
+    alert("image uploaded");
   };
 
   render() {
@@ -77,7 +79,9 @@ class EditOrganization extends Component {
             name="image"
             onChange={this.fileSelectedHandler}
           ></input>
-          <button onClick={this.fileUploadHandler}>Upload</button>
+          <button type="button" onClick={this.fileUploadHandler}>
+            Upload
+          </button>
 
           <label>Location</label>
           <input

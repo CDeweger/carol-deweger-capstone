@@ -25,3 +25,8 @@
   align-items: $align-items;
   flex-direction: $flex-direction;
 }
+
+@mixin img-card {
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgb(0 0 0 / 0%);
+  border-radius: 10px;
+}

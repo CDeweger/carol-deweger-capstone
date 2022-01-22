@@ -45,7 +45,14 @@ const FirstNationCard = (props) => {
             }
           })}
         </p>
-        <button className="button">Leran More</button>
+        <Link
+          className="button"
+          to={{
+            pathname: `first-nation/${props.firstNationList.id}`,
+          }}
+        >
+          Learn More
+        </Link>
         <a target="_blank" href={props.firstNationList.website}>
           Website
         </a>
