@@ -5,7 +5,7 @@ import DonationList from "../DonationList/DonationList";
 import EditDonationCard from "../EditDonationCard/EditDonationCard";
 
 const API_URL = process.env.REACT_APP_API_URL;
-const postDonationURL = `${API_URL}organization`;
+const postDonationURL = `${API_URL}organization/item`;
 
 class DonationPage extends Component {
   state = {
@@ -65,10 +65,12 @@ class DonationPage extends Component {
             <p>{this.state.currUser.program_type}</p>
             <p>{this.state.currUser.location}</p>
             <p>{this.state.currUser.description}</p>
+            <img src={this.state.currUser.image} />
             <Link to={`profile/${this.state.currUser.id}/edit`}>
               Edit Profile
             </Link>
           </div>
+          {/* the form to create a new post */}
           <h1>Create a New Post</h1>
           <form onSubmit={this.handleSubmit}>
             <label>Item</label>

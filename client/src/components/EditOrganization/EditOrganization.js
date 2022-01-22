@@ -7,6 +7,7 @@ class EditOrganization extends Component {
   state = {
     targetOrganization: null,
     selectedFile: null,
+    imageUploaded: null,
   };
   getTargetOrganization = (id) => {
     axios
@@ -33,7 +34,7 @@ class EditOrganization extends Component {
       location: e.target.location.value,
       website: e.target.website.value,
       description: e.target.description.value,
-      image: e.target.image.value,
+      image: this.state.imageUploaded,
     });
   };
   fileSelectedHandler = (e) => {
@@ -45,19 +46,18 @@ class EditOrganization extends Component {
 
   fileUploadHandler = () => {
     const formData = new FormData();
-    formData.append(
-      "file",
-      this.state.selectedFile
-      // this.state.selectedFile.name
-    );
+    formData.append("file", this.state.selectedFile);
     formData.append("upload_preset", "wg0wjivl");
-    formData.append("api_key", "174461568921514");
     axios
       .post("https://api.cloudinary.com/v1_1/dml1rigkl/image/upload", formData)
       .then((res) => {
         console.log(res);
         // const data = response.data;
         // const fileURL = data.secure_url
+
+        this.setState({
+          imageUploaded: res.data.secure_url,
+        });
       });
   };
 
@@ -71,6 +71,14 @@ class EditOrganization extends Component {
         <h1>hello from edit</h1>
         <p></p>
         <form onSubmit={this.handleSubmit}>
+          <label>Image</label>
+          <input
+            type="file"
+            name="image"
+            onChange={this.fileSelectedHandler}
+          ></input>
+          <button onClick={this.fileUploadHandler}>Upload</button>
+
           <label>Location</label>
           <input
             name="location"
@@ -86,16 +94,11 @@ class EditOrganization extends Component {
             defaultValue={this.state.targetOrganization.description}
             name="description"
           ></input>
-          {/* <label>Image</label>
-          <input
-            type="file"
-            name="image"
-            onChange={this.fileSelectedHandler}
-          ></input> */}
+
           <button>Update</button>
         </form>
 
-        <div>
+        {/* <div>
           <label>Image</label>
           <input
             type="file"
@@ -103,7 +106,7 @@ class EditOrganization extends Component {
             onChange={this.fileSelectedHandler}
           ></input>
           <button onClick={this.fileUploadHandler}>Upload</button>
-        </div>
+        </div> */}
       </div>
     );
   }

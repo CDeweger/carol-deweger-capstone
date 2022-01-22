@@ -7,7 +7,26 @@ class EditDonationCardModal extends Component {
     this.props.closeEditModal();
   };
 
-  handleSubmit = () => {};
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .patch(
+        `${API_URL}organization/${this.props.donationList.organizationID}/item/${this.props.donationList.id}`,
+        {
+          itemName: e.target.item.value,
+          status: e.target.status.value,
+          information: e.target.info.value,
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    window.location.reload(true);
+  };
 
   render() {
     console.log(this.props);

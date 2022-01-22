@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./FirstNationCard.scss";
 
 const FirstNationCard = (props) => {
@@ -44,6 +46,9 @@ const FirstNationCard = (props) => {
           })}
         </p>
         <button className="button">Leran More</button>
+        <a target="_blank" href={props.firstNationList.website}>
+          Website
+        </a>
       </div>
     </div>
   );

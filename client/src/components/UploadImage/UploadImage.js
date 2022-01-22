@@ -16,9 +16,6 @@ const UploadImage = () => {
         console.log(res);
         console.log(res.data.secure_url);
         setImagePreview(res.data.secure_url);
-
-        // const data = response.data;
-        // const fileURL = data.secure_url
       });
   };
 
