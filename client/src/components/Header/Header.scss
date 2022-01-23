@@ -16,6 +16,10 @@
 }
 
 .header {
+  &__nav {
+    margin-top: 3rem;
+    // margin-bottom: 2rem;
+  }
   &__nav-list {
     @include flex(center, _, _);
     list-style-type: none;
@@ -30,6 +34,7 @@
       &:hover {
         .nav__submenu {
           display: block;
+          width: 15rem;
         }
         // font-size: 1.2rem;
         border-bottom: 2px solid black;

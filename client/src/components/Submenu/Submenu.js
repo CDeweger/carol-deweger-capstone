@@ -8,13 +8,15 @@ class Submenu extends Component {
       <div className="Submenu">
         <ul className="nav__submenu">
           <li className="nav__submenu-list nav__submenu-list--shelter ">
-            <Link>Homeless Shelter</Link>
+            <Link to={"/organization/homeless-shelter"}>Homeless Shelter</Link>
           </li>
           <li className="nav__submenu-list">
-            <Link>Food Bank and Soup Kitchen</Link>
+            <Link to={"/organization/food-program"}>
+              Free & Low Cost Food Program
+            </Link>
           </li>
           <li className="nav__submenu-list">
-            <Link to={"/organization"}>First Nation</Link>
+            <Link to={"/organization/first-nation"}>First Nation</Link>
           </li>
         </ul>
       </div>

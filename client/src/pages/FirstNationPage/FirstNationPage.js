@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import axios from "axios";
 import FirstNationCard from "../../components/FirstNationCard/FirstNationCard";
 import "./FirstNationPage.scss";

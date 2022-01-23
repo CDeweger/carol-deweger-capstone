@@ -8,12 +8,12 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import EditOrganization from "./components/EditOrganization/EditOrganization";
 import LogoutPage from "./pages/LogoutPage/LogoutPage";
 import FirstNationPage from "./pages/FirstNationPage/FirstNationPage";
-//import DonationPage from "./components/DonationPage/DonationPage";
-//import EditDonationCard from "./components/EditDonationCard/EditDonationCard";
-import DonationCard from "./components/DonationCard/DonationCard";
-import EditDonationCardModal from "./components/EditDonationCardModal/EditDonationCardModal";
+import ShelterPage from "./pages/ShelterPage/ShelterPage";
+import FoodProgramPage from "./pages/FoodProgramPage/FoodProgramPage";
 import AlexSample from "./components/AlexSample/AlexSample";
-import OrganizationDetailPage from "./pages/FirstNationDetailPage/OrganizationDetailPage";
+import OrganizationDetailPage from "./pages/OrganizationDetailPage/OrganizationDetailPage";
+import DetailPage from "./pages/DetailPage/DetailPage";
+
 const App = () => {
   const isLoggedIn = sessionStorage.getItem("token");
   return (
@@ -34,7 +34,28 @@ const App = () => {
             component={!isLoggedIn ? LoginPage : ProfilePage}
           />
           <Route path="/logout" exact component={LogoutPage} />
-          <Route path="/organization/" exact component={FirstNationPage} />
+          <Route
+            path="/organization/first-nation"
+            exact
+            component={FirstNationPage}
+          />
+          <Route
+            path="/organization/homeless-shelter"
+            exact
+            component={ShelterPage}
+          />
+          <Route
+            path="/organization/food-program"
+            exact
+            component={FoodProgramPage}
+          />
+
+          <Route path="/organization/first-nation/:id" component={DetailPage} />
+          <Route
+            path="/organization/homeless-shelter/:id"
+            component={DetailPage}
+          />
+          <Route path="/organization/food-program/:id" component={DetailPage} />
 
           <Route
             path="/organization/:id"

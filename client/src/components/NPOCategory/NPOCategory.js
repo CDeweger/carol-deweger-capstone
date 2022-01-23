@@ -9,13 +9,22 @@ const NPOCategory = () => {
       <p>Find out what they need and what you can do to help.</p>
       <div>__________</div>
       <div className="NPOCategory__category">
-        <Link to={"/"} className="button NPOCategory__button">
+        <Link
+          to={"/organization/homeless-shelter"}
+          className="button NPOCategory__button"
+        >
           Homeless Shelter
         </Link>
-        <Link to={"/"} className="button NPOCategory__button">
-          Food Bank and Soup Kitchen
+        <Link
+          to={"/organization/food-program"}
+          className="button NPOCategory__button"
+        >
+          Free & Low Cost Food Program
         </Link>
-        <Link to={"/first-nation"} className="button NPOCategory__button">
+        <Link
+          to={"/organization/first-nation"}
+          className="button NPOCategory__button"
+        >
           First Nation
         </Link>
       </div>

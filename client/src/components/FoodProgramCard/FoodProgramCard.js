@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./FirstNationCard.scss";
+// import "./FirstNationCard.scss";
 
-const FirstNationCard = (props) => {
-  if (!props.firstNationList.donations) {
+const FoodProgramCard = (props) => {
+  if (!props.foodProgramList.donations) {
     return null;
   }
   console.log(props);
@@ -13,17 +13,17 @@ const FirstNationCard = (props) => {
       <div className="FirstNationCard__img-box">
         <img
           className="FirstNationCard__img-box--img"
-          src={props.firstNationList.image}
-          alt={props.firstNationList.program_name}
+          src={props.foodProgramList.image}
+          alt={props.foodProgramList.program_name}
         />
       </div>
       <div className="FirstNationCard__info">
-        <h2>{props.firstNationList.program_name}</h2>
-        <p>Location:{props.firstNationList.location}</p>
-        <p>{props.firstNationList.description}</p>
+        <h2>{props.foodProgramList.program_name}</h2>
+        <p>Location:{props.foodProgramList.location}</p>
+        <p>{props.foodProgramList.description}</p>
         <p className="FirstNationCard__info--need">
           Donations in need:
-          {props.firstNationList.donations.map((donation) => {
+          {props.foodProgramList.donations.map((donation) => {
             if (donation.status === "In Need") {
               return (
                 <span className="FirstNationCard__donation-tag--in-need">
@@ -35,7 +35,7 @@ const FirstNationCard = (props) => {
         </p>
         <p className="FirstNationCard__info--surplus">
           Surplus donations:
-          {props.firstNationList.donations.map((donation) => {
+          {props.foodProgramList.donations.map((donation) => {
             if (donation.status === "Surplus") {
               return (
                 <span className="FirstNationCard__donation-tag--surplus">
@@ -48,13 +48,13 @@ const FirstNationCard = (props) => {
         <Link
           className="button"
           to={{
-            pathname: `first-nation/${props.firstNationList.id}`,
-            // pathname: `/${props.firstNationList.id}`,
+            pathname: `first-nation/${props.foodProgramList.id}`,
+            // pathname: `/${props.foodProgramList.id}`,
           }}
         >
           Learn More
         </Link>
-        <a target="_blank" href={props.firstNationList.website}>
+        <a target="_blank" href={props.foodProgramList.website}>
           Website
         </a>
       </div>
@@ -62,4 +62,4 @@ const FirstNationCard = (props) => {
   );
 };
 
-export default FirstNationCard;
+export default FoodProgramCard;
