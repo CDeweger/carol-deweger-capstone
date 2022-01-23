@@ -11,7 +11,6 @@ class DonationPage extends Component {
   state = {
     organizationList: null,
     currUser: null,
-    // upload image
     selectedFile: null,
     imageUploaded: null,
     previewImg: null,
@@ -71,14 +70,11 @@ class DonationPage extends Component {
       .post("https://api.cloudinary.com/v1_1/dml1rigkl/image/upload", formData)
       .then((res) => {
         console.log(res);
-        // const data = response.data;
-        // const fileURL = data.secure_url
 
         this.setState({
           imageUploaded: res.data.secure_url,
         });
       });
-    alert("image uploaded");
   };
 
   render() {
@@ -151,28 +147,21 @@ class DonationPage extends Component {
                 <label className="donation-page__info-label" htmlFor="info">
                   More information
                 </label>
-                <input
+                <textarea
+                  name="info"
+                  rows="10"
+                  cols="200"
+                  placeholder="Provide extra information..."
+                ></textarea>
+
+                {/* <input
                   className="donation-page__info-input"
                   name="info"
                   type="text"
-                ></input>
+                ></input> */}
                 <button className="donation-page__button">Create</button>
               </div>
             </form>
-            {/* uplaod image */}
-            <div>
-              <form>
-                {/* <label>Image</label>
-                <input
-                  type="file"
-                  name="image"
-                  onChange={this.fileSelectedHandler}
-                ></input>
-                <button type="button" onClick={this.fileUploadHandler}>
-                  Upload
-                </button> */}
-              </form>
-            </div>
           </div>
         </div>
         <DonationList currUser={this.state.currUser} />

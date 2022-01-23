@@ -1,0 +1,42 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.loginPage {
+  //border: solid 1px black;
+  width: 20rem;
+  margin: auto;
+  color: white;
+  background-color: black;
+}
+
+.loginPage-container {
+  padding: 2rem;
+}
+
+.loginPage-group {
+  @include flex(_, _, column);
+  margin-top: 1rem;
+}
+
+.loginPage-button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  @include flex(space-between, _, _);
+  &__signup {
+    &:link {
+      color: white;
+    }
+    &:active {
+      color: white;
+    }
+    &:visited {
+      color: white;
+    }
+    &:hover {
+      color: $primary-green;
+    }
+  }
+}

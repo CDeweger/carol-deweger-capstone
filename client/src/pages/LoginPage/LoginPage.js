@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ProfilePage from "../ProfilePage/ProfilePage";
+import "./LoginPage.scss";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const loginURL = `${API_URL}login`;
@@ -53,20 +53,28 @@ class LoginPage extends Component {
 
   renderLogin = () => {
     return (
-      <div className="LoginPage">
-        <h1>Login</h1>
-        <form onSubmit={this.login}>
-          <div className="form-group">
-            Username: <input type="text" name="username" />
-          </div>
-          <div className="form-group">
-            Password: <input type="password" name="password" />
-          </div>
-          <button className="btn btn-primary" type="submit">
-            Login
-          </button>
-          <Link to={"/signup"}>Sign Up</Link>
-        </form>
+      <div className="loginPage">
+        <div className="loginPage-container">
+          <h1>Login</h1>
+          <form onSubmit={this.login}>
+            <div className="loginPage-group">
+              <label htmlFor="username">Username:</label>
+              <input type="email" name="username" />
+            </div>
+            <div className="loginPage-group">
+              <label htmlFor="password"> Password:</label>
+              <input type="password" name="password" />
+            </div>
+            <div className="loginPage-button">
+              <button className="btn btn-primary" type="submit">
+                Login
+              </button>
+              <Link className="loginPage-button__signup" to={"/signup"}>
+                Sign Up
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     );
   };
