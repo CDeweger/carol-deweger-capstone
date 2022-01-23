@@ -46,6 +46,9 @@ class FirstNationDetailPage extends Component {
                 <p>{donation.itemName}</p>
                 <p>{donation.information}</p>
                 <p>{donation.status}</p>
+                <div>
+                  <img src={donation.image} />
+                </div>
               </div>
             );
           })}

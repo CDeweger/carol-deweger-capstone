@@ -38,6 +38,8 @@ organizationRouter.get("/:organizationId", (req, res) => {
   }
 });
 
+//create a new donation card
+
 organizationRouter.post("/item", (req, res) => {
   let organizationData = readData();
 
@@ -48,6 +50,7 @@ organizationRouter.post("/item", (req, res) => {
     itemName: req.body.item,
     information: req.body.info,
     status: req.body.status,
+    image: req.body.image,
   };
 
   const organizationID = req.body.organizationID;
@@ -61,6 +64,8 @@ organizationRouter.post("/item", (req, res) => {
   writeFile(organizationData);
   res.status(201).json(newDonationObj);
 });
+
+//delete a donation card
 
 organizationRouter.delete("/:organizationId/item/:itemId", (req, res) => {
   // console.log(req.params.organizationId);
@@ -90,6 +95,8 @@ organizationRouter.delete("/:organizationId/item/:itemId", (req, res) => {
   }
 });
 
+//edit a donation card
+
 organizationRouter.patch("/:organizationId/item/:itemId", (req, res) => {
   const organizationId = req.params.organizationId;
   const itemId = req.params.itemId;
@@ -110,6 +117,7 @@ organizationRouter.patch("/:organizationId/item/:itemId", (req, res) => {
     targetItem.information = req.body.information;
     targetItem.status = req.body.status;
     targetItem.date = Date.now();
+    targetItem.image = req.body.image;
 
     writeFile(organizationData);
     res.status(200).send(targetItem);

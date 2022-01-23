@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import EditDonationCardModal from "../EditDonationCardModal/EditDonationCardModal";
 import DeleteDonationCardModal from "../DeleteDonationCardModal/DeleteDonationCardModal";
+import "./DonationCard.scss";
 const API_URL = process.env.REACT_APP_API_URL;
 
 class DonationCard extends Component {
@@ -65,6 +66,12 @@ class DonationCard extends Component {
                 <span className="donationList-card__surplus">Surplus</span>
               )}
             </p>
+            <div className="donationList-card__image-box">
+              <img
+                className="donationList-card__image-box--image"
+                src={this.props.donationList.image}
+              />
+            </div>
             <p>{new Date(this.props.donationList.date).toLocaleDateString()}</p>
             <button onClick={this.showDeleteModal}>Delete</button>
             <button onClick={this.showEditModal}>

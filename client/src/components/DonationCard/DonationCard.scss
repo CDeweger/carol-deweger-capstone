@@ -1,0 +1,13 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.donationList-card__image-box {
+  width: 5rem;
+  &--image {
+    width: 5rem;
+    object-fit: cover;
+  }
+}
