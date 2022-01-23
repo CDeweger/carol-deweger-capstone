@@ -30,7 +30,6 @@ class ProfilePage extends Component {
         });
       })
       .catch((err) => console.log(err));
-    //window.location.reload(true);
 
     this.reloadPage();
   }

@@ -12,10 +12,8 @@ import FirstNationPage from "./pages/FirstNationPage/FirstNationPage";
 //import EditDonationCard from "./components/EditDonationCard/EditDonationCard";
 import DonationCard from "./components/DonationCard/DonationCard";
 import EditDonationCardModal from "./components/EditDonationCardModal/EditDonationCardModal";
-// import UploadImage from "./components/UploadImage/UploadImage";
 import AlexSample from "./components/AlexSample/AlexSample";
-import FirstNationDetailPage from "./pages/FirstNationDetailPage/FirstNationDetailPage";
-
+import OrganizationDetailPage from "./pages/FirstNationDetailPage/OrganizationDetailPage";
 const App = () => {
   const isLoggedIn = sessionStorage.getItem("token");
   return (
@@ -36,11 +34,12 @@ const App = () => {
             component={!isLoggedIn ? LoginPage : ProfilePage}
           />
           <Route path="/logout" exact component={LogoutPage} />
-          <Route path="/first-nation" exact component={FirstNationPage} />
+          <Route path="/organization/" exact component={FirstNationPage} />
+
           <Route
-            path="/first-nation/:id"
+            path="/organization/:id"
             exact
-            component={FirstNationDetailPage}
+            component={OrganizationDetailPage}
           />
           {/* <Route path="*" exact>
             <Redirect to="/" exact component={HomePage} />

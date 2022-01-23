@@ -14,7 +14,7 @@ class Submenu extends Component {
             <Link>Food Bank and Soup Kitchen</Link>
           </li>
           <li className="nav__submenu-list">
-            <Link to={"/first-nation"}>First Nation</Link>
+            <Link to={"/organization"}>First Nation</Link>
           </li>
         </ul>
       </div>

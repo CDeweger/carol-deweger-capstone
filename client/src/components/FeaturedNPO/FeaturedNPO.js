@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./FeaturedNPO.scss";
 
 const FeaturedNPO = (props) => {
   console.log(props);
 
-  const randomNum = Math.floor(Math.random() * 19);
+  const randomNum = Math.floor(Math.random() * props.organizationList.length);
 
   return (
     <div className="FeaturedNPO">
@@ -17,7 +18,14 @@ const FeaturedNPO = (props) => {
         <p>{props.organizationList[randomNum].description}</p>
         <p>Location:{props.organizationList[randomNum].location}</p>
 
-        <button className="button">Learn More</button>
+        <Link
+          className="button"
+          to={{
+            pathname: `organization/${props.organizationList[randomNum].id}`,
+          }}
+        >
+          Learn More
+        </Link>
       </div>
       <div className="FeaturedNPO__img-box">
         <img

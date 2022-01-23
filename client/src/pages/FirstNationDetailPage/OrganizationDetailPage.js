@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 const API_URL = process.env.REACT_APP_API_URL;
 
-class FirstNationDetailPage extends Component {
+class OrganizationDetailPage extends Component {
   state = {
     targetOrganization: null,
   };
@@ -34,7 +34,7 @@ class FirstNationDetailPage extends Component {
       <div>
         <div>
           <h1>{this.state.targetOrganization.program_name}</h1>
-          <img src={this.state.targetOrganization.image} />{" "}
+          <img src={this.state.targetOrganization.image} />
           <p>{this.state.targetOrganization.description}</p>
           <p>{this.state.targetOrganization.location}</p>
           <p>{this.state.targetOrganization.website}</p>
@@ -58,4 +58,4 @@ class FirstNationDetailPage extends Component {
   }
 }
 
-export default FirstNationDetailPage;
+export default OrganizationDetailPage;

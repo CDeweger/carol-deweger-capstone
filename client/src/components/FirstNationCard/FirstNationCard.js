@@ -48,7 +48,7 @@ const FirstNationCard = (props) => {
         <Link
           className="button"
           to={{
-            pathname: `first-nation/${props.firstNationList.id}`,
+            pathname: `organization/${props.firstNationList.id}`,
           }}
         >
           Learn More
