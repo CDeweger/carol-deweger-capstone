@@ -29,7 +29,7 @@ class LoginPage extends Component {
         });
 
         sessionStorage.setItem("token", response.data.token);
-        this.props.history.push("/profile");
+        this.props.history.push(`/profile`);
       })
 
       .catch((err) => {

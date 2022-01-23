@@ -12,8 +12,9 @@ const Header = () => {
     <>
       {/* <FeaturedNPO /> */}
       <div className="header">
-        <div className="header-title">Donation Hub</div>
-
+        <Link to={"/"}>
+          <div className="header-title">Donation Hub</div>
+        </Link>
         <nav className="header__nav">
           <ul className="header__nav-list">
             <li className="header__nav-list--item">

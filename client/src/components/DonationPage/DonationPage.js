@@ -14,6 +14,7 @@ class DonationPage extends Component {
     // upload image
     selectedFile: null,
     imageUploaded: null,
+    previewImg: null,
   };
 
   getOrganization = () => {
@@ -45,6 +46,7 @@ class DonationPage extends Component {
         item: e.target.item.value,
         status: e.target.status.value,
         info: e.target.info.value,
+        image: this.state.imageUploaded,
       })
       .then((response) => {
         console.log(response);
@@ -131,6 +133,21 @@ class DonationPage extends Component {
                 </div>
               </div>
               <div className="donation-page__form-div">
+                <label>Image</label>
+                <input
+                  type="file"
+                  name="image"
+                  onChange={this.fileSelectedHandler}
+                ></input>
+                <p>Image preview</p>
+                {!this.state.imageUploaded ? null : (
+                  // <img src={this.state.currUser.image} />
+                  <img src={this.state.imageUploaded} />
+                )}
+
+                <button type="button" onClick={this.fileUploadHandler}>
+                  Upload
+                </button>
                 <label className="donation-page__info-label" htmlFor="info">
                   More information
                 </label>
@@ -145,7 +162,7 @@ class DonationPage extends Component {
             {/* uplaod image */}
             <div>
               <form>
-                <label>Image</label>
+                {/* <label>Image</label>
                 <input
                   type="file"
                   name="image"
@@ -153,7 +170,7 @@ class DonationPage extends Component {
                 ></input>
                 <button type="button" onClick={this.fileUploadHandler}>
                   Upload
-                </button>
+                </button> */}
               </form>
             </div>
           </div>

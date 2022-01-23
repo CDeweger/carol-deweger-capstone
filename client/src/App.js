@@ -27,6 +27,8 @@ const App = () => {
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/profile" exact component={ProfilePage} />
           <Route path="/profile/:id/edit" exact component={EditOrganization} />
+          {/* <Route path="/:id/edit" exact component={EditOrganization} /> */}
+
           <Route path="/test" exact component={AlexSample} />
           <Route
             path="/login"

@@ -5,6 +5,7 @@ import DonationPage from "../../components/DonationPage/DonationPage";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const profileURL = `${API_URL}profile`;
+// const profileURL = `${API_URL}`;
 
 class ProfilePage extends Component {
   state = {
@@ -16,7 +17,7 @@ class ProfilePage extends Component {
   componentDidMount() {
     // here grab token from sessionStorage
     const token = sessionStorage.getItem("token");
-    // window.location.reload(true);
+    //window.location.reload(true);
     axios
       .get(profileURL, {
         headers: { Authorization: `Bearer ${token}` },
@@ -30,11 +31,24 @@ class ProfilePage extends Component {
       })
       .catch((err) => console.log(err));
     //window.location.reload(true);
+
+    this.reloadPage();
   }
 
-  componentDidUpdate() {}
+  reloadPage = () => {
+    if (window.localStorage) {
+      if (!localStorage.getItem("firstLoad")) {
+        localStorage["firstLoad"] = true;
+
+        window.location.reload();
+      } else {
+        localStorage.removeItem("firstLoad");
+      }
+    }
+  };
 
   render() {
+    console.log(this.props);
     const { isLoading, userInfo } = this.state;
     return isLoading ? (
       <h1>Loading...</h1>

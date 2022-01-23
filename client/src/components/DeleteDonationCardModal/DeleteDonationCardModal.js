@@ -33,6 +33,7 @@ class DeleteDonationCardModal extends Component {
             <p>{this.props.donationList.status}</p>
             <p>{this.props.donationList.information}</p>
             <p>{new Date(this.props.donationList.date).toLocaleDateString()}</p>
+            <img src={this.props.donationList.image} />
             <button onClick={this.handleCancel}>Cancel</button>
             <button onClick={this.handleDelete}>Delete</button>
           </div>
