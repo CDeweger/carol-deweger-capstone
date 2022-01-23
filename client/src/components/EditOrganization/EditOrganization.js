@@ -7,6 +7,7 @@ class EditOrganization extends Component {
     targetOrganization: null,
     selectedFile: null,
     imageUploaded: null,
+    changePreviewImg: false,
   };
   getTargetOrganization = (id) => {
     axios
@@ -33,7 +34,10 @@ class EditOrganization extends Component {
       location: e.target.location.value,
       website: e.target.website.value,
       description: e.target.description.value,
-      image: this.state.imageUploaded,
+      image:
+        this.state.imageUploaded === null
+          ? this.state.targetOrganization.image
+          : this.state.imageUploaded,
     });
     this.props.history.push("/profile");
   };
@@ -57,9 +61,10 @@ class EditOrganization extends Component {
 
         this.setState({
           imageUploaded: res.data.secure_url,
+          changePreviewImg: true,
         });
       });
-    alert("image uploaded");
+    //alert("image uploaded");
   };
 
   render() {
@@ -81,6 +86,13 @@ class EditOrganization extends Component {
           <button type="button" onClick={this.fileUploadHandler}>
             Upload
           </button>
+          <p>Image preview</p>
+
+          {!this.state.changePreviewImg ? (
+            <img src={this.state.targetOrganization.image} />
+          ) : (
+            <img src={this.state.imageUploaded} />
+          )}
 
           <label>Location</label>
           <input
@@ -100,16 +112,6 @@ class EditOrganization extends Component {
 
           <button>Update</button>
         </form>
-
-        {/* <div>
-          <label>Image</label>
-          <input
-            type="file"
-            name="image"
-            onChange={this.fileSelectedHandler}
-          ></input>
-          <button onClick={this.fileUploadHandler}>Upload</button>
-        </div> */}
       </div>
     );
   }

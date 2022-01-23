@@ -86,8 +86,19 @@ class EditDonationCardModal extends Component {
                 <option disabled selected>
                   Please select
                 </option>
-                <option>In Need</option>
-                <option>Surplus</option>
+                {this.props.donationList.status === "In Need" ? (
+                  <>
+                    <option selected>In Need</option>
+                    <option>Surplus</option>
+                  </>
+                ) : (
+                  <>
+                    <option>In Need</option>
+                    <option selected>Surplus</option>
+                  </>
+                )}
+                {/* <option>In Need</option>
+                <option>Surplus</option> */}
               </select>
               <label>More information</label>
               <input
@@ -113,24 +124,6 @@ class EditDonationCardModal extends Component {
               ) : (
                 <img src={this.state.imageUploaded} />
               )}
-            </form>
-            <form>
-              {/* <label>Image</label>
-              <input
-                type="file"
-                name="image"
-                onChange={this.fileSelectedHandler}
-              ></input>
-              <button type="button" onClick={this.fileUploadHandler}>
-                Upload
-              </button>
-              <p>Image preview</p>
-
-              {!this.state.changePreviewImg ? (
-                <img src={this.props.donationList.image} />
-              ) : (
-                <img src={this.state.imageUploaded} />
-              )} */}
             </form>
           </div>
         </div>
