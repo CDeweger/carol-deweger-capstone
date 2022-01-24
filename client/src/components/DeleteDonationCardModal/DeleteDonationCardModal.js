@@ -29,13 +29,39 @@ class DeleteDonationCardModal extends Component {
       <div className="delete-modal">
         <div className="delete-modal__container">
           <div className="delete-modal__inner-container">
-            <p>{this.props.donationList.itemName}</p>
-            <p>{this.props.donationList.status}</p>
-            <p>{this.props.donationList.information}</p>
-            <p>{new Date(this.props.donationList.date).toLocaleDateString()}</p>
-            <img src={this.props.donationList.image} />
-            <button onClick={this.handleCancel}>Cancel</button>
-            <button onClick={this.handleDelete}>Delete</button>
+            <h1>Do you want to delete this post?</h1>
+            <p>Item: {this.props.donationList.itemName}</p>
+            <p
+            // className={
+            //   this.props.donationList.status === "In Need"
+            //     ? "in-need"
+            //     : "surplus"
+            // }
+            >
+              Status:{" "}
+              {this.props.donationList.status === "In Need" ? (
+                <span className="in-need">In Need</span>
+              ) : (
+                <span className="surplus">Surplus</span>
+              )}
+            </p>
+
+            <p>Information: {this.props.donationList.information}</p>
+            <p>
+              Date posted:
+              {new Date(this.props.donationList.date).toLocaleDateString()}
+            </p>
+            <div className="delete-modal__image-container">
+              <p>Image:</p>
+              <img
+                className="delete-modal__image"
+                src={this.props.donationList.image}
+              />
+            </div>
+            <div className="delete-modal__buttons">
+              <button onClick={this.handleCancel}>Cancel</button>
+              <button onClick={this.handleDelete}>Delete</button>
+            </div>
           </div>
         </div>
       </div>

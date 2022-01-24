@@ -15,12 +15,33 @@
   &__container {
     background-color: white;
     width: 50vw;
-    height: 50vh;
+    height: 75vh;
     margin: auto;
-    margin-top: 10rem;
+    margin-top: 5rem;
     border-radius: 10px;
   }
   &__inner-container {
     padding: 2rem;
   }
+  &__image-container {
+    width: 15rem;
+    height: 12rem;
+  }
+  &__image {
+    width: 12rem;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  &__buttons {
+    margin-top: 1rem;
+    @include flex(space-between, center, _);
+  }
+}
+
+.in-need {
+  color: red;
+}
+
+.surplus {
+  color: green;
 }

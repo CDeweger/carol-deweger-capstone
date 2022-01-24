@@ -30,6 +30,13 @@
   //   width: 60vw;
   //   height: 65vh;
   // }
+  &__item-status {
+    @include flex(space-between, _, _);
+  }
+  &__item,
+  &__status {
+    width: 45%;
+  }
   &__form-group {
     @include flex(_, _, column);
   }
@@ -48,7 +55,7 @@
   //   height: 10vw;
   // }
   &__button {
-    margin-top: 1rem;
+    margin-top: 2rem;
     @include flex(space-between, _, _);
   }
 }

@@ -76,29 +76,35 @@ class EditDonationCardModal extends Component {
             <div className="edit-modal__content-container">
               <form onSubmit={this.handleSubmit}>
                 <div>
-                  <label>Item </label>
-                  <input
-                    type="text"
-                    name="item"
-                    defaultValue={this.props.donationList.itemName}
-                  ></input>
-                  <label>Status </label>
-                  <select name="status">
-                    <option disabled selected>
-                      Please select
-                    </option>
-                    {this.props.donationList.status === "In Need" ? (
-                      <>
-                        <option selected>In Need</option>
-                        <option>Surplus</option>
-                      </>
-                    ) : (
-                      <>
-                        <option>In Need</option>
-                        <option selected>Surplus</option>
-                      </>
-                    )}
-                  </select>
+                  <div className="edit-modal__item-status">
+                    <div className="edit-modal__form-group edit-modal__item">
+                      <label>Item </label>
+                      <input
+                        type="text"
+                        name="item"
+                        defaultValue={this.props.donationList.itemName}
+                      ></input>
+                    </div>
+                    <div className="edit-modal__form-group edit-modal__status">
+                      <label>Status </label>
+                      <select name="status">
+                        <option disabled selected>
+                          Please select
+                        </option>
+                        {this.props.donationList.status === "In Need" ? (
+                          <>
+                            <option selected>In Need</option>
+                            <option>Surplus</option>
+                          </>
+                        ) : (
+                          <>
+                            <option>In Need</option>
+                            <option selected>Surplus</option>
+                          </>
+                        )}
+                      </select>
+                    </div>
+                  </div>
                 </div>
                 <div className="edit-modal__form-group">
                   <label>More information</label>
@@ -118,7 +124,6 @@ class EditDonationCardModal extends Component {
                   Upload
                 </button>
                 <p>Image preview</p>
-
                 {!this.state.changePreviewImg ? (
                   <div className="edit-modal__preview-image-box">
                     <img
