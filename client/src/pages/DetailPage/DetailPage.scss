@@ -16,13 +16,52 @@
   }
 
   &__image {
-    width: 50vw;
+    width: 40vw;
     border-radius: 5px;
     margin-top: 4rem;
     @include img-card;
   }
   &__details {
     margin-top: 3rem;
-    width: 50vw;
+    width: 38vw;
+  }
+}
+
+.detailPage-card {
+  border: red 1px solid;
+  width: 80vw;
+  margin: auto;
+  @include flex(space-evenly, _, _);
+  flex-wrap: wrap;
+
+  &__group {
+    @include flex(_, center, _);
+    border: black 2px solid;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 40%;
+    margin: 2rem 1rem 1rem 1rem;
+  }
+  &__image-box {
+    width: 35%;
+  }
+  &__image {
+    width: 100%;
+    border-radius: 5px;
+    @include img-card;
+  }
+  &__date-item {
+    @include flex(space-between, center, _);
+  }
+  &__date {
+    font-size: 0.8rem;
+  }
+  &__item {
+    margin: 0;
+  }
+  &__info-body {
+    width: 60%;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }

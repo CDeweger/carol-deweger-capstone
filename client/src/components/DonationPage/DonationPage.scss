@@ -7,6 +7,8 @@
 .donation-page {
   &__profile {
     @include flex(center, center, _);
+    width: 90vw;
+    margin: auto;
   }
   &__img-box {
     width: 40vw;
@@ -50,5 +52,18 @@
     width: 20%;
     margin-left: auto;
     margin-top: 1rem;
+  }
+  &__link-box {
+    @include flex(flex-end, _, _);
+  }
+  &__edit-link {
+    color: black;
+    border-bottom: 2px solid black;
+    margin-right: 1rem;
+    &:hover {
+      transform: scale(1.2);
+      // color: $primary-green;
+      // border-bottom: 2px solid $primary-green;
+    }
   }
 }

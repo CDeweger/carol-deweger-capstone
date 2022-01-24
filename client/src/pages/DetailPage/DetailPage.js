@@ -49,15 +49,31 @@ class DetailPage extends Component {
           <p>Location: {this.state.targetOrganization.location}</p>
           <p>{this.state.targetOrganization.website}</p>
         </div>
-        <div>
+        <div className="detailPage-card">
           {this.state.targetOrganization.donations.map((donation) => {
             return (
-              <div>
-                <p>{donation.itemName}</p>
-                <p>{donation.information}</p>
-                <p>{donation.status}</p>
-                <div>
-                  <img src={donation.image} />
+              <div className="detailPage-card__group">
+                <div className="detailPage-card__image-box">
+                  <img
+                    className="detailPage-card__image"
+                    src={donation.image}
+                  />
+                </div>
+                <div className="detailPage-card__info-body">
+                  <div className="detailPage-card__date-item">
+                    <h2 className="detailPage-card__item">
+                      {donation.itemName}
+                    </h2>
+                    <p className="detailPage-card__date">
+                      {" "}
+                      Posted date:
+                      {new Date(donation.date).toLocaleDateString()}
+                    </p>
+                  </div>
+                  <p className="detailPage-card__status">{donation.status}</p>
+                  <p className="detailPage-card__info">
+                    {donation.information}
+                  </p>
                 </div>
               </div>
             );

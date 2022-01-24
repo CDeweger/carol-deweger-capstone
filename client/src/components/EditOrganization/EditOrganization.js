@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./EditOrganization.scss";
 const API_URL = process.env.REACT_APP_API_URL;
 
 class EditOrganization extends Component {
@@ -67,50 +68,95 @@ class EditOrganization extends Component {
     //alert("image uploaded");
   };
 
+  handleGoBack = () => {
+    this.props.history.goBack();
+  };
   render() {
     console.log(this.state.targetOrganization);
     if (!this.state.targetOrganization) {
       return null;
     }
     return (
-      <div>
-        <h1>hello from edit</h1>
-        <p></p>
+      <div className="edit-profile">
+        <h1 className="edit-profile__edit-title">Update Profile</h1>
+        <h2 className="edit-profile__program-title">
+          {" "}
+          {this.state.targetOrganization.program_name}
+        </h2>
         <form onSubmit={this.handleSubmit}>
-          <label>Image</label>
-          <input
-            type="file"
-            name="image"
-            onChange={this.fileSelectedHandler}
-          ></input>
-          <button type="button" onClick={this.fileUploadHandler}>
-            Upload
-          </button>
-          <p>Image preview</p>
+          <div className="edit-profile-body">
+            <div className="edit-profile-body__image">
+              <p>Image preview</p>
 
-          {!this.state.changePreviewImg ? (
-            <img src={this.state.targetOrganization.image} />
-          ) : (
-            <img src={this.state.imageUploaded} />
-          )}
+              {!this.state.changePreviewImg ? (
+                <div>
+                  <img
+                    className="edit-profile__image"
+                    src={this.state.targetOrganization.image}
+                  />
+                </div>
+              ) : (
+                <img
+                  className="edit-profile__image"
+                  src={this.state.imageUploaded}
+                />
+              )}
+              <div className="edit-profile__image-upload">
+                <div className="">
+                  {" "}
+                  <label
+                    htmlFor="profile-image"
+                    className="edit-profile__image-file"
+                  >
+                    Choose an image
+                  </label>
+                  <input
+                    type="file"
+                    name="image"
+                    id="profile-image"
+                    onChange={this.fileSelectedHandler}
+                  ></input>
+                </div>
 
-          <label>Location</label>
-          <input
-            name="location"
-            defaultValue={this.state.targetOrganization.location}
-          ></input>
-          <label>Website</label>
-          <input
-            defaultValue={this.state.targetOrganization.website}
-            name="website"
-          ></input>
-          <label>Description</label>
-          <input
-            defaultValue={this.state.targetOrganization.description}
-            name="description"
-          ></input>
-
-          <button>Update</button>
+                <button
+                  className="edit-profile__image-upload-button"
+                  type="button"
+                  onClick={this.fileUploadHandler}
+                >
+                  Upload
+                </button>
+              </div>
+            </div>
+            <div className="edit-profile-body__info">
+              <label htmlFor="location">Location</label>
+              <input
+                name="location"
+                defaultValue={this.state.targetOrganization.location}
+              ></input>
+              <label htmlFor="website">Website</label>
+              <input
+                defaultValue={this.state.targetOrganization.website}
+                name="website"
+              ></input>
+              <label htmlFor="description">Description</label>
+              <textarea name="description" rows="10">
+                {this.state.targetOrganization.description}
+              </textarea>
+            </div>
+          </div>
+          <div className="edit-profile__button-box">
+            {" "}
+            <button
+              className="edit-profile__cancel-button "
+              type="button"
+              onClick={this.handleGoBack}
+            >
+              Cancel
+            </button>
+            <button className="edit-profile__update-button button">
+              Update
+            </button>
+          </div>
         </form>
       </div>
     );

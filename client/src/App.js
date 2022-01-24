@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
@@ -11,7 +12,7 @@ import FirstNationPage from "./pages/FirstNationPage/FirstNationPage";
 import ShelterPage from "./pages/ShelterPage/ShelterPage";
 import FoodProgramPage from "./pages/FoodProgramPage/FoodProgramPage";
 import AlexSample from "./components/AlexSample/AlexSample";
-import OrganizationDetailPage from "./pages/OrganizationDetailPage/OrganizationDetailPage";
+//import OrganizationDetailPage from "./pages/OrganizationDetailPage/OrganizationDetailPage";
 import DetailPage from "./pages/DetailPage/DetailPage";
 
 const App = () => {
@@ -55,15 +56,12 @@ const App = () => {
           />
           <Route path="/organization/food-program/:id" component={DetailPage} />
 
-          <Route
-            path="/organization/:id"
-            exact
-            component={OrganizationDetailPage}
-          />
+          <Route path="/organization/:id" exact component={DetailPage} />
           {/* <Route path="*" exact>
             <Redirect to="/" exact component={HomePage} />
           </Route> */}
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );

@@ -57,31 +57,47 @@ class DonationCard extends Component {
         {deleteModal}
         <div className="donationList-card">
           <div className="donationList-card__inner">
-            <p>{this.props.donationList.itemName}</p>
-            <p>{this.props.donationList.information}</p>
-            <p>
-              Status:{" "}
-              {this.props.donationList.status === "In Need" ? (
-                <span className="donationList-card__in-need">In Need</span>
-              ) : (
-                <span className="donationList-card__surplus">Surplus</span>
-              )}
-            </p>
             <div className="donationList-card__image-box">
               <img
                 className="donationList-card__image-box--image"
                 src={this.props.donationList.image}
               />
             </div>
-            <p>
-              Posted:{" "}
-              {new Date(this.props.donationList.date).toLocaleDateString()}
-            </p>
-            <button onClick={this.showDeleteModal}>Delete</button>
-            <button onClick={this.showEditModal}>
-              {/* <Link to={`profile/${this.props.donationList.id}`}>Edit</Link> */}
-              Edit
-            </button>
+            <div className="donationList-card__info-box">
+              <div className="donationList-card__item-date">
+                <h2 className="donationList-card__item">
+                  {this.props.donationList.itemName}
+                </h2>
+                <p className="donationList-card__date">
+                  Posted:{" "}
+                  {new Date(this.props.donationList.date).toLocaleDateString()}
+                </p>
+              </div>
+              <p>
+                Status:{" "}
+                {this.props.donationList.status === "In Need" ? (
+                  <span className="donationList-card__in-need">In Need</span>
+                ) : (
+                  <span className="donationList-card__surplus">Surplus</span>
+                )}
+              </p>
+              <p>{this.props.donationList.information}</p>
+              <div className="donationList-card__buttons">
+                <button
+                  className="donationList-card__delete-button"
+                  onClick={this.showDeleteModal}
+                >
+                  Delete
+                </button>
+                <button
+                  className="donationList-card__edit-button"
+                  onClick={this.showEditModal}
+                >
+                  {/* <Link to={`profile/${this.props.donationList.id}`}>Edit</Link> */}
+                  Edit
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </>

@@ -1,0 +1,20 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.logout {
+  text-align: center;
+  width: 80vw;
+  margin: auto;
+  margin-bottom: 19rem;
+  margin-top: 12rem;
+}
+
+.logout-button {
+  &:hover {
+    transform: scale(1.2);
+    color: $primary-green;
+  }
+}

@@ -1,14 +1,20 @@
 import React from "react";
+import "./LogoutPage.scss";
 
-const LogoutPage = () => {
+const LogoutPage = (props) => {
   const logout = () => {
     sessionStorage.clear();
     window.location.href = "/";
   };
 
+  console.log(props);
+
   return (
-    <div>
-      <button onClick={logout}>Confrim logout</button>
+    <div className="logout">
+      <h1>See you again soon!</h1>
+      <button className="button logout-button" onClick={logout}>
+        Confrim logout
+      </button>
     </div>
   );
 };

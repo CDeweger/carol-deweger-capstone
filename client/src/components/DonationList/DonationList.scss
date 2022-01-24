@@ -4,27 +4,30 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
+.donationList-title {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
 .donationList {
-  @include flex(_, _, _);
+  @include flex(space-evenly, center, _);
   flex-wrap: wrap;
+  //align-content: space-between;
+  width: 70vw;
+  margin: auto;
 }
 
 .donationList-card {
-  border: 1px solid black;
-  width: 10rem;
-  margin: 2rem 1rem;
-  border-radius: 5px;
-
-  &__inner {
-    width: 8rem;
-    margin: auto;
-    margin-bottom: 1rem;
-  }
-
   &__in-need {
     background-color: pink;
+    padding: 0.2rem 0.8rem;
+    border-radius: 10px;
+    color: red;
   }
   &__surplus {
     background-color: #d0f0c0;
+    padding: 0.2rem 0.8rem;
+    border-radius: 10px;
+    color: green;
   }
 }

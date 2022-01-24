@@ -46,7 +46,7 @@ const ShelterCard = (props) => {
           })}
         </p>
         <Link
-          className="button"
+          className="button "
           to={{
             pathname: `homeless-shelter/${props.shelterList.id}`,
             // pathname: `/${props.shelterList.id}`,

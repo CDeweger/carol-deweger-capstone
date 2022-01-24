@@ -26,6 +26,8 @@ li {
   color: white;
   border: none;
   padding: 0.7rem 2rem;
+  cursor: pointer;
+
   //@include font-regular;
 
   :visited {
@@ -39,4 +41,8 @@ li {
 p,
 label {
   @include font-regular;
+}
+
+input[type="file"] {
+  display: none;
 }

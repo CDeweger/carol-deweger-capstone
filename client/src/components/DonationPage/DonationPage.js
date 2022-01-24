@@ -96,12 +96,18 @@ class DonationPage extends Component {
             </div>
             <div className="donation-page__profile-info">
               <h1>{this.state.currUser.program_name}</h1>
-              <p>{this.state.currUser.program_type}</p>
-              <p>{this.state.currUser.location}</p>
+              <p>Program type: {this.state.currUser.program_type}</p>
+              <p>Location: {this.state.currUser.location}</p>
               <p>{this.state.currUser.description}</p>
-              <Link to={`profile/${this.state.currUser.id}/edit`}>
-                Edit Profile
-              </Link>
+              <div className="donation-page__link-box">
+                {" "}
+                <Link
+                  className="donation-page__edit-link"
+                  to={`profile/${this.state.currUser.id}/edit`}
+                >
+                  Edit Profile
+                </Link>
+              </div>
             </div>
           </div>
           {/* the form to create a new post */}
@@ -129,21 +135,24 @@ class DonationPage extends Component {
                 </div>
               </div>
               <div className="donation-page__form-div">
-                <label>Image</label>
+                <label htmlFor="new-post-image" className="">
+                  Choose an image
+                </label>
                 <input
                   type="file"
                   name="image"
+                  id="new-post-image"
                   onChange={this.fileSelectedHandler}
                 ></input>
+                <button type="button" onClick={this.fileUploadHandler}>
+                  Upload
+                </button>
                 <p>Image preview</p>
                 {!this.state.imageUploaded ? null : (
                   // <img src={this.state.currUser.image} />
                   <img src={this.state.imageUploaded} />
                 )}
 
-                <button type="button" onClick={this.fileUploadHandler}>
-                  Upload
-                </button>
                 <label className="donation-page__info-label" htmlFor="info">
                   More information
                 </label>
@@ -154,11 +163,6 @@ class DonationPage extends Component {
                   placeholder="Provide extra information..."
                 ></textarea>
 
-                {/* <input
-                  className="donation-page__info-input"
-                  name="info"
-                  type="text"
-                ></input> */}
                 <button className="donation-page__button">Create</button>
               </div>
             </form>

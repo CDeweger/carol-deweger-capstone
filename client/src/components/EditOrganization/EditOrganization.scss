@@ -3,3 +3,68 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
+
+.edit-profile {
+  &__edit-title {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 4rem;
+  }
+  &__program-title {
+    width: 80vw;
+    margin: auto;
+    text-align: center;
+  }
+  &__image {
+    width: 40vw;
+    border-radius: 10px;
+    @include img-card;
+  }
+  &__button-box {
+    @include flex(center, center, _);
+  }
+  &__update-button {
+    margin-top: 5rem;
+    // width: 8rem;
+    // margin: auto;
+  }
+  &__cancel-button {
+    margin-top: 5rem;
+    padding: 0.7rem 2rem;
+    background-color: white;
+    border: black 1px solid;
+    color: black;
+    margin-right: 2rem;
+    cursor: pointer;
+  }
+  &__image-upload {
+    @include flex(space-evenly, _, _);
+    margin-top: 1rem;
+  }
+  &__image-file {
+    @include upload-img-link;
+  }
+  &__image-upload-button {
+    @include upload-img-button;
+  }
+}
+
+.edit-profile-body {
+  //border: 1px solid red;
+  width: 90vw;
+  margin: auto;
+  margin-top: 2rem;
+  @include flex(center, center, _);
+
+  &__image {
+    @include flex(center, center, column);
+    // border: springgreen 1px solid;
+    width: 50%;
+  }
+
+  &__info {
+    //border: steelblue 1px solid;
+    @include flex(_, _, column);
+    width: 50%;
+  }
+}
