@@ -28,8 +28,6 @@ li {
   padding: 0.7rem 2rem;
   cursor: pointer;
 
-  //@include font-regular;
-
   :visited {
     color: white;
   }
@@ -45,4 +43,10 @@ label {
 
 input[type="file"] {
   display: none;
+}
+
+::placeholder {
+  @include font-regular;
+  font-size: 1rem;
+  padding-left: 0.5rem;
 }

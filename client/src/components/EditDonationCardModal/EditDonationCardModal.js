@@ -76,6 +76,7 @@ class EditDonationCardModal extends Component {
             <div className="edit-modal__content-container">
               <form onSubmit={this.handleSubmit}>
                 <div>
+                  <h1>Update the post</h1>
                   <div className="edit-modal__item-status">
                     <div className="edit-modal__form-group edit-modal__item">
                       <label>Item </label>
@@ -106,17 +107,15 @@ class EditDonationCardModal extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="edit-modal__form-group">
-                  <label>More information</label>
-                  <textarea
-                    name="info"
-                    rows="5"
-                    defaultValue={this.props.donationList.information}
-                  ></textarea>
-                </div>
-                <label>Image</label>
+                <label
+                  htmlFor="edit-post-image"
+                  className="edit-modal__choose-image"
+                >
+                  Choose an image
+                </label>
                 <input
                   type="file"
+                  id="edit-post-image"
                   name="image"
                   onChange={this.fileSelectedHandler}
                 ></input>
@@ -125,13 +124,13 @@ class EditDonationCardModal extends Component {
                 </button>
                 <p>Image preview</p>
                 {!this.state.changePreviewImg ? (
-                  <div className="edit-modal__preview-image-box">
-                    <img
-                      className="edit-modal__preview-image"
-                      src={this.props.donationList.image}
-                    />
-                  </div>
+                  // <div className="edit-modal__preview-image-box">
+                  <img
+                    className="edit-modal__preview-image"
+                    src={this.props.donationList.image}
+                  />
                 ) : (
+                  // </div>
                   <div>
                     <img
                       className="edit-modal__preview-image edit-modal__preview-upload "
@@ -139,6 +138,15 @@ class EditDonationCardModal extends Component {
                     />
                   </div>
                 )}
+
+                <div className="edit-modal__form-group">
+                  <label>More information</label>
+                  <textarea
+                    name="info"
+                    rows="5"
+                    defaultValue={this.props.donationList.information}
+                  ></textarea>
+                </div>
                 <div className="edit-modal__button">
                   <button onClick={this.handleCancel}>Cancel</button>
                   <button>Update</button>

@@ -50,7 +50,10 @@ organizationRouter.post("/item", (req, res) => {
     itemName: req.body.item,
     information: req.body.info,
     status: req.body.status,
-    image: req.body.image,
+    image:
+      req.body.image === null
+        ? "https://ecowaterqa.vtexassets.com/arquivos/ids/156130-800-auto?width=800&height=auto&aspect=true"
+        : req.body.image,
   };
 
   const organizationID = req.body.organizationID;

@@ -130,16 +130,22 @@ class EditOrganization extends Component {
             <div className="edit-profile-body__info">
               <label htmlFor="location">Location</label>
               <input
+                className="edit-profile-body__input"
                 name="location"
                 defaultValue={this.state.targetOrganization.location}
               ></input>
               <label htmlFor="website">Website</label>
               <input
+                className="edit-profile-body__input  "
                 defaultValue={this.state.targetOrganization.website}
                 name="website"
               ></input>
               <label htmlFor="description">Description</label>
-              <textarea name="description" rows="10">
+              <textarea
+                name="description"
+                rows="10"
+                className="edit-profile-body__input edit-profile-body__input--des"
+              >
                 {this.state.targetOrganization.description}
               </textarea>
             </div>

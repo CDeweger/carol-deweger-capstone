@@ -7,8 +7,17 @@
     "program_name": "Vancouver Aboriginal Friendship Centre Society",
     "location": "Vancouver",
     "image": "https://www.bcbusiness.ca/CDN/35/image/Vancouver-Aboriginal-Friendship-Centre-Society_max.jpg",
-    "description": "A sewing club and community garden for elders, sports programs like a basketball league for youth and recreational soccer for adults, pre-employment assistance, support groups for Indigenous parents, a mat and blanket shelter, and more",
+    "description": "A sewing club and community garden for elders, sports programs like a basketball league for youth and recreational soccer for adults, pre-employment assistance, support groups for Indigenous parents, a mat and blanket shelter, and more ",
     "donations": [
+      {
+        "id": "20b592bc-5b03-4118-a701-5fd5b01344f2",
+        "date": 1643056142633,
+        "organizationID": "fn1",
+        "itemName": "some food item",
+        "information": "nodemon] restarting due to changes...\n[nodemon] starting `node server.js`\n🚀 Server listening on 8080\nauthorize middleware :: JWT verification\nauthorize middleware :: JWT verification",
+        "status": "Please select",
+        "image": "https://ecowaterqa.vtexassets.com/arquivos/ids/156130-800-auto?width=800&height=auto&aspect=true"
+      },
       {
         "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
         "date": 1642992300337,
@@ -17,23 +26,6 @@
         "information": "Irure in ut incididunt commodo excepteur nostrud duis sunt culpa minim mollit ipsum pariatur.",
         "status": "Surplus",
         "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642992287/wkm8mflwk96ni6m6fq34.jpg"
-      },
-      {
-        "id": "c48e0d36-9a48-4ad5-8072-d60f2fd9d235",
-        "date": 1642991045192,
-        "organizationID": "fn1",
-        "itemName": "Baby formula",
-        "information": "Irure in ut incididunt commodo excepteur nostrud duis sunt culpa minim mollit ipsum pariatur.",
-        "status": "In Need",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642991038/swqfcqesfo0ruldyg1pr.jpg"
-      },
-      {
-        "id": "c48e0d36-9a48-4ad5-8072-d60f2fd9d235",
-        "date": 1642824889034,
-        "organizationID": "fn1",
-        "itemName": "Rice 10lb",
-        "information": "Irure in ut incididunt commodo excepteur nostrud duis sunt culpa minim mollit ipsum pariatur.",
-        "status": "Surplus"
       }
     ],
     "website": "http://vafcs.org"

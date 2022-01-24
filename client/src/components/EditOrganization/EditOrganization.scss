@@ -67,4 +67,10 @@
     @include flex(_, _, column);
     width: 50%;
   }
+  &__input {
+    @include input;
+    &--des {
+      height: 10rem;
+    }
+  }
 }

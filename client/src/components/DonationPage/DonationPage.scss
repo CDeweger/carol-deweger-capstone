@@ -22,7 +22,7 @@
     margin-left: 6rem;
   }
   &__new-post {
-    width: 40vw;
+    width: 60vw;
     margin: auto;
   }
   &__title {
@@ -38,20 +38,70 @@
   &__item {
     width: 48%;
   }
+  &__item-input {
+    @include input;
+  }
   &__status {
     width: 48%;
+  }
+  &__status-select {
+    @include input;
+    height: 1.65rem;
+  }
+  &__image-upload {
+    @include flex(space-between, center, _);
+  }
+
+  &__choose-image {
+    border-bottom: 2px solid black;
+    cursor: pointer;
+  }
+
+  &__upload-button {
+    @include button;
+    color: $primary-green;
+    margin-top: 1rem;
+  }
+  &__preview-image-box {
+    height: 30vh;
+  }
+  &__preview-image {
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    @include img-card;
   }
   &__info-label {
     margin-top: 1rem;
   }
   &__info-input {
     padding-bottom: 10rem;
+    @include input;
   }
 
-  &__button {
-    width: 20%;
-    margin-left: auto;
+  &__buttons {
+    @include flex(space-between, center, _);
     margin-top: 1rem;
+  }
+
+  &__cancel-button {
+    @include button;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__create-button {
+    //width: 20%;
+    //margin: auto;
+    //margin-top: 1rem;
+    @include button;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
   &__link-box {
     @include flex(flex-end, _, _);

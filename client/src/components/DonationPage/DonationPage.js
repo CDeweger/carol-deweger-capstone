@@ -14,6 +14,7 @@ class DonationPage extends Component {
     selectedFile: null,
     imageUploaded: null,
     previewImg: null,
+    chosedImage: false,
   };
 
   getOrganization = () => {
@@ -59,6 +60,7 @@ class DonationPage extends Component {
     //console.log(e.target.files[0]);
     this.setState({
       selectedFile: e.target.files[0],
+      chosedImage: true,
     });
   };
 
@@ -78,8 +80,8 @@ class DonationPage extends Component {
   };
 
   render() {
-    console.log(this.props);
-    console.log(this.state.currUser);
+    // console.log(this.props);
+    // console.log(this.state.currUser);
 
     if (!this.state.currUser) {
       return null;
@@ -116,16 +118,19 @@ class DonationPage extends Component {
             <form className="donation-page__" onSubmit={this.handleSubmit}>
               <div className="donation-page__item-status">
                 <div className="donation-page__form-div donation-page__item">
-                  <label htmlFor="item">Item</label>
+                  <label htmlFor="item">Item:</label>
                   <input
-                    className="donation-page__"
+                    className="donation-page__item-input"
                     type="text"
                     name="item"
                   ></input>
                 </div>
                 <div className="donation-page__form-div donation-page__status">
-                  <label htmlFor="status">Status</label>
-                  <select className="donation-page__" name="status">
+                  <label htmlFor="status">Status:</label>
+                  <select
+                    className="donation-page__status-select"
+                    name="status"
+                  >
                     <option disabled selected>
                       Please select
                     </option>
@@ -135,35 +140,75 @@ class DonationPage extends Component {
                 </div>
               </div>
               <div className="donation-page__form-div">
-                <label htmlFor="new-post-image" className="">
-                  Choose an image
-                </label>
-                <input
-                  type="file"
-                  name="image"
-                  id="new-post-image"
-                  onChange={this.fileSelectedHandler}
-                ></input>
-                <button type="button" onClick={this.fileUploadHandler}>
-                  Upload
-                </button>
-                <p>Image preview</p>
+                <div className="donation-page__image-upload">
+                  {" "}
+                  <label
+                    htmlFor="new-post-image"
+                    className="donation-page__choose-image"
+                  >
+                    {/* {!this.chosedImage ? (
+                      <span>Choose an image</span>
+                    ) : (
+                      <span onClick={this.fileUploadHandler}>
+                        Click to upload
+                      </span>
+                    )} */}
+                    Choose an image
+                  </label>
+                  <input
+                    type="file"
+                    name="image"
+                    id="new-post-image"
+                    onChange={this.fileSelectedHandler}
+                    // onClick={this.fileUploadHandler}
+                  ></input>
+                  <button
+                    className="donation-page__upload-button"
+                    type="button"
+                    onClick={this.fileUploadHandler}
+                  >
+                    Click to upload the image
+                  </button>
+                </div>
+
+                <p>Image preview:</p>
                 {!this.state.imageUploaded ? null : (
                   // <img src={this.state.currUser.image} />
-                  <img src={this.state.imageUploaded} />
+                  <div className="donation-page__preview-image-box">
+                    <img
+                      className="donation-page__preview-image"
+                      src={this.state.imageUploaded}
+                    />
+                  </div>
                 )}
 
                 <label className="donation-page__info-label" htmlFor="info">
-                  More information
+                  More information:
                 </label>
                 <textarea
                   name="info"
                   rows="10"
                   cols="200"
                   placeholder="Provide extra information..."
+                  className="donation-page__info-input"
                 ></textarea>
-
-                <button className="donation-page__button">Create</button>
+                <div className="donation-page__buttons">
+                  <button
+                    className="donation-page__cancel-button"
+                    type="button"
+                    onClick={() => window.location.reload()}
+                  >
+                    Cancel
+                  </button>
+                  {/* <input
+                    type="reset"
+                    className="donation-page__cancel-button"
+                    value="Cancel"
+                  ></input> */}
+                  <button className="donation-page__create-button">
+                    Create
+                  </button>
+                </div>
               </div>
             </form>
           </div>

@@ -23,14 +23,14 @@ const writeFile = (organizationList) => {
 };
 
 function authorize(req, res, next) {
-  console.log("authorize middleware entered");
-  console.log(req.headers.authorization);
+  // console.log("authorize middleware entered");
+  // console.log(req.headers.authorization);
   if (!req.headers.authorization)
     return res.status(401).json({ message: "not authorized" });
   const authToken = req.headers.authorization.split(" ")[1];
 
   jwt.verify(authToken, JWT_SECRET, (err, decoded) => {
-    console.log("authorize middleware :: JWT verification");
+    // console.log("authorize middleware :: JWT verification");
     if (err) {
       return res.status(401).json({ message: "not authorized" });
     }

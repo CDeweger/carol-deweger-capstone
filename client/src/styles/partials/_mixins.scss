@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "colors" as *;
 
 //RWD breakpoint
 @mixin mobile {
@@ -48,7 +49,7 @@
 //upload image link & button
 @mixin upload-img-link {
   cursor: pointer;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
   margin-right: 2rem;
 }
 
@@ -64,3 +65,26 @@
 //   box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
 //     50px 29px 0px -30px rgba(0, 0, 0, 0);
 // }
+
+@mixin button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+
+  :visited {
+    color: white;
+  }
+  :hover {
+    color: $primary-green;
+  }
+}
+
+//for input fields
+@mixin input {
+  height: 1.2rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
