@@ -4,12 +4,20 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.FeaturedNPO {
-  @include flex(space-evenly, center, _);
+.featuredNPO {
+  // @include flex(space-evenly, center, _);
+  @include flex(center, center, _);
+
   padding: 2rem;
   &__info {
-    width: 50%vw;
+    width: 40vw;
+    margin-right: 4rem;
   }
+
+  &__link-container {
+    margin-top: 2rem;
+  }
+
   &__img-box {
     // width: 20rem;
     // height: 20rem;
@@ -19,6 +27,7 @@
       border-radius: 20px;
       border-color: 2px solid red;
       object-fit: cover;
+      @include img-card;
     }
   }
 }

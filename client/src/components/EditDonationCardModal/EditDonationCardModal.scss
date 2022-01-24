@@ -14,13 +14,41 @@
 
   &__container {
     background-color: white;
-    width: 50vw;
-    height: 50vh;
+    width: 60vw;
+    height: 65vh;
     margin: auto;
     margin-top: 10rem;
     border-radius: 10px;
   }
   &__inner-container {
     padding: 2rem;
+    // width: 60vw;
+    // height: 65vh;
+    // object-fit: contain;
+  }
+  // &__content-container {
+  //   width: 60vw;
+  //   height: 65vh;
+  // }
+  &__form-group {
+    @include flex(_, _, column);
+  }
+
+  &__preview-image-box {
+    width: 40vw;
+    height: 10vw;
+  }
+  &__preview-image {
+    width: 40vw;
+    height: 15vw;
+    object-fit: contain;
+  }
+  // &__preview-upload {
+  //   width: 40vw;
+  //   height: 10vw;
+  // }
+  &__button {
+    margin-top: 1rem;
+    @include flex(space-between, _, _);
   }
 }

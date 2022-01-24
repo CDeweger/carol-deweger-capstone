@@ -60,6 +60,7 @@ class DonationCard extends Component {
             <p>{this.props.donationList.itemName}</p>
             <p>{this.props.donationList.information}</p>
             <p>
+              Status:{" "}
               {this.props.donationList.status === "In Need" ? (
                 <span className="donationList-card__in-need">In Need</span>
               ) : (
@@ -72,7 +73,10 @@ class DonationCard extends Component {
                 src={this.props.donationList.image}
               />
             </div>
-            <p>{new Date(this.props.donationList.date).toLocaleDateString()}</p>
+            <p>
+              Posted:{" "}
+              {new Date(this.props.donationList.date).toLocaleDateString()}
+            </p>
             <button onClick={this.showDeleteModal}>Delete</button>
             <button onClick={this.showEditModal}>
               {/* <Link to={`profile/${this.props.donationList.id}`}>Edit</Link> */}

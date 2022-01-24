@@ -65,7 +65,6 @@ class EditDonationCardModal extends Component {
           changePreviewImg: true,
         });
       });
-    // alert("image uploaded");
   };
 
   render() {
@@ -74,57 +73,73 @@ class EditDonationCardModal extends Component {
       <div className="edit-modal">
         <div className="edit-modal__container">
           <div className="edit-modal__inner-container">
-            <form onSubmit={this.handleSubmit}>
-              <label>Item</label>
-              <input
-                type="text"
-                name="item"
-                defaultValue={this.props.donationList.itemName}
-              ></input>
-              <label>Status</label>
-              <select name="status">
-                <option disabled selected>
-                  Please select
-                </option>
-                {this.props.donationList.status === "In Need" ? (
-                  <>
-                    <option selected>In Need</option>
-                    <option>Surplus</option>
-                  </>
-                ) : (
-                  <>
-                    <option>In Need</option>
-                    <option selected>Surplus</option>
-                  </>
-                )}
-                {/* <option>In Need</option>
-                <option>Surplus</option> */}
-              </select>
-              <label>More information</label>
-              <input
-                name="info"
-                type="text"
-                defaultValue={this.props.donationList.information}
-              ></input>
-              <button>Update</button>
-              <button onClick={this.handleCancel}>Cancel</button>
-              <label>Image</label>
-              <input
-                type="file"
-                name="image"
-                onChange={this.fileSelectedHandler}
-              ></input>
-              <button type="button" onClick={this.fileUploadHandler}>
-                Upload
-              </button>
-              <p>Image preview</p>
+            <div className="edit-modal__content-container">
+              <form onSubmit={this.handleSubmit}>
+                <div>
+                  <label>Item </label>
+                  <input
+                    type="text"
+                    name="item"
+                    defaultValue={this.props.donationList.itemName}
+                  ></input>
+                  <label>Status </label>
+                  <select name="status">
+                    <option disabled selected>
+                      Please select
+                    </option>
+                    {this.props.donationList.status === "In Need" ? (
+                      <>
+                        <option selected>In Need</option>
+                        <option>Surplus</option>
+                      </>
+                    ) : (
+                      <>
+                        <option>In Need</option>
+                        <option selected>Surplus</option>
+                      </>
+                    )}
+                  </select>
+                </div>
+                <div className="edit-modal__form-group">
+                  <label>More information</label>
+                  <textarea
+                    name="info"
+                    rows="5"
+                    defaultValue={this.props.donationList.information}
+                  ></textarea>
+                </div>
+                <label>Image</label>
+                <input
+                  type="file"
+                  name="image"
+                  onChange={this.fileSelectedHandler}
+                ></input>
+                <button type="button" onClick={this.fileUploadHandler}>
+                  Upload
+                </button>
+                <p>Image preview</p>
 
-              {!this.state.changePreviewImg ? (
-                <img src={this.props.donationList.image} />
-              ) : (
-                <img src={this.state.imageUploaded} />
-              )}
-            </form>
+                {!this.state.changePreviewImg ? (
+                  <div className="edit-modal__preview-image-box">
+                    <img
+                      className="edit-modal__preview-image"
+                      src={this.props.donationList.image}
+                    />
+                  </div>
+                ) : (
+                  <div>
+                    <img
+                      className="edit-modal__preview-image edit-modal__preview-upload "
+                      src={this.state.imageUploaded}
+                    />
+                  </div>
+                )}
+                <div className="edit-modal__button">
+                  <button onClick={this.handleCancel}>Cancel</button>
+                  <button>Update</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

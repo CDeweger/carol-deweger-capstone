@@ -9,36 +9,36 @@ const ShelterCard = (props) => {
   }
   console.log(props);
   return (
-    <div className="FirstNationCard">
-      <div className="FirstNationCard__img-box">
+    <div className="firstNationCard">
+      <div className="firstNationCard__img-box">
         <img
-          className="FirstNationCard__img-box--img"
+          className="firstNationCard__img-box--img"
           src={props.shelterList.image}
           alt={props.shelterList.program_name}
         />
       </div>
-      <div className="FirstNationCard__info">
+      <div className="firstNationCard__info">
         <h2>{props.shelterList.program_name}</h2>
         <p>Location:{props.shelterList.location}</p>
         <p>{props.shelterList.description}</p>
-        <p className="FirstNationCard__info--need">
+        <p className="firstNationCard__info--need">
           Donations in need:
           {props.shelterList.donations.map((donation) => {
             if (donation.status === "In Need") {
               return (
-                <span className="FirstNationCard__donation-tag--in-need">
+                <span className="firstNationCard__donation-tag--in-need">
                   {donation.itemName}
                 </span>
               );
             }
           })}
         </p>
-        <p className="FirstNationCard__info--surplus">
+        <p className="firstNationCard__info--surplus">
           Surplus donations:
           {props.shelterList.donations.map((donation) => {
             if (donation.status === "Surplus") {
               return (
-                <span className="FirstNationCard__donation-tag--surplus">
+                <span className="firstNationCard__donation-tag--surplus">
                   {donation.itemName}
                 </span>
               );

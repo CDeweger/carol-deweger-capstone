@@ -1,0 +1,28 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.detailPage {
+  &__info {
+    @include flex(_, center, column);
+  }
+
+  &__heading {
+    width: 90vw;
+    margin: auto;
+    text-align: center;
+  }
+
+  &__image {
+    width: 50vw;
+    border-radius: 5px;
+    margin-top: 4rem;
+    @include img-card;
+  }
+  &__details {
+    margin-top: 3rem;
+    width: 50vw;
+  }
+}

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./DetailPage.scss";
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 class DetailPage extends Component {
@@ -32,12 +34,19 @@ class DetailPage extends Component {
     }
     console.log(this.state.targetOrganization);
     return (
-      <div>
-        <div>
-          <h1>{this.state.targetOrganization.program_name}</h1>
-          <img src={this.state.targetOrganization.image} />
-          <p>{this.state.targetOrganization.description}</p>
-          <p>{this.state.targetOrganization.location}</p>
+      <div className="detailPage">
+        <div className="detailPage__info">
+          <h1 className="detailPage__heading">
+            {this.state.targetOrganization.program_name}
+          </h1>
+          <img
+            className="detailPage__image"
+            src={this.state.targetOrganization.image}
+          />
+          <p className="detailPage__details">
+            {this.state.targetOrganization.description}
+          </p>
+          <p>Location: {this.state.targetOrganization.location}</p>
           <p>{this.state.targetOrganization.website}</p>
         </div>
         <div>

@@ -8,28 +8,29 @@ const FeaturedNPO = (props) => {
   const randomNum = Math.floor(Math.random() * props.organizationList.length);
 
   return (
-    <div className="FeaturedNPO">
-      <div className="FeaturedNPO__info">
+    <div className="featuredNPO">
+      <div className="featuredNPO__info">
         <h1>{props.organizationList[randomNum].program_name}</h1>
         <p>
-          Program type:
+          Program type:&nbsp;
           {props.organizationList[randomNum].program_type}
         </p>
         <p>{props.organizationList[randomNum].description}</p>
-        <p>Location:{props.organizationList[randomNum].location}</p>
-
-        <Link
-          className="button"
-          to={{
-            pathname: `organization/${props.organizationList[randomNum].id}`,
-          }}
-        >
-          Learn More
-        </Link>
+        <p>Location:&nbsp;{props.organizationList[randomNum].location}</p>
+        <div className="featuredNPO__link-container">
+          <Link
+            className="button featuredNPO__learn-more-button "
+            to={{
+              pathname: `organization/${props.organizationList[randomNum].id}`,
+            }}
+          >
+            Learn More
+          </Link>
+        </div>
       </div>
-      <div className="FeaturedNPO__img-box">
+      <div className="featuredNPO__img-box">
         <img
-          className="FeaturedNPO__img-box--img"
+          className="featuredNPO__img-box--img"
           src={props.organizationList[randomNum].image}
         />
       </div>

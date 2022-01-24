@@ -5,7 +5,7 @@
 @use "../../styles/partials/typography" as *;
 
 .loginPage {
-  //border: solid 1px black;
+  margin-top: 2rem;
   width: 20rem;
   margin: auto;
   color: white;
@@ -22,10 +22,24 @@
 }
 
 .loginPage-button {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  @include flex(space-between, _, _);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  @include flex(space-between, center, _);
+
+  &__login {
+    border: white 2px solid;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1.5rem;
+
+    &:hover {
+      border: $primary-green 2px solid;
+      color: $primary-green;
+    }
+  }
   &__signup {
+    @include font-regular;
     &:link {
       color: white;
     }

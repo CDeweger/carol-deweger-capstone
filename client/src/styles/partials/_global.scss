@@ -1,10 +1,22 @@
+@use "./mixins" as *;
+@use "./colors" as *;
+
 a {
   text-decoration: none;
+  @include font-regular;
 }
+// a:hover {
+//   color: $primary-green;
+// }
 
 ul {
   list-style-type: none;
 }
+
+li {
+  @include font-regular;
+}
+
 :visited {
   color: black;
 }
@@ -14,7 +26,17 @@ ul {
   color: white;
   border: none;
   padding: 0.7rem 2rem;
+  //@include font-regular;
+
   :visited {
     color: white;
   }
+  :hover {
+    color: $primary-green;
+  }
+}
+
+p,
+label {
+  @include font-regular;
 }

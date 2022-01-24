@@ -19,11 +19,25 @@
   }
 }
 
+//flex box
+
 @mixin flex($justify-content, $align-items, $flex-direction) {
   display: flex;
   justify-content: $justify-content;
   align-items: $align-items;
   flex-direction: $flex-direction;
+}
+
+//fonts
+
+@mixin font-regular {
+  font-family: "TitilliumWeb";
+  font-weight: 300;
+}
+
+@mixin font-bold {
+  font-family: "TitilliumWeb";
+  font-weight: 600;
 }
 
 @mixin img-card {

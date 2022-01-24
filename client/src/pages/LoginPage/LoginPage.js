@@ -66,7 +66,7 @@ class LoginPage extends Component {
               <input type="password" name="password" />
             </div>
             <div className="loginPage-button">
-              <button className="btn btn-primary" type="submit">
+              <button className="loginPage-button__login" type="submit">
                 Login
               </button>
               <Link className="loginPage-button__signup" to={"/signup"}>

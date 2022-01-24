@@ -1,5 +1,7 @@
 [
   {
+    "username": "test@test.com",
+    "password": "test",
     "program_type": "First Nation",
     "id": "fn1",
     "program_name": "Vancouver Aboriginal Friendship Centre Society",
@@ -9,18 +11,25 @@
     "donations": [
       {
         "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
+        "date": 1642824889034,
+        "organizationID": "fn1",
         "itemName": "Soup",
         "information": "Irure in ut incididunt commodo excepteur nostrud duis sunt culpa minim mollit ipsum pariatur.",
         "status": "In Need"
       },
       {
         "id": "c48e0d36-9a48-4ad5-8072-d60f2fd9d235",
+        "date": 1642982769484,
+        "organizationID": "fn1",
         "itemName": "Baby formula",
         "information": "Irure in ut incididunt commodo excepteur nostrud duis sunt culpa minim mollit ipsum pariatur.",
-        "status": "In Need"
+        "status": "In Need",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642982760/cmqlgzhwnj8gyqowxxs1.jpg"
       },
       {
         "id": "c48e0d36-9a48-4ad5-8072-d60f2fd9d235",
+        "date": 1642824889034,
+        "organizationID": "fn1",
         "itemName": "Rice 10lb",
         "information": "Irure in ut incididunt commodo excepteur nostrud duis sunt culpa minim mollit ipsum pariatur.",
         "status": "Surplus"
