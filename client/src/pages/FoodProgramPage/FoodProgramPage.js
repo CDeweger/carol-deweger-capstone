@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import FoodProgramCard from "../../components/FoodProgramCard/FoodProgramCard";
-// import "./FirstNationPage.scss";
-
+import "./FoodProgramPage.scss";
 const API_URL = process.env.REACT_APP_API_URL;
 
 class FoodProgramPage extends Component {

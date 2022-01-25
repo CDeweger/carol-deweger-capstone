@@ -66,3 +66,7 @@ input,
 select {
   @include input;
 }
+
+nav {
+  cursor: pointer;
+}

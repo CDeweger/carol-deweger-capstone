@@ -5,6 +5,7 @@
 @use "../../styles/partials/typography" as *;
 
 .donation-page {
+  margin-top: 13rem;
   &__profile {
     @include flex(center, center, _);
     width: 80vw;

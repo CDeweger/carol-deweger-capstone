@@ -7,6 +7,8 @@
 .header-title {
   margin: auto;
   width: 50%;
+  margin-top: 1.2rem;
+  margin-bottom: -1.5rem;
   text-align: center;
 }
 .header-link {
@@ -15,7 +17,17 @@
   }
 }
 
+.header-hover {
+  &:hover {
+    color: $primary-green;
+  }
+}
+
 .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
   &__nav {
     margin-top: 3rem;
     // margin-bottom: 2rem;
@@ -24,7 +36,8 @@
     @include flex(center, _, _);
     list-style-type: none;
     padding-left: 0;
-    margin-bottom: 6rem;
+    margin-top: 0;
+    //margin-bottom: 6rem;
 
     &--item {
       margin-left: 2rem;
@@ -32,6 +45,7 @@
       display: inline-block;
       position: relative;
       &:hover {
+        color: $mint-blue;
         .nav__submenu {
           display: block;
           width: 15rem;

@@ -272,5 +272,45 @@
     "description": "Snacks 24/7; Meal Daily 8-9 pm. Intake process to become a client.",
     "donations": [],
     "website": "https://www.directionsyouthservices.ca/"
+  },
+  {
+    "username": "sample@sample.com",
+    "password": "sss",
+    "program_type": "Free/Low Cost Food Program",
+    "id": "39bd1117-323d-43cd-a757-fa9a6a574689",
+    "program_name": "NightShift Street Ministries",
+    "location": "Surrey",
+    "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643103687/mgkqelq1gytcy8hg8jor.jpg",
+    "description": "A registered not-for-profit society, NightShift today has a volunteer base of more than 2,500 individuals, including community groups and church teams. Nightly outreach happens 365 days a year outside our offices on King George Boulevard. We offer meals, clothing, crisis counselling, basic nursing, a mobile library, prayer and loving community contact. The continuum of care includes ongoing, registered Christian counselling with sliding-scale fees, men’s and women’s support groups, Bible studies, extreme weather response, a clothing ministry (Sisters Thrift Boutique) and much more.",
+    "donations": [
+      {
+        "id": "c454e113-ff99-4be4-a440-439850b4a5ae",
+        "date": 1643104301692,
+        "organizationID": "39bd1117-323d-43cd-a757-fa9a6a574689",
+        "itemName": "Tooth paste",
+        "information": "We currently have 100 surplus tooth paste donations that we like to share with any organization that needs it. Please contact us at 604-123-4567 before coming to pick up. Thank you.",
+        "status": "Surplus",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643104299/qjspmgovkguexcus1jw1.jpg"
+      },
+      {
+        "id": "8ee29946-c718-4737-ab9b-278bcc3ff6a9",
+        "date": 1643104095280,
+        "organizationID": "39bd1117-323d-43cd-a757-fa9a6a574689",
+        "itemName": "Clothes",
+        "information": "We are always grateful for donations of lightly used men’s and women’s jeans, hoodies, jackets, new underwear and socks, tops and shoes. ",
+        "status": "In Need",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643104088/o7vde1x1rcjjyguwl5l6.jpg"
+      },
+      {
+        "id": "e9fd970b-b004-4620-b0e2-789ed88b2152",
+        "date": 1643103880097,
+        "organizationID": "39bd1117-323d-43cd-a757-fa9a6a574689",
+        "itemName": "Blankets",
+        "information": "NightShift accepts and manages blankets on behalf of people in need. Please feel free to drop off clean, bagged clothes at our location on weekdays, Monday-Friday, between 9:30 am and 4:30 pm.",
+        "status": "In Need",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643103804/luyw6j9ekwja41aoflac.jpg"
+      }
+    ],
+    "website": "https://nightshiftministries.org/"
   }
 ]

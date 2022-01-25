@@ -5,7 +5,7 @@
 @use "../../styles/partials/typography" as *;
 
 .loginPage {
-  margin-top: 10rem;
+  //margin-top: 10rem;
   width: 20rem;
   margin: auto;
   color: white;
@@ -13,6 +13,7 @@
 }
 
 .loginPage-container {
+  margin-top: 13rem;
   padding: 2rem;
 }
 

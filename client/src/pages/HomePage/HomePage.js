@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import FeaturedNPO from "../../components/FeaturedNPO/FeaturedNPO";
 import NPOCategory from "../../components/NPOCategory/NPOCategory";
-
+import About from "../../components/About/About";
 const API_URL = process.env.REACT_APP_API_URL;
 
 class HomePage extends Component {
@@ -36,6 +36,7 @@ class HomePage extends Component {
       <div>
         <FeaturedNPO organizationList={this.state.organizationList} />
         <NPOCategory />
+        <About />
       </div>
     );
   }

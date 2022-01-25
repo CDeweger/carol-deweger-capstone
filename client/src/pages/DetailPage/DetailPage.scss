@@ -5,6 +5,7 @@
 @use "../../styles/partials/typography" as *;
 
 .detailPage {
+  margin-top: 13rem;
   &__info {
     @include flex(_, center, column);
   }

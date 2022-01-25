@@ -5,10 +5,8 @@
 @use "../../styles/partials/typography" as *;
 
 .featuredNPO {
-  // @include flex(space-evenly, center, _);
   @include flex(center, center, _);
-
-  padding: 2rem;
+  margin-top: 12rem;
   &__info {
     width: 40vw;
     margin-right: 4rem;

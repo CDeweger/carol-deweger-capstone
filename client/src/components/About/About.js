@@ -1,10 +1,11 @@
 import React from "react";
+import "./About.scss";
 
 const About = () => {
   return (
-    <div>
-      <h1>About Donation Hub</h1>
-      <p>
+    <div id="about" className="about">
+      <h1 className="about__heading">About Donation Hub</h1>
+      <p className="about__description">
         Donation Hub is a platform to bring different non-profits organizations
         and donors together. It is a common issue that donations are not
         efficiently distributed and used. On Donation Hub, all different
@@ -20,4 +21,3 @@ const About = () => {
 };
 
 export default About;
-<h1>About Donation Hub</h1>;
