@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./DetailPage.scss";
+import linkIcon from "../../assets/icons/external-link-icon.png";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -43,11 +44,21 @@ class DetailPage extends Component {
             className="detailPage__image"
             src={this.state.targetOrganization.image}
           />
+          <div className="detailPage__location-website">
+            <p className="detailPage__location-website--location">
+              Location: {this.state.targetOrganization.location}
+            </p>
+            <a
+              className="detailPage__location-website--website"
+              href={this.state.targetOrganization.website}
+            >
+              Website
+              <img src={linkIcon} className="detailPage__external-link" />
+            </a>
+          </div>
           <p className="detailPage__details">
             {this.state.targetOrganization.description}
           </p>
-          <p>Location: {this.state.targetOrganization.location}</p>
-          <p>{this.state.targetOrganization.website}</p>
         </div>
         <div className="detailPage-card">
           {this.state.targetOrganization.donations.map((donation) => {
@@ -60,17 +71,27 @@ class DetailPage extends Component {
                   />
                 </div>
                 <div className="detailPage-card__info-body">
+                  {/* <div className="detailPage-card__date-item"> */}
+                  <h2 className="detailPage-card__item">{donation.itemName}</h2>
+
+                  {/* </div> */}
                   <div className="detailPage-card__date-item">
-                    <h2 className="detailPage-card__item">
-                      {donation.itemName}
-                    </h2>
+                    {/* <p className="detailPage-card__status">{donation.status}</p> */}
+                    {donation.status === "In Need" ? (
+                      <span className="detailPage-card__status-in-need">
+                        In Need
+                      </span>
+                    ) : (
+                      <span className="detailPage-card__status-surplus">
+                        Surplus
+                      </span>
+                    )}
                     <p className="detailPage-card__date">
                       {" "}
                       Posted date:
                       {new Date(donation.date).toLocaleDateString()}
                     </p>
                   </div>
-                  <p className="detailPage-card__status">{donation.status}</p>
                   <p className="detailPage-card__info">
                     {donation.information}
                   </p>

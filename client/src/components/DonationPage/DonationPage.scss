@@ -7,7 +7,7 @@
 .donation-page {
   &__profile {
     @include flex(center, center, _);
-    width: 90vw;
+    width: 80vw;
     margin: auto;
   }
   &__img-box {
@@ -46,7 +46,7 @@
   }
   &__status-select {
     @include input;
-    height: 1.65rem;
+    height: 1.9rem;
   }
   &__image-upload {
     @include flex(space-between, center, _);
@@ -62,6 +62,9 @@
     color: $primary-green;
     margin-top: 1rem;
   }
+  // &__preview-title {
+  //   color: $mint-blue;
+  // }
   &__preview-image-box {
     height: 30vh;
   }
@@ -107,11 +110,16 @@
     @include flex(flex-end, _, _);
   }
   &__edit-link {
-    color: black;
+    color: $mint-blue;
     border-bottom: 2px solid black;
     margin-right: 1rem;
+
+    &:visited {
+      color: $mint-blue;
+    }
     &:hover {
       transform: scale(1.2);
+
       // color: $primary-green;
       // border-bottom: 2px solid $primary-green;
     }

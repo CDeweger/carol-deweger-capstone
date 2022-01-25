@@ -64,23 +64,25 @@ class DonationCard extends Component {
               />
             </div>
             <div className="donationList-card__info-box">
-              <div className="donationList-card__item-date">
+              <div>
                 <h2 className="donationList-card__item">
                   {this.props.donationList.itemName}
                 </h2>
+              </div>
+              <div className="donationList-card__status-date">
+                <p>
+                  Status:{" "}
+                  {this.props.donationList.status === "In Need" ? (
+                    <span className="donationList-card__in-need">In Need</span>
+                  ) : (
+                    <span className="donationList-card__surplus">Surplus</span>
+                  )}
+                </p>
                 <p className="donationList-card__date">
                   Posted:{" "}
                   {new Date(this.props.donationList.date).toLocaleDateString()}
                 </p>
               </div>
-              <p>
-                Status:{" "}
-                {this.props.donationList.status === "In Need" ? (
-                  <span className="donationList-card__in-need">In Need</span>
-                ) : (
-                  <span className="donationList-card__surplus">Surplus</span>
-                )}
-              </p>
               <p>{this.props.donationList.information}</p>
               <div className="donationList-card__buttons">
                 <button

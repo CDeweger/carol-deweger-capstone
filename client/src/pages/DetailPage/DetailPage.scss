@@ -22,13 +22,29 @@
     @include img-card;
   }
   &__details {
-    margin-top: 3rem;
+    margin-top: 1rem;
     width: 38vw;
+  }
+  &__location-website {
+    @include flex(space-between, center, _);
+    width: 38vw;
+    margin: auto;
+    margin-top: 1rem;
+    // &--location {
+    //   width: 30%;
+    // }
+    &--website {
+      margin-top: 0;
+    }
+  }
+  &__external-link {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 
 .detailPage-card {
-  border: red 1px solid;
+  //border: red 1px solid;
   width: 80vw;
   margin: auto;
   @include flex(space-evenly, _, _);
@@ -58,6 +74,14 @@
   }
   &__item {
     margin: 0;
+  }
+  &__status-in-need {
+    @include in-need;
+    @include font-regular;
+  }
+  &__status-surplus {
+    @include surplus;
+    @include font-regular;
   }
   &__info-body {
     width: 60%;

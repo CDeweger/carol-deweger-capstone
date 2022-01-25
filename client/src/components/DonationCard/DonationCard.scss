@@ -5,7 +5,7 @@
 @use "../../styles/partials/typography" as *;
 
 .donationList-card {
-  //width: 20rem;
+  width: 40%;
   border: black 2px solid;
   border-radius: 15px;
   margin: 1rem;
@@ -63,14 +63,14 @@
     width: 20rem;
     margin-left: 1rem;
   }
-  &__item-date {
+  &__status-date {
     @include flex(space-between, center, _);
   }
   &__item {
     margin-bottom: 0;
   }
   &__date {
-    margin-bottom: 0;
-    font-size: 0.75rem;
+    // margin-bottom: 0;
+    font-size: 0.9rem;
   }
 }

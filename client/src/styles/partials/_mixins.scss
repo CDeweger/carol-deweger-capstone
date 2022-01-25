@@ -81,10 +81,32 @@
   }
 }
 
+@mixin cancel-button {
+  background-color: white;
+  color: black;
+  border: black 1px solid;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+}
+
 //for input fields
 @mixin input {
-  height: 1.2rem;
+  height: 1.5rem;
   border: 2px solid black;
   border-radius: 5px;
   margin-top: 0.5rem;
+}
+
+@mixin in-need {
+  color: red;
+  background-color: pink;
+  padding: 0.2rem 0.8rem;
+  border-radius: 10px;
+}
+
+@mixin surplus {
+  color: green;
+  background-color: #d0f0c0;
+  padding: 0.2rem 0.8rem;
+  border-radius: 10px;
 }

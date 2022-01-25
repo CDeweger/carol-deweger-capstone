@@ -17,7 +17,7 @@
     width: 70vw;
     height: 75vh;
     margin: auto;
-    margin-top: 8rem;
+    margin-top: 5rem;
     border-radius: 10px;
   }
   &__inner-container {
@@ -27,16 +27,26 @@
     // height: 65vh;
     object-fit: contain;
   }
-  &__content-container {
-    width: 100%;
-    height: 65vh;
+
+  &__heading {
+    margin-top: 0;
   }
   &__item-status {
     @include flex(space-between, _, _);
   }
-  &__item,
+  &__item {
+    width: 48%;
+  }
+
   &__status {
-    width: 45%;
+    width: 48%;
+    &--select {
+      height: 1.9rem;
+    }
+  }
+  &__image-upload {
+    margin-top: 1rem;
+    @include flex(space-between, center, _);
   }
   &__choose-image {
     border-bottom: 2px solid black;
@@ -50,6 +60,14 @@
   //   width: 40vw;
   //   height: 10vw;
   // }
+
+  &__preview-info {
+    @include flex(space-between, flex-start, _);
+    margin-top: 2rem;
+  }
+  &__preview-label {
+    margin-top: 0;
+  }
   &__preview-image {
     height: 15vw;
     width: auto;
@@ -57,12 +75,27 @@
     @include img-card //object-fit: contain;
 ;
   }
+  &__upload-button {
+    @include button;
+  }
+  &__more-info {
+    width: 48%;
+    &--input {
+      height: 14rem;
+    }
+  }
   // &__preview-upload {
   //   width: 40vw;
   //   height: 10vw;
   // }
-  &__button {
+  &__buttons {
     margin-top: 2rem;
     @include flex(space-between, _, _);
+    &--cancel {
+      @include cancel-button;
+    }
+    &--update {
+      @include button;
+    }
   }
 }

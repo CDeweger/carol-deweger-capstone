@@ -40,20 +40,23 @@ class DonationPage extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post(postDonationURL, {
-        organizationID: this.state.currUser.id,
-        item: e.target.item.value,
-        status: e.target.status.value,
-        info: e.target.info.value,
-        image: this.state.imageUploaded,
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => console.log(err));
-    e.target.reset();
-    document.location.reload(true);
+
+    if (e.target.item.value && e.target.status.value && e.target.info.value) {
+      axios
+        .post(postDonationURL, {
+          organizationID: this.state.currUser.id,
+          item: e.target.item.value,
+          status: e.target.status.value,
+          info: e.target.info.value,
+          image: this.state.imageUploaded,
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => console.log(err));
+      e.target.reset();
+      document.location.reload(true);
+    } else alert("Please fill up all the fields");
   };
 
   fileSelectedHandler = (e) => {
@@ -131,9 +134,9 @@ class DonationPage extends Component {
                     className="donation-page__status-select"
                     name="status"
                   >
-                    <option disabled selected>
+                    {/* <option disabled selected>
                       Please select
-                    </option>
+                    </option> */}
                     <option>In Need</option>
                     <option>Surplus</option>
                   </select>
@@ -171,7 +174,7 @@ class DonationPage extends Component {
                   </button>
                 </div>
 
-                <p>Image preview:</p>
+                <p className="donation-page__preview-title">Image preview:</p>
                 {!this.state.imageUploaded ? null : (
                   // <img src={this.state.currUser.image} />
                   <div className="donation-page__preview-image-box">

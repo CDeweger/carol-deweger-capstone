@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import linkIcon from "../../assets/icons/external-link-icon.png";
 
 import "./FirstNationCard.scss";
 
@@ -54,8 +55,13 @@ const FirstNationCard = (props) => {
           >
             Learn More
           </Link>
-          <a target="_blank" href={props.firstNationList.website}>
+          <a
+            className="firstNationCard__links--website"
+            target="_blank"
+            href={props.firstNationList.website}
+          >
             Website
+            <img className="firstNationCard__links--icon" src={linkIcon} />
           </a>
         </div>
       </div>

@@ -14,7 +14,7 @@ class EditOrganization extends Component {
     axios
       .get(`${API_URL}organization/${id}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({
           targetOrganization: res.data,
         });
@@ -72,7 +72,7 @@ class EditOrganization extends Component {
     this.props.history.goBack();
   };
   render() {
-    console.log(this.state.targetOrganization);
+    // console.log(this.state.targetOrganization);
     if (!this.state.targetOrganization) {
       return null;
     }
@@ -89,17 +89,19 @@ class EditOrganization extends Component {
               <p>Image preview</p>
 
               {!this.state.changePreviewImg ? (
-                <div>
+                <div className="edit-profile__image-box">
                   <img
                     className="edit-profile__image"
                     src={this.state.targetOrganization.image}
                   />
                 </div>
               ) : (
-                <img
-                  className="edit-profile__image"
-                  src={this.state.imageUploaded}
-                />
+                <div className="edit-profile__image-box">
+                  <img
+                    className="edit-profile__image"
+                    src={this.state.imageUploaded}
+                  />
+                </div>
               )}
               <div className="edit-profile__image-upload">
                 <div className="">
@@ -128,19 +130,25 @@ class EditOrganization extends Component {
               </div>
             </div>
             <div className="edit-profile-body__info">
-              <label htmlFor="location">Location</label>
+              <label htmlFor="location" className="edit-profile-body__label">
+                Location:
+              </label>
               <input
                 className="edit-profile-body__input"
                 name="location"
                 defaultValue={this.state.targetOrganization.location}
               ></input>
-              <label htmlFor="website">Website</label>
+              <label htmlFor="website" className="edit-profile-body__label">
+                Website:
+              </label>
               <input
                 className="edit-profile-body__input  "
                 defaultValue={this.state.targetOrganization.website}
                 name="website"
               ></input>
-              <label htmlFor="description">Description</label>
+              <label htmlFor="description" className="edit-profile-body__label">
+                Description:
+              </label>
               <textarea
                 name="description"
                 rows="10"

@@ -15,8 +15,15 @@
     margin: auto;
     text-align: center;
   }
-  &__image {
+  &__image-box {
+    height: 40vh;
     width: 40vw;
+    @include img-card;
+  }
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
     border-radius: 10px;
     @include img-card;
   }
@@ -72,5 +79,8 @@
     &--des {
       height: 10rem;
     }
+  }
+  &__label {
+    margin-top: 1rem;
   }
 }

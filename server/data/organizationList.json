@@ -10,22 +10,49 @@
     "description": "A sewing club and community garden for elders, sports programs like a basketball league for youth and recreational soccer for adults, pre-employment assistance, support groups for Indigenous parents, a mat and blanket shelter, and more ",
     "donations": [
       {
-        "id": "20b592bc-5b03-4118-a701-5fd5b01344f2",
-        "date": 1643056142633,
+        "id": "5e761d7a-d388-4ae1-8837-b9c5b155dbba",
+        "date": 1643094442422,
         "organizationID": "fn1",
-        "itemName": "some food item",
-        "information": "nodemon] restarting due to changes...\n[nodemon] starting `node server.js`\n🚀 Server listening on 8080\nauthorize middleware :: JWT verification\nauthorize middleware :: JWT verification",
-        "status": "Please select",
-        "image": "https://ecowaterqa.vtexassets.com/arquivos/ids/156130-800-auto?width=800&height=auto&aspect=true"
+        "itemName": "Rice 10lb x 10",
+        "information": "We currently have 20 bags of 10lb rice surplus donations that we like to share with any organization that needs it. Please contact us at 604-123-4567 before coming to pick up. Thank you.",
+        "status": "Surplus",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643094185/c7biduzyff6llcmkdhjc.jpg"
+      },
+      {
+        "id": "734abd05-8bd7-4722-b71b-5e69df94373a",
+        "date": 1643074069424,
+        "organizationID": "fn1",
+        "itemName": "Man's winter socks",
+        "information": "We recently received a very generous donation of 500 pairs of man's winter socks. We would like to share with any organization that needs it. Please contact us at 604-123-4567 before coming to pick up. Thank you.",
+        "status": "Surplus",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643073923/ku6ivsm5gehppj3whnld.jpg"
+      },
+      {
+        "id": "e476bba2-2e90-45a5-a62b-20138958dbb5",
+        "date": 1643072541577,
+        "organizationID": "fn1",
+        "itemName": "Sleeping bag",
+        "information": "We accept and manage clothes and blankets on behalf of people in need. Please feel free to drop off clean, bagged clothes at our location on weekdays, Monday-Friday, between 9:30 am and 4:30 pm.",
+        "status": "In Need",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643072373/eneiuhffllk6afekb0vk.png"
+      },
+      {
+        "id": "04ba853c-184d-49be-9007-2c71418e8e6f",
+        "date": 1643072680314,
+        "organizationID": "fn1",
+        "itemName": "Canned food",
+        "information": "For our dinner service our food needs are very specific and we are conscious of other groups in the community who rely on donations. So what we don’t use for our nightly outreach we donate to the Surrey Food Bank or recovery homes with whom we partner.",
+        "status": "In Need",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643072676/hxbx62ggxtbjce3xjthc.jpg"
       },
       {
         "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
-        "date": 1642992300337,
+        "date": 1643073811446,
         "organizationID": "fn1",
-        "itemName": "Soup",
-        "information": "Irure in ut incididunt commodo excepteur nostrud duis sunt culpa minim mollit ipsum pariatur.",
+        "itemName": "Bar soap",
+        "information": "We currently have 200 surplus bar soap donations that\nwe like to share with any organization that needs it.\nPlease contact us at 604-123-4567 before coming to pick up. Thank you.\n ",
         "status": "Surplus",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642992287/wkm8mflwk96ni6m6fq34.jpg"
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643072860/lbqyvlpdyc8royso0eo1.jpg"
       }
     ],
     "website": "http://vafcs.org"
@@ -107,7 +134,53 @@
     "location": "Downtown Vancouver",
     "image": "http://belkinhouse.ca/wp-content/uploads/2016/06/belkin-front.jpg",
     "description": "Homeless shelter for adults (all genders)",
-    "donations": [],
+    "donations": [
+      {
+        "id": "5e761d7a-d388-4ae1-8837-b9c5b155dbba",
+        "date": 1643094442422,
+        "organizationID": "69859ab824590f9c8bed89ee7d833c074350dffb",
+        "itemName": "Rice 10lb x 10",
+        "information": "We currently have 20 bags of 10lb rice surplus donations that we like to share with any organization that needs it. Please contact us at 604-123-4567 before coming to pick up. Thank you.",
+        "status": "Surplus",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643094185/c7biduzyff6llcmkdhjc.jpg"
+      },
+      {
+        "id": "734abd05-8bd7-4722-b71b-5e69df94373a",
+        "date": 1643074069424,
+        "organizationID": "69859ab824590f9c8bed89ee7d833c074350dffb",
+        "itemName": "Man's winter socks",
+        "information": "We recently received a very generous donation of 500 pairs of man's winter socks. We would like to share with any organization that needs it. Please contact us at 604-123-4567 before coming to pick up. Thank you.",
+        "status": "Surplus",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643073923/ku6ivsm5gehppj3whnld.jpg"
+      },
+      {
+        "id": "e476bba2-2e90-45a5-a62b-20138958dbb5",
+        "date": 1643072541577,
+        "organizationID": "69859ab824590f9c8bed89ee7d833c074350dffb",
+        "itemName": "Sleeping bag",
+        "information": "We accept and manage clothes and blankets on behalf of people in need. Please feel free to drop off clean, bagged clothes at our location on weekdays, Monday-Friday, between 9:30 am and 4:30 pm.",
+        "status": "In Need",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643072373/eneiuhffllk6afekb0vk.png"
+      },
+      {
+        "id": "04ba853c-184d-49be-9007-2c71418e8e6f",
+        "date": 1643072680314,
+        "organizationID": "69859ab824590f9c8bed89ee7d833c074350dffb",
+        "itemName": "Canned food",
+        "information": "For our dinner service our food needs are very specific and we are conscious of other groups in the community who rely on donations. So what we don’t use for our nightly outreach we donate to the Surrey Food Bank or recovery homes with whom we partner.",
+        "status": "In Need",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643072676/hxbx62ggxtbjce3xjthc.jpg"
+      },
+      {
+        "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
+        "date": 1643073811446,
+        "organizationID": "69859ab824590f9c8bed89ee7d833c074350dffb",
+        "itemName": "Bar soap",
+        "information": "We currently have 200 surplus bar soap donations that\nwe like to share with any organization that needs it.\nPlease contact us at 604-123-4567 before coming to pick up. Thank you.\n ",
+        "status": "Surplus",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643072860/lbqyvlpdyc8royso0eo1.jpg"
+      }
+    ],
     "website": "https://belkinhousesa.ca/"
   },
   {
@@ -199,122 +272,5 @@
     "description": "Snacks 24/7; Meal Daily 8-9 pm. Intake process to become a client.",
     "donations": [],
     "website": "https://www.directionsyouthservices.ca/"
-  },
-  {
-    "username": "chongmadeinkr@gmail.com",
-    "password": "aaa",
-    "program_type": "First Nation",
-    "id": "a9b7f5a2-f121-4cc4-83e3-a41252bda6a4",
-    "program_name": "Carol DeWeger",
-    "location": "Vancouveraaa",
-    "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643003101/ofqoahkzudf2kpszxnvx.jpg",
-    "description": "helloaaa",
-    "donations": [
-      {
-        "id": "3f000ce0-d8ed-4adb-a157-850d5138e2a5",
-        "date": 1643011530134,
-        "organizationID": "a9b7f5a2-f121-4cc4-83e3-a41252bda6a4",
-        "itemName": "some food item",
-        "information": "we need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfood",
-        "status": "Surplus",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643011516/am2w1vc9jsslpmjbrknx.png"
-      },
-      {
-        "id": "924ffde9-74f5-47c6-b970-9e5d6b8cfc1c",
-        "date": 1643014003480,
-        "organizationID": "a9b7f5a2-f121-4cc4-83e3-a41252bda6a4",
-        "itemName": "some food item",
-        "information": "thank you",
-        "status": "Surplus",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643008822/wsiw5r44egteo9mvvpjx.jpg"
-      },
-      {
-        "id": "cd562b50-9723-4660-bcc3-54fc576a6054",
-        "date": 1643007217458,
-        "organizationID": "a9b7f5a2-f121-4cc4-83e3-a41252bda6a4",
-        "itemName": "can food",
-        "information": "we need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfoodwe need canfood",
-        "status": "In Need",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642972724/hjkqbhcpjnbmbri0sfm6.jpg"
-      },
-      {
-        "id": "b5a40bc2-718d-48d9-85af-3eb278e33317",
-        "date": 1642972813103,
-        "organizationID": "a9b7f5a2-f121-4cc4-83e3-a41252bda6a4",
-        "itemName": "soup",
-        "information": "thank you",
-        "status": "In Need",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642972809/o5qb4ghp8nucebbwtywy.jpg"
-      }
-    ],
-    "website": "http://localhost:3000/testaaa"
-  },
-  {
-    "username": "ddd@ddd.com",
-    "password": "ddd",
-    "program_type": "First Nation",
-    "id": "5da231a0-471a-4483-89ac-058cc156adbd",
-    "program_name": "ddd",
-    "location": "Vancouver",
-    "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642819019/i9uilnhvbozlzxhdkeah.jpg",
-    "description": "ddddffff",
-    "donations": [],
-    "website": "http://localhost:3000/test"
-  },
-  {
-    "username": "hhh@hhh.com",
-    "password": "hhh",
-    "program_type": "First Nation",
-    "id": "3c626737-c155-40cf-9337-17805b5242d9",
-    "program_name": "hhh",
-    "location": "Vancouver west",
-    "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642913343/axv62cutx2y7gpktxcgs.jpg",
-    "description": "test again",
-    "donations": [
-      {
-        "id": "943b9f2a-8897-4ef6-9011-1a7c9078a6ea",
-        "date": 1642900029937,
-        "organizationID": "3c626737-c155-40cf-9337-17805b5242d9",
-        "status": "Please select",
-        "itemName": "some food item test gggg",
-        "information": "try again",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642900014/nbyq3ynwoiyh23u1lz63.png"
-      },
-      {
-        "id": "5e3fc984-cffa-4cf5-931e-70774d6a8d78",
-        "date": 1642900976407,
-        "organizationID": "3c626737-c155-40cf-9337-17805b5242d9",
-        "itemName": "some food item",
-        "information": "thank you",
-        "status": "Please select",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642900945/knj3hposqmr99ji6hqwz.jpg"
-      },
-      {
-        "id": "1e4475a5-dba9-4abf-9964-d7c34a4f9c1f",
-        "date": 1642901418378,
-        "organizationID": "3c626737-c155-40cf-9337-17805b5242d9",
-        "itemName": "some food item",
-        "information": "ggg",
-        "status": "In Need"
-      },
-      {
-        "id": "e4da09b1-c9a6-4b51-8bba-5e657ae4cb04",
-        "date": 1642901453417,
-        "organizationID": "3c626737-c155-40cf-9337-17805b5242d9",
-        "itemName": "some food item",
-        "information": "thank you",
-        "status": "In Need",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1642901433/hbepspjaxshegx0gj91w.jpg"
-      },
-      {
-        "id": "6d28f780-be24-4d5b-acf4-bf050832fc35",
-        "date": 1642824889034,
-        "organizationID": "3c626737-c155-40cf-9337-17805b5242d9",
-        "itemName": "can food",
-        "information": "ccc",
-        "status": "Surplus"
-      }
-    ],
-    "website": "hhh"
   }
 ]

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import linkIcon from "../../assets/icons/external-link-icon.png";
 
 // import "./FirstNationCard.scss";
 
@@ -45,18 +46,21 @@ const FoodProgramCard = (props) => {
             }
           })}
         </p>
-        <Link
-          className="button"
-          to={{
-            pathname: `first-nation/${props.foodProgramList.id}`,
-            // pathname: `/${props.foodProgramList.id}`,
-          }}
-        >
-          Learn More
-        </Link>
-        <a target="_blank" href={props.foodProgramList.website}>
-          Website
-        </a>
+        <div className="firstNationCard__links">
+          <Link
+            className="button"
+            to={{
+              pathname: `first-nation/${props.foodProgramList.id}`,
+              // pathname: `/${props.foodProgramList.id}`,
+            }}
+          >
+            Learn More
+          </Link>
+          <a target="_blank" href={props.foodProgramList.website}>
+            Website{" "}
+            <img className="firstNationCard__links--icon" src={linkIcon} />
+          </a>
+        </div>
       </div>
     </div>
   );

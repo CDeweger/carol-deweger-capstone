@@ -41,6 +41,10 @@ label {
   @include font-regular;
 }
 
+// label {
+//   color: $mint-blue;
+// }
+
 input[type="file"] {
   display: none;
 }
@@ -49,4 +53,16 @@ input[type="file"] {
   @include font-regular;
   font-size: 1rem;
   padding-left: 0.5rem;
+}
+
+textarea {
+  @include font-regular;
+  font-size: 1rem;
+  @include input;
+  height: 10rem;
+}
+
+input,
+select {
+  @include input;
 }
