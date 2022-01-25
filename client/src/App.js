@@ -11,8 +11,7 @@ import LogoutPage from "./pages/LogoutPage/LogoutPage";
 import FirstNationPage from "./pages/FirstNationPage/FirstNationPage";
 import ShelterPage from "./pages/ShelterPage/ShelterPage";
 import FoodProgramPage from "./pages/FoodProgramPage/FoodProgramPage";
-import AlexSample from "./components/AlexSample/AlexSample";
-//import OrganizationDetailPage from "./pages/OrganizationDetailPage/OrganizationDetailPage";
+import AllOrganizations from "./pages/AllOrganizations/AllOrganizations";
 import DetailPage from "./pages/DetailPage/DetailPage";
 
 const App = () => {
@@ -26,7 +25,9 @@ const App = () => {
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/profile" exact component={ProfilePage} />
           <Route path="/profile/:id/edit" exact component={EditOrganization} />
-          <Route path="/test" exact component={AlexSample} />
+
+          <Route path="/test" exact component={AllOrganizations} />
+
           <Route
             path="/login"
             exact
