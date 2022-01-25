@@ -8,6 +8,12 @@ class Submenu extends Component {
       <div className="submenu">
         <ul className="nav__submenu">
           <li className="nav__submenu-list nav__submenu-list--shelter ">
+            <Link className="submenu-hover" to={"/organization"}>
+              All Organizations
+            </Link>
+          </li>
+
+          <li className="nav__submenu-list nav__submenu-list--shelter ">
             <Link
               className="submenu-hover"
               to={"/organization/homeless-shelter"}

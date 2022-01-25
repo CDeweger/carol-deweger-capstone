@@ -26,7 +26,7 @@ const App = () => {
           <Route path="/profile" exact component={ProfilePage} />
           <Route path="/profile/:id/edit" exact component={EditOrganization} />
 
-          <Route path="/test" exact component={AllOrganizations} />
+          <Route path="/organization" exact component={AllOrganizations} />
 
           <Route
             path="/login"

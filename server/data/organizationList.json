@@ -284,6 +284,15 @@
     "description": "A registered not-for-profit society, NightShift today has a volunteer base of more than 2,500 individuals, including community groups and church teams. Nightly outreach happens 365 days a year outside our offices on King George Boulevard. We offer meals, clothing, crisis counselling, basic nursing, a mobile library, prayer and loving community contact. The continuum of care includes ongoing, registered Christian counselling with sliding-scale fees, men’s and women’s support groups, Bible studies, extreme weather response, a clothing ministry (Sisters Thrift Boutique) and much more.",
     "donations": [
       {
+        "id": "f1cdc6bb-7624-4926-9490-87b4538e6ffd",
+        "date": 1643140949653,
+        "organizationID": "39bd1117-323d-43cd-a757-fa9a6a574689",
+        "itemName": "some food item",
+        "information": "some food item thank you for your donations.",
+        "status": "In Need",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643140937/robw2xb09iwkv4h6uau8.jpg"
+      },
+      {
         "id": "c454e113-ff99-4be4-a440-439850b4a5ae",
         "date": 1643104301692,
         "organizationID": "39bd1117-323d-43cd-a757-fa9a6a574689",

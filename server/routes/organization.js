@@ -19,9 +19,30 @@ const writeFile = (organizationData) => {
 };
 
 //get all organization
+// organizationRouter.get("/", (req, res) => {
+//   let organizationData = readData();
+//   return res.status(200).send(organizationData);
+// });
+
 organizationRouter.get("/", (req, res) => {
   let organizationData = readData();
-  return res.status(200).send(organizationData);
+
+  if (!req.query.search) return res.status(200).send(organizationData);
+
+  const query = req.query.search.toLowerCase();
+  const results = organizationData.filter((organization) => {
+    if (
+      organization.program_type.toLowerCase().includes(query) ||
+      organization.program_name.toLowerCase().includes(query) ||
+      organization.location.toLowerCase().includes(query) ||
+      organization.description.toLowerCase().includes(query)
+    )
+      return organization;
+  });
+
+  res.json(results);
+
+  //return res.status(200).send(organizationData);
 });
 
 //get the single organization by Id
