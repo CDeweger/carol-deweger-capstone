@@ -8,7 +8,7 @@ const AllOrganizationsCard = (props) => {
   if (!props.allOrganizations.donations) {
     return null;
   }
-  console.log(props);
+  // console.log(props);
   return (
     <div className="firstNationCard">
       <div className="firstNationCard__img-box">

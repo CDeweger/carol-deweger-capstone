@@ -1,20 +1,25 @@
 import React from "react";
+import "./SearchBar.scss";
+import searchIcon from "../../assets/icons/search-24px.svg";
 
 const SearchBar = ({ placeholder, handleSearch }) => {
   return (
-    <div>
-      <form className="form">
-        <span className="form__icon"></span>
+    <div className="searchBar">
+      <form className="searchBar-form">
+        {/* <img className="searchBar-icon" src={searchIcon} /> */}
+        {/* <span className="form__icon"></span> */}
         <input
           type="text"
           placeholder={placeholder}
           name="search"
-          className="form__input"
+          className="searchBar-form__input"
           onChange={handleSearch}
         />
       </form>
     </div>
   );
 };
+
+// {placeholder}
 
 export default SearchBar;

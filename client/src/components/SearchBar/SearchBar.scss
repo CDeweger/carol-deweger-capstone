@@ -3,3 +3,14 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
+
+.searchBar {
+  width: 10rem;
+  margin: auto;
+  margin-bottom: 5rem;
+}
+
+// .searchBar-icon {
+//   position: relative;
+//   left: 90%;
+// }

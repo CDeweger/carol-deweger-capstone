@@ -27,10 +27,12 @@ const writeFile = (organizationData) => {
 organizationRouter.get("/", (req, res) => {
   let organizationData = readData();
 
+  //console.log(req.query.search);
+
   if (!req.query.search) return res.status(200).send(organizationData);
 
   const query = req.query.search.toLowerCase();
-  const results = organizationData.filter((organization) => {
+  const infoResults = organizationData.filter((organization) => {
     if (
       organization.program_type.toLowerCase().includes(query) ||
       organization.program_name.toLowerCase().includes(query) ||
@@ -40,7 +42,15 @@ organizationRouter.get("/", (req, res) => {
       return organization;
   });
 
-  res.json(results);
+  const donationResults = organizationData.filter((organization) => {
+    for (let i = 0; i < organization.donations.length; i++) {
+      if (organization.donations[i].itemName.toLowerCase().includes(query)) {
+        if (!infoResults.includes(organization)) return organization;
+      }
+    }
+  });
+
+  res.json(infoResults.concat(donationResults));
 
   //return res.status(200).send(organizationData);
 });
