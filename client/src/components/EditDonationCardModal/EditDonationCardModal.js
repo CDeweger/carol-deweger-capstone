@@ -134,14 +134,14 @@ class EditDonationCardModal extends Component {
                 <div>
                   <p className="edit-modal__preview-label">Image preview</p>
                   {!this.state.changePreviewImg ? (
-                    // <div className="edit-modal__preview-image-box">
-                    <img
-                      className="edit-modal__preview-image"
-                      src={this.props.donationList.image}
-                    />
+                    <div className="edit-modal__preview-image-box">
+                      <img
+                        className="edit-modal__preview-image"
+                        src={this.props.donationList.image}
+                      />
+                    </div>
                   ) : (
-                    // </div>
-                    <div>
+                    <div className="edit-modal__preview-image-box">
                       <img
                         className="edit-modal__preview-image edit-modal__preview-upload "
                         src={this.state.imageUploaded}

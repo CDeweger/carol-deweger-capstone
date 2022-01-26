@@ -16,7 +16,7 @@ class FirstNationPage extends Component {
       .then((res) => {
         this.setState({
           firstNationList: res.data.filter(
-            (type) => type.program_type === "First Nation"
+            (type) => type.program_type === "First Nations Organization"
           ),
         });
       })

@@ -29,7 +29,7 @@ class DetailPage extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.id);
+    // console.log(this.props.match.params.id);
     if (!this.state.targetOrganization) {
       return null;
     }
@@ -46,7 +46,7 @@ class DetailPage extends Component {
           />
           <div className="detailPage__location-website">
             <p className="detailPage__location-website--location">
-              Location: {this.state.targetOrganization.location}
+              <b>Location:</b> {this.state.targetOrganization.location}
             </p>
             <a
               className="detailPage__location-website--website"

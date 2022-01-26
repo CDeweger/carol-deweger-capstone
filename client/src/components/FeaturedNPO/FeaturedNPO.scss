@@ -5,11 +5,14 @@
 @use "../../styles/partials/typography" as *;
 
 .featuredNPO {
+  width: 80vw;
+  margin: auto;
+
   @include flex(center, center, _);
   margin-top: 12rem;
   &__info {
-    width: 40vw;
-    margin-right: 4rem;
+    width: 50%;
+    margin-right: 3rem;
   }
 
   &__link-container {
@@ -17,15 +20,21 @@
   }
 
   &__img-box {
-    // width: 20rem;
-    // height: 20rem;
+    width: 30rem;
+    height: 25rem;
     &--img {
-      width: 30rem;
-      height: 25rem;
+      width: 100%;
+      height: 100%;
       border-radius: 20px;
       border-color: 2px solid red;
       object-fit: cover;
       @include img-card;
+    }
+  }
+  &__learn-more-button {
+    &:hover {
+      color: $primary-green;
+      transform: scale(1.2);
     }
   }
 }

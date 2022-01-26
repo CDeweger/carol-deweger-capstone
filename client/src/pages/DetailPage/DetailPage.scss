@@ -36,6 +36,10 @@
     // }
     &--website {
       margin-top: 0;
+      &:hover {
+        color: $mint-blue;
+        transform: scale(1.1);
+      }
     }
   }
   &__external-link {

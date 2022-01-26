@@ -5,6 +5,7 @@
 @use "../../styles/partials/typography" as *;
 
 .delete-modal {
+  z-index: 2;
   position: fixed;
   left: 0;
   top: 0;

@@ -11,10 +11,23 @@
   text-align: center;
   &__category {
     margin-top: 2rem;
+    width: 60vw;
+    margin: auto;
+    @include flex(center, _, _);
+    flex-wrap: wrap;
   }
   &__button {
+    margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
     color: white;
+    &:hover {
+      color: $primary-green;
+    }
+    &--first-nation {
+      &:hover {
+        color: orange;
+      }
+    }
   }
 }

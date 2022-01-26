@@ -10,6 +10,7 @@
   margin-top: 1.2rem;
   margin-bottom: -1.5rem;
   text-align: center;
+  color: $mint-blue;
 }
 .header-link {
   &:visited {
@@ -27,6 +28,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
   background-color: white;
   &__nav {
     margin-top: 3rem;

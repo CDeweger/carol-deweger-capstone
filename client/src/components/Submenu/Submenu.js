@@ -18,17 +18,17 @@ class Submenu extends Component {
               className="submenu-hover"
               to={"/organization/homeless-shelter"}
             >
-              Homeless Shelter
+              Homeless Shelters
             </Link>
           </li>
           <li className="nav__submenu-list">
             <Link className="submenu-hover" to={"/organization/food-program"}>
-              Free & Low Cost Food Program
+              Free & Low Cost Food Programs
             </Link>
           </li>
           <li className="nav__submenu-list">
             <Link className="submenu-hover" to={"/organization/first-nation"}>
-              First Nation
+              First Nations Organizations
             </Link>
           </li>
         </ul>

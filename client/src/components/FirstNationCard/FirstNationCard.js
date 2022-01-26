@@ -20,7 +20,10 @@ const FirstNationCard = (props) => {
       </div>
       <div className="firstNationCard__info">
         <h2>{props.firstNationList.program_name}</h2>
-        <p>Location:{props.firstNationList.location}</p>
+        <p>
+          <b>Location:</b>
+          {props.firstNationList.location}
+        </p>
         <p>{props.firstNationList.description}</p>
         <p className="firstNationCard__info--need">
           Donations in need:
@@ -48,7 +51,7 @@ const FirstNationCard = (props) => {
         </p>
         <div className="firstNationCard__links">
           <Link
-            className="button"
+            className="button firstNationCard__learn-more-button"
             to={{
               pathname: `first-nation/${props.firstNationList.id}`,
             }}

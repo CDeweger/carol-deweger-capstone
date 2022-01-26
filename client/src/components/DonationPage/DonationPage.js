@@ -101,8 +101,12 @@ class DonationPage extends Component {
             </div>
             <div className="donation-page__profile-info">
               <h1>{this.state.currUser.program_name}</h1>
-              <p>Program type: {this.state.currUser.program_type}</p>
-              <p>Location: {this.state.currUser.location}</p>
+              <p>
+                <b>Program type:</b> {this.state.currUser.program_type}
+              </p>
+              <p>
+                <b>Location:</b> {this.state.currUser.location}
+              </p>
               <p>{this.state.currUser.description}</p>
               <div className="donation-page__link-box">
                 {" "}

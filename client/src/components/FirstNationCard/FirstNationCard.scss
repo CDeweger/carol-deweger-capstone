@@ -48,11 +48,21 @@
       border-radius: 5px;
     }
   }
+  &__learn-more-button {
+    &:hover {
+      color: $primary-green;
+      transform: scale(1.1);
+    }
+  }
   &__links {
     @include flex(space-between, center, _);
     margin-top: 2rem;
     &--website {
       color: black;
+      &:hover {
+        color: $mint-blue;
+        transform: scale(1.1);
+      }
     }
     &--icon {
       width: 1.5rem;

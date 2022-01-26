@@ -12,11 +12,13 @@ const FeaturedNPO = (props) => {
       <div className="featuredNPO__info">
         <h1>{props.organizationList[randomNum].program_name}</h1>
         <p>
-          Program type:&nbsp;
+          <b>Program type:</b>&nbsp;
           {props.organizationList[randomNum].program_type}
         </p>
         <p>{props.organizationList[randomNum].description}</p>
-        <p>Location:&nbsp;{props.organizationList[randomNum].location}</p>
+        <p>
+          <b>Location:</b>&nbsp;{props.organizationList[randomNum].location}
+        </p>
         <div className="featuredNPO__link-container">
           <Link
             className="button featuredNPO__learn-more-button "

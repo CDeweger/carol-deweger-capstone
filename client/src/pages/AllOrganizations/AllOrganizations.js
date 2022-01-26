@@ -92,7 +92,7 @@ class AllOrganizations extends Component {
       <div className="FirstNationPage">
         <h1 className="FirstNationPage__heading">Non-Profit Organizations</h1>
         <SearchBar
-          placeholder="Search..."
+          placeholder="Search for donations, organizations and locations..."
           handleSearch={this.handleSearchServer}
         />
         {this.state.allOrganizations.map((organization) => {

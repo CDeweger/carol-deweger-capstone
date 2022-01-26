@@ -20,7 +20,10 @@ const ShelterCard = (props) => {
       </div>
       <div className="firstNationCard__info">
         <h2>{props.shelterList.program_name}</h2>
-        <p>Location:{props.shelterList.location}</p>
+        <p>
+          <b>Location:</b>
+          {props.shelterList.location}
+        </p>
         <p>{props.shelterList.description}</p>
         <p className="firstNationCard__info--need">
           Donations in need:
@@ -48,7 +51,7 @@ const ShelterCard = (props) => {
         </p>
         <div className="firstNationCard__links">
           <Link
-            className="button "
+            className="button firstNationCard__learn-more-button"
             to={{
               pathname: `homeless-shelter/${props.shelterList.id}`,
               // pathname: `/${props.shelterList.id}`,
@@ -56,7 +59,11 @@ const ShelterCard = (props) => {
           >
             Learn More
           </Link>
-          <a target="_blank" href={props.shelterList.website}>
+          <a
+            className="firstNationCard__links--website"
+            target="_blank"
+            href={props.shelterList.website}
+          >
             Website{" "}
             <img className="firstNationCard__links--icon" src={linkIcon} />
           </a>

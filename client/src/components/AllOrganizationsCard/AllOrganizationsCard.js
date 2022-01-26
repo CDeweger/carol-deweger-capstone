@@ -20,7 +20,12 @@ const AllOrganizationsCard = (props) => {
       </div>
       <div className="firstNationCard__info">
         <h2>{props.allOrganizations.program_name}</h2>
-        <p>Location:{props.allOrganizations.location}</p>
+        <p>
+          <b>Program type:</b> {props.allOrganizations.program_type}
+        </p>
+        <p>
+          <b>Location:</b> {props.allOrganizations.location}
+        </p>
         <p>{props.allOrganizations.description}</p>
         <p className="firstNationCard__info--need">
           Donations in need:
@@ -48,9 +53,9 @@ const AllOrganizationsCard = (props) => {
         </p>
         <div className="firstNationCard__links">
           <Link
-            className="button"
+            className="button firstNationCard__learn-more-button"
             to={{
-              pathname: `first-nation/${props.allOrganizations.id}`,
+              pathname: `organization/${props.allOrganizations.id}`,
             }}
           >
             Learn More

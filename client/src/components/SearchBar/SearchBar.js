@@ -7,7 +7,7 @@ const SearchBar = ({ placeholder, handleSearch }) => {
     <div className="searchBar">
       <form className="searchBar-form">
         {/* <img className="searchBar-icon" src={searchIcon} /> */}
-        {/* <span className="form__icon"></span> */}
+        <span className="searchBar-icon"></span>
         <input
           type="text"
           placeholder={placeholder}

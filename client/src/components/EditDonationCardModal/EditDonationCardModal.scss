@@ -6,6 +6,7 @@
 
 .edit-modal {
   position: fixed;
+  z-index: 2;
   left: 0;
   top: 0;
   right: 0;
@@ -14,8 +15,9 @@
 
   &__container {
     background-color: white;
-    width: 70vw;
-    height: 75vh;
+    width: 50vw;
+    // height: 38rem;
+    height: 70%;
     margin: auto;
     margin-top: 5rem;
     border-radius: 10px;
@@ -24,7 +26,6 @@
     padding: 2rem;
     width: 80%;
     margin: auto;
-    // height: 65vh;
     object-fit: contain;
   }
 
@@ -56,11 +57,10 @@
     @include flex(_, _, column);
   }
 
-  // &__preview-image-box {
-  //   width: 40vw;
-  //   height: 10vw;
-  // }
-
+  &__preview-image-box {
+    // width: 10rem;
+    height: 12rem;
+  }
   &__preview-info {
     @include flex(space-between, flex-start, _);
     margin-top: 2rem;
@@ -69,11 +69,11 @@
     margin-top: 0;
   }
   &__preview-image {
-    height: 15vw;
+    height: 100%;
     width: auto;
     border-radius: 5px;
-    @include img-card //object-fit: contain;
-;
+    @include img-card;
+    object-fit: contain;
   }
   &__upload-button {
     @include button;
@@ -81,7 +81,7 @@
   &__more-info {
     width: 48%;
     &--input {
-      height: 14rem;
+      height: 12.5rem;
     }
   }
   // &__preview-upload {

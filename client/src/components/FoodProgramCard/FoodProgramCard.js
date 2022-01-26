@@ -48,7 +48,7 @@ const FoodProgramCard = (props) => {
         </p>
         <div className="firstNationCard__links">
           <Link
-            className="button"
+            className="button firstNationCard__learn-more-button"
             to={{
               pathname: `first-nation/${props.foodProgramList.id}`,
               // pathname: `/${props.foodProgramList.id}`,
@@ -56,7 +56,11 @@ const FoodProgramCard = (props) => {
           >
             Learn More
           </Link>
-          <a target="_blank" href={props.foodProgramList.website}>
+          <a
+            className="firstNationCard__links--website"
+            target="_blank"
+            href={props.foodProgramList.website}
+          >
             Website{" "}
             <img className="firstNationCard__links--icon" src={linkIcon} />
           </a>
