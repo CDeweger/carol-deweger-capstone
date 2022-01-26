@@ -28,15 +28,6 @@
         "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643073923/ku6ivsm5gehppj3whnld.jpg"
       },
       {
-        "id": "e476bba2-2e90-45a5-a62b-20138958dbb5",
-        "date": 1643072541577,
-        "organizationID": "fn1",
-        "itemName": "Sleeping bag",
-        "information": "We accept and manage clothes and blankets on behalf of people in need. Please feel free to drop off clean, bagged clothes at our location on weekdays, Monday-Friday, between 9:30 am and 4:30 pm.",
-        "status": "In Need",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643072373/eneiuhffllk6afekb0vk.png"
-      },
-      {
         "id": "04ba853c-184d-49be-9007-2c71418e8e6f",
         "date": 1643072680314,
         "organizationID": "fn1",
@@ -131,15 +122,6 @@
         "information": "We recently received a very generous donation of 500 pairs of women;s winter socks. We would like to share with any organization that needs it. Please contact us at 604-123-4567 before coming to pick up. Thank you.",
         "status": "Surplus",
         "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643073923/ku6ivsm5gehppj3whnld.jpg"
-      },
-      {
-        "id": "e476bba2-2e90-45a5-a62b-201389587dbb5",
-        "date": 1643072541577,
-        "organizationID": "fn5",
-        "itemName": "Sleeping bag",
-        "information": "We accept and manage sleeping bag and blankets on behalf of people in need. Please feel free to drop off clean, bagged clothes at our location on weekdays, Monday-Friday, between 9:30 am and 4:30 pm.",
-        "status": "In Need",
-        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643072373/eneiuhffllk6afekb0vk.png"
       },
       {
         "id": "04ba853c-184d-49be-9007-2c71618e8e6f",
@@ -282,6 +264,15 @@
         "information": "We accepts and manage blankets on behalf of people in need. Please feel free to drop off clean, bagged clothes at our location on weekdays, Monday-Friday, between 9:30 am and 4:30 pm.",
         "status": "In Need",
         "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643103804/luyw6j9ekwja41aoflac.jpg"
+      },
+      {
+        "id": "e476bba2-2e90-45a5-a62b-201389587dbb5",
+        "date": 1643072541577,
+        "organizationID": "fn5",
+        "itemName": "Sleeping bag",
+        "information": "We accept and manage sleeping bag and blankets on behalf of people in need. Please feel free to drop off clean, bagged clothes at our location on weekdays, Monday-Friday, between 9:30 am and 4:30 pm.",
+        "status": "In Need",
+        "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643072373/eneiuhffllk6afekb0vk.png"
       }
     ],
     "website": "https://www.covenanthousebc.org/"
@@ -458,7 +449,7 @@
     "id": "39bd1117-323d-43cd-a757-fa9a6a574689",
     "program_name": "NightShift Street Ministries",
     "location": "Surrey",
-    "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643188074/aunvqpccnpq5jkt7lylk.jpg",
+    "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643221190/gcnexjryk8jjnsjc64q4.png",
     "description": "A registered not-for-profit society, NightShift today has a volunteer base of more than 2,500 individuals, including community groups and church teams. Nightly outreach happens 365 days a year outside our offices on King George Boulevard. We offer meals, clothing, crisis counselling, basic nursing, a mobile library, prayer and loving community contact. The continuum of care includes ongoing, registered Christian counselling with sliding-scale fees, men’s and women’s support groups, Bible studies, extreme weather response, a clothing ministry (Sisters Thrift Boutique) and much more.",
     "donations": [
       {
