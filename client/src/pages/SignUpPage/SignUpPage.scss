@@ -9,7 +9,7 @@
   padding: 2rem 0;
   margin: auto;
   margin-top: 13rem;
-  width: 18rem;
+  width: 38rem;
   background-color: black;
   &__heading {
     color: white;
@@ -22,11 +22,24 @@
 .signup-form {
   text-align: left;
 
+  &__group {
+    @include flex(_, _, _);
+  }
+
   &__field {
     width: 14rem;
     margin: auto;
     @include flex(_, flex-start, column);
+    &--website {
+      // @include flex(flex-start, _, _);
+      margin: 0 0 0 2.5rem;
+    }
+    &--description {
+      margin: 0 0 0 2.5rem;
+      // width: 20rem;
+    }
   }
+
   &__label {
     color: white;
     font-size: 0.8rem;
@@ -40,6 +53,10 @@
     height: 2rem;
     border-radius: 5px;
     border: none;
+    &--description {
+      height: 8rem;
+      width: 33rem;
+    }
   }
   &__button {
     border-radius: 25px;
@@ -48,8 +65,11 @@
     color: white;
     padding: 0.6rem 3rem;
     margin: auto;
-
     margin-top: 2rem;
     width: 10rem;
+    &:hover {
+      color: $primary-green;
+      border: $primary-green 1px solid;
+    }
   }
 }
