@@ -15,10 +15,16 @@ const Footer = () => {
               Home
             </Link>
           </li>
-          <li className="footer__nav-list--item footer-hover">About</li>
           <li className="footer__nav-list--item footer-hover">
-            <span>Category</span>
-            <Submenu />
+            <Link className="footer-link footer-hover" to={"/about"}>
+              About
+            </Link>
+          </li>
+          <li className="footer__nav-list--item footer-hover">
+            <Link className="footer-link footer-hover" to={"/organization"}>
+              Organizations
+            </Link>
+            {/* <Submenu /> */}
           </li>
           <li className="footer__nav-list--item footer-hover">
             {!isLoggedIn ? (
