@@ -38,7 +38,6 @@ const App = () => {
           <Route path="/profile" exact component={ProfilePage} />
           <Route path="/profile/:id/edit" exact component={EditOrganization} />
           <Route path="/organization" exact component={AllOrganizations} />
-          <Route path="/organization/:id" exact component={DetailPage} />
           <Route
             path="/organization/first-nation"
             exact
@@ -54,6 +53,8 @@ const App = () => {
             exact
             component={FoodProgramPage}
           />
+          <Route path="/organization/:id" exact component={DetailPage} />
+
           <Route path="/organization/first-nation/:id" component={DetailPage} />
           <Route
             path="/organization/homeless-shelter/:id"
