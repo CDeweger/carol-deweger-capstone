@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
-import "./SignupPage.scss";
+import "./SignUpPage.scss";
 import axios from "axios";
 import LoginPage from "../LoginPage/LoginPage";
 

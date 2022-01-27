@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import About from "./components/About/About";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import SignupPage from "./pages/SignupPage/SignupPage";
+import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import EditOrganization from "./components/EditOrganization/EditOrganization";
@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/" exact component={HomePage} />
           <Route path="/about" exact component={About} />
 
-          <Route path="/signup" exact component={SignupPage} />
+          <Route path="/signup" exact component={SignUpPage} />
           <Route
             path="/login"
             component={!isLoggedIn ? LoginPage : ProfilePage}
