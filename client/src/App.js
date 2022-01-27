@@ -61,9 +61,9 @@ const App = () => {
             component={DetailPage}
           />
           <Route path="/organization/food-program/:id" component={DetailPage} />
-          {/* <Route path="*" exact>
+          <Route path="*" exact>
             <Redirect to="/" exact component={HomePage} />
-          </Route> */}
+          </Route>
         </Switch>
         <Footer />
       </BrowserRouter>
