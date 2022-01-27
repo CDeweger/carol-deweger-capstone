@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import "./SignUpPage.scss";
 import axios from "axios";
-import LoginPage from "../LoginPage/LoginPage";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const signupURL = `${API_URL}signup`;
