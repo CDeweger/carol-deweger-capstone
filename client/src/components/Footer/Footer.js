@@ -49,8 +49,6 @@ const Footer = () => {
       <Link to={"/"}>
         <h1 className="footer__title">Donation Hub</h1>
       </Link>
-
-      {/* <p className="footer__author">By Carol DeWeger</p> */}
     </div>
   );
 };
