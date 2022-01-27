@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 import "./LoginPage.scss";
 
@@ -81,7 +82,16 @@ class LoginPage extends Component {
 
   render() {
     const { isLoggedIn } = this.state;
-    if (!isLoggedIn) return this.renderLogin();
+    if (!isLoggedIn)
+      return (
+        <>
+          {" "}
+          <Helmet>
+            <title>Donation Hub | Login</title>
+          </Helmet>
+          {this.renderLogin()};
+        </>
+      );
 
     return null;
   }
