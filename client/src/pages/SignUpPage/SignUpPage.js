@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import "./SignupPage.scss";
 import axios from "axios";
 import LoginPage from "../LoginPage/LoginPage";
@@ -39,6 +40,9 @@ class SignUpPage extends Component {
   renderSignUp() {
     return (
       <div className="signupPage">
+        <Helmet>
+          <title>Donation Hub | Sign Up</title>
+        </Helmet>
         <h1 className="signupPage__heading">Sign Up</h1>
         <form className="signup-form" onSubmit={this.signup}>
           <div className="signup-form__field">

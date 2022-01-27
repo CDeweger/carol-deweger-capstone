@@ -51,6 +51,7 @@ class DetailPage extends Component {
             <a
               className="detailPage__location-website--website"
               href={this.state.targetOrganization.website}
+              target="_blank"
             >
               Website
               <img src={linkIcon} className="detailPage__external-link" />

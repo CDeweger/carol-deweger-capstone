@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 import AllOrganizationsCard from "../../components/AllOrganizationsCard/AllOrganizationsCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { Redirect } from "react-router-dom";
-//import "./FirstNationPage.scss";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -90,6 +90,9 @@ class AllOrganizations extends Component {
 
     return (
       <div className="FirstNationPage">
+        <Helmet>
+          <title>Donation Hub | Organizations</title>
+        </Helmet>
         <h1 className="FirstNationPage__heading">Non-Profit Organizations</h1>
         <SearchBar
           placeholder="Search for donations, organizations and locations..."

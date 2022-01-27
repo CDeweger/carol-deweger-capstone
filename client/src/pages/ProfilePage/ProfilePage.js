@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 import DonationPage from "../../components/DonationPage/DonationPage";
 // import DonationList from "../../components/DonationList/DonationList";
@@ -53,6 +54,9 @@ class ProfilePage extends Component {
       <h1>Loading...</h1>
     ) : (
       <>
+        <Helmet>
+          <title>Donation Hub | Profile</title>
+        </Helmet>
         <DonationPage userInfo={userInfo} />
         {/* {window.location.reload(true)} */}
         {/* <DonationList userInfo={userInfo} /> */}

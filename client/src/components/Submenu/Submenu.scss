@@ -4,16 +4,18 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.submenu {
-}
+// .submenu {
+// }
 
 .nav__submenu {
   display: none;
   padding-left: 0;
-  background-color: rgb(255, 255, 255, 0.8);
+  background-color: rgb(255, 255, 255);
 }
 
 .nav__submenu-list {
+  //margin-left: 0.5rem;
+  padding: 0.2rem 0.5rem 0.5rem 0.8rem;
   &:hover {
     border-bottom: 2px solid black;
   }

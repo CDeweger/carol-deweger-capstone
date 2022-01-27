@@ -33,11 +33,12 @@ const Header = () => {
               className="header__nav-list--item header-hover"
               // onClick={goToAbout}
             >
-              {/* <Link to={"/"}>About</Link> */}
-              About
+              <Link className="header-link header-hover" to={"/about"}>
+                About
+              </Link>
             </li>
             <li className="header__nav-list--item header-hover">
-              <span>Category</span>
+              <span>Organizations</span>
               <Submenu />
             </li>
             <li className="header__nav-list--item header-hover">

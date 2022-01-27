@@ -1,6 +1,8 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
+import About from "./components/About/About";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import SignupPage from "./pages/SignupPage/SignupPage";
@@ -19,21 +21,24 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
+        <Helmet>
+          <title>Donation Hub</title>
+        </Helmet>
         <Header />
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/about" exact component={About} />
+
           <Route path="/signup" exact component={SignupPage} />
-          <Route path="/profile" exact component={ProfilePage} />
-          <Route path="/profile/:id/edit" exact component={EditOrganization} />
-
-          <Route path="/organization" exact component={AllOrganizations} />
-
           <Route
             path="/login"
-            exact
             component={!isLoggedIn ? LoginPage : ProfilePage}
           />
           <Route path="/logout" exact component={LogoutPage} />
+          <Route path="/profile" exact component={ProfilePage} />
+          <Route path="/profile/:id/edit" exact component={EditOrganization} />
+          <Route path="/organization" exact component={AllOrganizations} />
+          <Route path="/organization/:id" exact component={DetailPage} />
           <Route
             path="/organization/first-nation"
             exact
@@ -49,15 +54,12 @@ const App = () => {
             exact
             component={FoodProgramPage}
           />
-
           <Route path="/organization/first-nation/:id" component={DetailPage} />
           <Route
             path="/organization/homeless-shelter/:id"
             component={DetailPage}
           />
           <Route path="/organization/food-program/:id" component={DetailPage} />
-
-          <Route path="/organization/:id" exact component={DetailPage} />
           {/* <Route path="*" exact>
             <Redirect to="/" exact component={HomePage} />
           </Route> */}
