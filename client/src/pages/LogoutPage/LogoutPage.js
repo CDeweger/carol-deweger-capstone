@@ -15,7 +15,9 @@ const LogoutPage = (props) => {
       <Helmet>
         <title>Donation Hub | Logout</title>
       </Helmet>
-      <h1>See you again soon!</h1>
+      <h1>Carol DeWeger</h1>
+      <h1>caroljydeweger@gmail.com</h1>
+      <h2 className="see-you">See you again soon!</h2>
       <button className="button logout-button" onClick={logout}>
         Confrim logout
       </button>

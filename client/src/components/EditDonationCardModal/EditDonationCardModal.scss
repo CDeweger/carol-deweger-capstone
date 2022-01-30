@@ -15,16 +15,16 @@
 
   &__container {
     background-color: white;
-    width: 50vw;
+    width: 60%;
     // height: 38rem;
-    height: 70%;
+    height: 80%;
     margin: auto;
     margin-top: 5rem;
     border-radius: 10px;
   }
   &__inner-container {
-    padding: 2rem;
-    width: 80%;
+    padding: 2rem 0;
+    width: 90%;
     margin: auto;
     object-fit: contain;
   }
@@ -53,20 +53,27 @@
     border-bottom: 2px solid black;
     cursor: pointer;
   }
+  &__form {
+    height: 100%;
+  }
   &__form-group {
     @include flex(_, _, column);
   }
 
   &__preview-image-box {
-    // width: 10rem;
-    height: 12rem;
+    width: 10rem;
+    height: 10rem;
+    // object-fit: contain;
+    // height: 30%;
+    // width: 30%;
   }
   &__preview-info {
     @include flex(space-between, flex-start, _);
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   &__preview-label {
     margin-top: 0;
+    margin-bottom: 0.5rem;
   }
   &__preview-image {
     height: 100%;
@@ -81,7 +88,8 @@
   &__more-info {
     width: 48%;
     &--input {
-      height: 12.5rem;
+      height: 9.5rem;
+      // height: 50%;
     }
   }
   // &__preview-upload {
