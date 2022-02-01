@@ -2,7 +2,8 @@ const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
-const { Console } = require("console");
+//const bcrypt = require("bcryptjs");
+const User = require("../models/User");
 
 const singupAndLoginRouter = express.Router();
 const JWT_SECRET =
@@ -53,38 +54,49 @@ function authorize(req, res, next) {
 
 const users = {};
 
-singupAndLoginRouter.post("/signup", (req, res) => {
+singupAndLoginRouter.post("/signup", async (req, res) => {
+  try {
+    const { username, program_name, password } = req.body;
+
+    users[username] = {
+      program_name,
+      password,
+    };
+
+    const newUser = new User({
+      username: req.body.username,
+      password: req.body.password,
+      //program_type: req.body.type,
+      //id: uuidv4(),
+      program_name: req.body.name,
+    });
+    const savedUser = await newUser.save();
+    return res.json(savedUser);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err.message);
+  }
   //auth
-  // const { username, name, type, location, website, description } = req.body;
-  const { username, name, password } = req.body;
 
-  users[username] = {
-    name,
-    password,
-    // type,
-    // location,
-    // website,
-    // description,
-  };
-  // res.json({ success: "true" });
+  //const organizationList = readFile();
+  //const hashedPassword = bcrypt.hash(req.body.password, 12);
 
-  const organizationList = readFile();
-  const newNpoObj = {
-    username: req.body.username,
-    password: req.body.password,
-    program_type: req.body.type,
-    id: uuidv4(),
-    program_name: req.body.name,
-    location: req.body.location,
-    image: "https://content.hostgator.com/img/weebly_image_sample.png",
-    description: req.body.description,
-    donations: [],
-    website: req.body.website,
-  };
+  // const newNpoObj = {
+  //   username: req.body.username,
+  //   password: req.body.password,
+  //   program_type: req.body.type,
+  //   id: uuidv4(),
+  //   program_name: req.body.name,
+  //   location: req.body.location,
+  //   image: "https://content.hostgator.com/img/weebly_image_sample.png",
+  //   description: req.body.description,
+  //   donations: [],
+  //   website: req.body.website,
+  // };
 
-  organizationList.push(newNpoObj);
-  writeFile(organizationList);
-  res.status(201).json(newNpoObj);
+  // organizationList.push(newNpoObj);
+  // writeFile(organizationList);
+  // res.status(201).json(newNpoObj);
 });
 
 singupAndLoginRouter.post("/login", (req, res) => {
