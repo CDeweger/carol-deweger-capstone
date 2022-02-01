@@ -15,12 +15,11 @@ const PORT = process.env.PORT || 5050;
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log("MongoDB database connection established successfully");
-});
+// mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+// const connection = mongoose.connection;
+// connection.once("open", () => {
+//   console.log("MongoDB database connection established successfully");
+// });
 
 //app.use(express.static("public"));
 
@@ -28,6 +27,16 @@ app.use("/organization", organizationRoute);
 app.use("/", singupAndLoginRoute);
 app.use("/donation", donationRoute);
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server listening on ${PORT}`);
-});
+const uri = process.env.ATLAS_URI;
+mongoose
+  .connect(uri)
+  .then(() => {
+    console.log("Connected to MongoDB database");
+
+    app.listen(PORT, () => {
+      console.log(`🚀 Server listening on ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
