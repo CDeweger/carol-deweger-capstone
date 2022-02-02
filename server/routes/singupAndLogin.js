@@ -64,11 +64,16 @@ singupAndLoginRouter.post("/signup", async (req, res) => {
     };
 
     const newUser = new User({
+      id: uuidv4(),
       username: req.body.username,
       password: req.body.password,
-      //program_type: req.body.type,
-      //id: uuidv4(),
+      program_type: req.body.type,
       program_name: req.body.name,
+      location: req.body.location,
+      image: "https://content.hostgator.com/img/weebly_image_sample.png",
+      description: req.body.description,
+      donations: [],
+      website: req.body.website,
     });
     const savedUser = await newUser.save();
     return res.json(savedUser);
