@@ -2,7 +2,7 @@ const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
-//const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
 const singupAndLoginRouter = express.Router();
@@ -57,16 +57,17 @@ const users = {};
 singupAndLoginRouter.post("/signup", async (req, res) => {
   try {
     const { username, program_name, password } = req.body;
-
     users[username] = {
       program_name,
       password,
     };
 
+    const hashedPassword = await bcrypt.hash(req.body.password, 12);
+
     const newUser = new User({
       id: uuidv4(),
       username: req.body.username,
-      password: req.body.password,
+      password: hashedPassword,
       program_type: req.body.type,
       program_name: req.body.name,
       location: req.body.location,
