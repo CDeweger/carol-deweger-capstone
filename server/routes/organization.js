@@ -114,15 +114,10 @@ organizationRouter.delete("/:organizationId/item/:itemId", (req, res) => {
   const organizationId = req.params.organizationId;
   const itemId = req.params.itemId;
 
-  //const organizationData = readData();
   User.findOne({ id: organizationId }, (err, targetOrganization) => {
     if (err) {
       console.log(err);
     }
-
-    // const targetOrganization = organizationData.find((organization) => {
-    //   return organization.id === organizationId;
-    // });
 
     const targetItem = targetOrganization.donations.find((item) => {
       return item.id === itemId;
@@ -148,29 +143,30 @@ organizationRouter.patch("/:organizationId/item/:itemId", (req, res) => {
   const organizationId = req.params.organizationId;
   const itemId = req.params.itemId;
 
-  const organizationData = readData();
-  const targetOrganization = organizationData.find((organization) => {
-    return organization.id === organizationId;
+  User.findOne({ id: organizationId }, (err, targetOrganization) => {
+    if (err) {
+      console.log(err);
+    }
+
+    const targetItem = targetOrganization.donations.find((item) => {
+      return item.id === itemId;
+    });
+
+    if (targetItem) {
+      targetItem.id = itemId;
+      targetItem.organizationID = organizationId;
+      targetItem.itemName = req.body.itemName;
+      targetItem.information = req.body.information;
+      targetItem.status = req.body.status;
+      targetItem.date = Date.now();
+      targetItem.image = req.body.image;
+
+      targetOrganization.save();
+      res.status(200).send(targetItem);
+    } else {
+      res.status(400).send("not found");
+    }
   });
-
-  const targetItem = targetOrganization.donations.find((item) => {
-    return item.id === itemId;
-  });
-
-  if (targetItem) {
-    targetItem.id = itemId;
-    targetItem.organizationID = organizationId;
-    targetItem.itemName = req.body.itemName;
-    targetItem.information = req.body.information;
-    targetItem.status = req.body.status;
-    targetItem.date = Date.now();
-    targetItem.image = req.body.image;
-
-    writeFile(organizationData);
-    res.status(200).send(targetItem);
-  } else {
-    res.status(400).send("not found");
-  }
 });
 
 //edit organization profile

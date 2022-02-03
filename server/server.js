@@ -35,7 +35,7 @@ mongoose
 
 app.use("/organization", organizationRoute);
 app.use("/", singupAndLoginRoute);
-app.use("/donation", donationRoute);
+//app.use("/donation", donationRoute);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server listening on ${PORT}`);
