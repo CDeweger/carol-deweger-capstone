@@ -76,9 +76,7 @@ organizationRouter.get("/:organizationId", (req, res) => {
 });
 //create a new donation card
 
-organizationRouter.post("/item", (req, res) => {
-  let organizationData = readData();
-
+organizationRouter.post("/item", async (req, res) => {
   const newDonationObj = {
     id: uuidv4(),
     date: Date.now(),
@@ -93,15 +91,18 @@ organizationRouter.post("/item", (req, res) => {
   };
 
   const organizationID = req.body.organizationID;
-  organizationData.find((organization) => {
-    if (organization.id === organizationID) {
-      organization.donations.unshift(newDonationObj);
-      return;
-    }
-  });
 
-  writeFile(organizationData);
-  res.status(201).json(newDonationObj);
+  User.findOne({ id: organizationID }, (err, targetOrganization) => {
+    //console.log(newDonationObj);
+    if (err) {
+      console.log(err);
+    } else {
+      targetOrganization.donations.unshift(newDonationObj);
+      targetOrganization.save();
+    }
+
+    res.status(201).json(newDonationObj);
+  });
 });
 
 //delete a donation card
