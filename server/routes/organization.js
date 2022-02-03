@@ -114,25 +114,32 @@ organizationRouter.delete("/:organizationId/item/:itemId", (req, res) => {
   const organizationId = req.params.organizationId;
   const itemId = req.params.itemId;
 
-  const organizationData = readData();
-  const targetOrganization = organizationData.find((organization) => {
-    return organization.id === organizationId;
+  //const organizationData = readData();
+  User.findOne({ id: organizationId }, (err, targetOrganization) => {
+    if (err) {
+      console.log(err);
+    }
+
+    // const targetOrganization = organizationData.find((organization) => {
+    //   return organization.id === organizationId;
+    // });
+
+    const targetItem = targetOrganization.donations.find((item) => {
+      return item.id === itemId;
+    });
+
+    //console.log(targetItem);
+    const TargetItemIndex = targetOrganization.donations.indexOf(targetItem);
+    //console.log(TargetItemIndex);
+
+    if (targetItem) {
+      targetOrganization.donations.splice(TargetItemIndex, 1);
+      targetOrganization.save();
+      res.status(204).json(targetItem);
+    } else {
+      res.status(400).json({ message: "item not found" });
+    }
   });
-
-  const targetItem = targetOrganization.donations.find((item) => {
-    return item.id === itemId;
-  });
-
-  const TargetItemIndex = targetOrganization.donations.indexOf(targetItem);
-  //console.log(TargetItemIndex);
-
-  if (targetItem) {
-    targetOrganization.donations.splice(TargetItemIndex, 1);
-    writeFile(organizationData);
-    res.status(204).json(targetItem);
-  } else {
-    res.status(400).json({ message: "item not found" });
-  }
 });
 
 //edit a donation card
