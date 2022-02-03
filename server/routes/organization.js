@@ -65,7 +65,7 @@ organizationRouter.get("/:organizationId", (req, res) => {
     if (err) {
       console.log(err);
     }
-    console.log(tragetOrganizationData, organizationId);
+    //console.log(tragetOrganizationData, organizationId);
 
     if (tragetOrganizationData) {
       res.status(200).json(tragetOrganizationData);
