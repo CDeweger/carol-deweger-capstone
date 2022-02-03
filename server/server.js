@@ -23,20 +23,20 @@ app.use(express.json());
 
 //app.use(express.static("public"));
 
-app.use("/organization", organizationRoute);
-app.use("/", singupAndLoginRoute);
-app.use("/donation", donationRoute);
-
 const uri = process.env.ATLAS_URI;
 mongoose
-  .connect(uri)
+  .connect(uri, { useNewUrlParser: true })
   .then(() => {
     console.log("Connected to MongoDB database");
-
-    app.listen(PORT, () => {
-      console.log(`🚀 Server listening on ${PORT}`);
-    });
   })
   .catch((err) => {
     console.log(err);
   });
+
+app.use("/organization", organizationRoute);
+app.use("/", singupAndLoginRoute);
+app.use("/donation", donationRoute);
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server listening on ${PORT}`);
+});

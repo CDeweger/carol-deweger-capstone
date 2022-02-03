@@ -1,6 +1,7 @@
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
+const User = require("../models/User");
 
 const organizationRouter = express.Router();
 
@@ -18,39 +19,38 @@ const writeFile = (organizationData) => {
   );
 };
 
-//get all organization
-// organizationRouter.get("/", (req, res) => {
-//   let organizationData = readData();
-//   return res.status(200).send(organizationData);
-// });
-
 organizationRouter.get("/", (req, res) => {
-  let organizationData = readData();
+  User.find({}, (err, organizationData) => {
+    if (err) {
+      console.log(err);
+    }
+    // console.log(organizationData);
+    if (!req.query.search) return res.status(200).send(organizationData);
+
+    const query = req.query.search.toLowerCase();
+    const infoResults = organizationData.filter((organization) => {
+      if (
+        organization.program_type.toLowerCase().includes(query) ||
+        organization.program_name.toLowerCase().includes(query) ||
+        organization.location.toLowerCase().includes(query) ||
+        organization.description.toLowerCase().includes(query)
+      )
+        return organization;
+    });
+
+    const donationResults = organizationData.filter((organization) => {
+      for (let i = 0; i < organization.donations.length; i++) {
+        if (organization.donations[i].itemName.toLowerCase().includes(query)) {
+          if (!infoResults.includes(organization)) return organization;
+        }
+      }
+    });
+
+    res.send(infoResults.concat(donationResults));
+  });
+  // let organizationData = readData();
 
   //console.log(req.query.search);
-
-  if (!req.query.search) return res.status(200).send(organizationData);
-
-  const query = req.query.search.toLowerCase();
-  const infoResults = organizationData.filter((organization) => {
-    if (
-      organization.program_type.toLowerCase().includes(query) ||
-      organization.program_name.toLowerCase().includes(query) ||
-      organization.location.toLowerCase().includes(query) ||
-      organization.description.toLowerCase().includes(query)
-    )
-      return organization;
-  });
-
-  const donationResults = organizationData.filter((organization) => {
-    for (let i = 0; i < organization.donations.length; i++) {
-      if (organization.donations[i].itemName.toLowerCase().includes(query)) {
-        if (!infoResults.includes(organization)) return organization;
-      }
-    }
-  });
-
-  res.json(infoResults.concat(donationResults));
 
   //return res.status(200).send(organizationData);
 });
@@ -58,17 +58,22 @@ organizationRouter.get("/", (req, res) => {
 //get the single organization by Id
 organizationRouter.get("/:organizationId", (req, res) => {
   const organizationId = req.params.organizationId;
-  const tragetOrganizationData = readData().find((organization) => {
-    return organization.id === organizationId;
+  // const tragetOrganizationData = readData().find((organization) => {
+  //   return organization.id === organizationId;
+  // });
+  User.findOne({ id: organizationId }, (err, tragetOrganizationData) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(tragetOrganizationData, organizationId);
+
+    if (tragetOrganizationData) {
+      res.status(200).json(tragetOrganizationData);
+    } else {
+      res.status(404).send("not fund");
+    }
   });
-
-  if (tragetOrganizationData) {
-    res.status(200).json(tragetOrganizationData);
-  } else {
-    res.status(404).send("not fund");
-  }
 });
-
 //create a new donation card
 
 organizationRouter.post("/item", (req, res) => {

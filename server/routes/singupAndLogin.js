@@ -62,22 +62,33 @@ singupAndLoginRouter.post("/signup", async (req, res) => {
       password,
     };
 
-    const hashedPassword = await bcrypt.hash(req.body.password, 12);
-
-    const newUser = new User({
-      id: uuidv4(),
-      username: req.body.username,
-      password: hashedPassword,
-      program_type: req.body.type,
-      program_name: req.body.name,
-      location: req.body.location,
-      image: "https://content.hostgator.com/img/weebly_image_sample.png",
-      description: req.body.description,
-      donations: [],
-      website: req.body.website,
+    // need to find the solution for uppcase and lowercase
+    const exitingEmail = await User.findOne({
+      username,
     });
-    const savedUser = await newUser.save();
-    return res.json(savedUser);
+
+    if (exitingEmail) {
+      return res
+        .status(400)
+        .json({ error: "There is already a user with this email" });
+    } else {
+      const hashedPassword = await bcrypt.hash(req.body.password, 12);
+
+      const newUser = new User({
+        id: uuidv4(),
+        username: req.body.username,
+        password: hashedPassword,
+        program_type: req.body.type,
+        program_name: req.body.name,
+        location: req.body.location,
+        image: "https://content.hostgator.com/img/weebly_image_sample.png",
+        description: req.body.description,
+        donations: [],
+        website: req.body.website,
+      });
+      const savedUser = await newUser.save();
+      return res.json(savedUser);
+    }
   } catch (err) {
     console.log(err);
     res.status(500).send(err.message);
@@ -107,7 +118,9 @@ singupAndLoginRouter.post("/signup", async (req, res) => {
 
 singupAndLoginRouter.post("/login", (req, res) => {
   const { username, password } = req.body;
-  const organizationList = readFile();
+  // const organizationList = readFile();
+  // const organizationList = User();
+
   let currUser = organizationList.find((user) => {
     return user.username === username;
   });
