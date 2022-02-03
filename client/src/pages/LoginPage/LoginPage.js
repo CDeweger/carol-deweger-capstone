@@ -35,22 +35,21 @@ class LoginPage extends Component {
 
       .catch((err) => {
         console.log(err);
-        // this.setState({ isLoginError: true, errorMessage: err });
       });
 
-    this.getUserinfo(this.state.username);
+    //this.getUserinfo(this.state.username);
   };
 
-  getUserinfo = (username) => {
-    axios
-      .get(`${API_URL}login/${username}`)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((_err) => {
-        console.log("err");
-      });
-  };
+  // getUserinfo = (username) => {
+  //   axios
+  //     .get(`${API_URL}login/${username}`)
+  //     .then((res) => {
+  //       console.log(res.data);
+  //     })
+  //     .catch((_err) => {
+  //       console.log("err");
+  //     });
+  // };
 
   renderLogin = () => {
     return (

@@ -1,6 +1,6 @@
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
-const fs = require("fs");
+//const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
@@ -8,20 +8,6 @@ const User = require("../models/User");
 const singupAndLoginRouter = express.Router();
 const JWT_SECRET =
   "53b99e8b91f67d12e04508c91d59b87620edd27c0f28ec01a517cee81d4b87bf";
-
-//function for read file
-const readFile = () => {
-  const organizationList = fs.readFileSync("./data/organizationList.json");
-  return JSON.parse(organizationList);
-};
-
-// function for write file
-const writeFile = (organizationList) => {
-  fs.writeFileSync(
-    "./data/organizationList.json",
-    JSON.stringify(organizationList, null, 2)
-  );
-};
 
 function authorize(req, res, next) {
   // console.log("authorize middleware entered");
@@ -65,12 +51,13 @@ singupAndLoginRouter.post("/signup", async (req, res) => {
         .status(400)
         .json({ error: "There is already a user with this email" });
     } else {
-      const hashedPassword = await bcrypt.hash(req.body.password, 12);
+      // const hashedPassword = await bcrypt.hash(req.body.password, 12);
 
       const newUser = new User({
         id: uuidv4(),
         username: req.body.username,
-        password: hashedPassword,
+        password: req.body.password,
+        // password: hashedPassword,
         program_type: req.body.type,
         program_name: req.body.name,
         location: req.body.location,
@@ -90,6 +77,8 @@ singupAndLoginRouter.post("/signup", async (req, res) => {
 
 singupAndLoginRouter.post("/login", (req, res) => {
   const { username, password } = req.body;
+
+  //console.log({ password, username });
 
   User.findOne({ username }, (err, currUser) => {
     if (err) {
@@ -112,21 +101,15 @@ singupAndLoginRouter.post("/login", (req, res) => {
 
 singupAndLoginRouter.get("/login/:username", (req, res) => {
   //console.log(req.params);
-  //const organizationList = readFile();
   const currUser = req.params.username;
 
-  console.log(currUser);
+  //console.log(currUser);
 
   User.findOne({ username: currUser }, (err, currUserData) => {
     if (err) {
       console.log(err);
     }
 
-    // let currUser = organizationList.find((user) => {
-    //   //console.log(user.username);
-    //   return user.username === req.params.username;
-    // });
-    //console.log(currUser);
     res.send(currUserData);
   });
 });

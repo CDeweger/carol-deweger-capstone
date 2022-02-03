@@ -165,25 +165,27 @@ organizationRouter.patch("/:organizationId/item/:itemId", (req, res) => {
   }
 });
 
-organizationRouter.patch("/:id/edit", (req, res) => {
-  const organizationData = readData();
-  const itemId = req.params.id;
+//edit organization profile
+organizationRouter.patch("/:id/edit", async (req, res) => {
+  const organizationId = req.params.id;
 
-  // console.log(itemId);
+  User.findOne({ id: organizationId }, (err, targetOrganization) => {
+    if (err) {
+      console.log(err);
+    }
 
-  let targetItem = organizationData.find((item) => item.id === itemId);
+    if (targetOrganization) {
+      targetOrganization.location = req.body.location;
+      targetOrganization.website = req.body.website;
+      targetOrganization.description = req.body.description;
+      targetOrganization.image = req.body.image;
 
-  // console.log(targetItem);
-  if (targetItem) {
-    targetItem.location = req.body.location;
-    targetItem.website = req.body.website;
-    targetItem.description = req.body.description;
-    targetItem.image = req.body.image;
-    writeFile(organizationData);
-    res.status(200).send(targetItem);
-  } else {
-    res.status(400).send("not found");
-  }
+      targetOrganization.save();
+      res.status(200).send(targetOrganization);
+    } else {
+      res.status(400).send("not found");
+    }
+  });
 });
 
 module.exports = organizationRouter;
