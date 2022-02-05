@@ -139,15 +139,15 @@ organizationRouter.delete("/:organizationId/item/:itemId", (req, res) => {
 
 //edit a donation card
 
-organizationRouter.patch("/:organizationId/item/:itemId", (req, res) => {
+organizationRouter.patch("/:organizationId/item/:itemId", async (req, res) => {
   const organizationId = req.params.organizationId;
   const itemId = req.params.itemId;
 
-  User.update({ id: organizationId }, (err, targetOrganization) => {
+  User.findOne({ id: organizationId }, (err, targetOrganization) => {
     if (err) {
       console.log(err);
     }
-    //console.log(targetOrganization);
+    console.log(targetOrganization);
 
     const targetItem = targetOrganization.donations.find((item) => {
       return item.id === itemId;
