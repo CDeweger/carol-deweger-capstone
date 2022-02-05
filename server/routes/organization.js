@@ -6,18 +6,18 @@ const User = require("../models/User");
 const organizationRouter = express.Router();
 
 //function for read file
-const readData = () => {
-  const organizationData = fs.readFileSync("./data/organizationList.json");
-  return JSON.parse(organizationData);
-};
+// const readData = () => {
+//   const organizationData = fs.readFileSync("./data/organizationList.json");
+//   return JSON.parse(organizationData);
+// };
 
 // function for write file
-const writeFile = (organizationData) => {
-  fs.writeFileSync(
-    "./data/organizationList.json",
-    JSON.stringify(organizationData, null, 2)
-  );
-};
+// const writeFile = (organizationData) => {
+//   fs.writeFileSync(
+//     "./data/organizationList.json",
+//     JSON.stringify(organizationData, null, 2)
+//   );
+// };
 
 organizationRouter.get("/", (req, res) => {
   User.find({}, (err, organizationData) => {
