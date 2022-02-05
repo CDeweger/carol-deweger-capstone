@@ -454,10 +454,10 @@
     "donations": [
       {
         "id": "07ed0e3e-abc6-4c88-a99a-fa2a8b779576",
-        "date": 1643322164561,
+        "date": 1644034995714,
         "organizationID": "39bd1117-323d-43cd-a757-fa9a6a574689",
         "itemName": "Peanut butter",
-        "information": "thank you",
+        "information": "thank you for donating",
         "status": "In Need",
         "image": "https://res.cloudinary.com/dml1rigkl/image/upload/v1643322156/b8t6fwyncv8wajotkiht.jpg"
       },
