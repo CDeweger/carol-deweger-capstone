@@ -40,17 +40,6 @@ class LoginPage extends Component {
     //this.getUserinfo(this.state.username);
   };
 
-  // getUserinfo = (username) => {
-  //   axios
-  //     .get(`${API_URL}login/${username}`)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //     })
-  //     .catch((_err) => {
-  //       console.log("err");
-  //     });
-  // };
-
   renderLogin = () => {
     return (
       <div className="loginPage">

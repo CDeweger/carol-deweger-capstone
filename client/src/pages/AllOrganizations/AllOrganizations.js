@@ -11,7 +11,7 @@ class AllOrganizations extends Component {
   state = {
     allOrganizations: [],
     allOrganizationsList: null,
-    targetOrganizations: null,
+    //targetOrganizations: null,
   };
 
   getAllOrganizationsList = () => {
@@ -49,20 +49,20 @@ class AllOrganizations extends Component {
       });
   }
 
-  handleSearch = (e) => {
-    const query = e.target.value.toLowerCase();
-    const results = this.state.allOrganizationsList.filter((organization) => {
-      if (
-        organization.program_type.toLowerCase().includes(query) ||
-        organization.program_name.toLowerCase().includes(query) ||
-        organization.location.toLowerCase().includes(query) ||
-        organization.description.toLowerCase().includes(query)
-      )
-        return organization;
-    });
+  // handleSearch = (e) => {
+  //   const query = e.target.value.toLowerCase();
+  //   const results = this.state.allOrganizationsList.filter((organization) => {
+  //     if (
+  //       organization.program_type.toLowerCase().includes(query) ||
+  //       organization.program_name.toLowerCase().includes(query) ||
+  //       organization.location.toLowerCase().includes(query) ||
+  //       organization.description.toLowerCase().includes(query)
+  //     )
+  //       return organization;
+  //   });
 
-    this.setState({ targetOrganizations: results });
-  };
+  //   this.setState({ targetOrganizations: results });
+  // };
 
   handleSearchServer = (e) => {
     const query = e.target.value.toLowerCase();
@@ -81,9 +81,6 @@ class AllOrganizations extends Component {
   };
 
   render() {
-    // console.log(this.state.allOrganizations);
-    //console.log(this.props);
-
     if (!this.state.allOrganizations) {
       return null;
     }

@@ -24,6 +24,8 @@ organizationRouter.get("/", (req, res) => {
     if (err) {
       console.log(err);
     }
+
+    console.log(req.query.search);
     // console.log(organizationData);
     if (!req.query.search) return res.status(200).send(organizationData);
 
