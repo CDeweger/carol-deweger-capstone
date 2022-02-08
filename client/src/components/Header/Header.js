@@ -1,23 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Submenu from "../Submenu/Submenu";
+import { HashLink } from "react-router-hash-link";
 
-import FeaturedNPO from "../FeaturedNPO/FeaturedNPO";
 import "./Header.scss";
 
 const Header = () => {
   const isLoggedIn = sessionStorage.getItem("token");
 
-  // const goToAbout = () => {
-  //   window.scroll({
-  //     top: 750,
-  //     behavior: "smooth",
-  //   });
-  // };
-
   return (
     <>
-      {/* <FeaturedNPO /> */}
       <div className="header">
         <Link to={"/"}>
           <h1 className="header-title">Donation Hub</h1>
@@ -29,13 +21,14 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            <li
-              className="header__nav-list--item header-hover"
-              // onClick={goToAbout}
-            >
-              <Link className="header-link header-hover" to={"/about"}>
+            <li className="header__nav-list--item header-hover">
+              <HashLink
+                className="header-link header-hover"
+                smooth
+                to="/#about"
+              >
                 About
-              </Link>
+              </HashLink>
             </li>
             <li className="header__nav-list--item header-hover">
               <span>Organizations</span>
