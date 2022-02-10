@@ -1,26 +1,13 @@
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
-const fs = require("fs");
+//const fs = require("fs");
 const jwt = require("jsonwebtoken");
-const { Console } = require("console");
+const bcrypt = require("bcryptjs");
+const User = require("../models/User");
 
 const singupAndLoginRouter = express.Router();
 const JWT_SECRET =
   "53b99e8b91f67d12e04508c91d59b87620edd27c0f28ec01a517cee81d4b87bf";
-
-//function for read file
-const readFile = () => {
-  const organizationList = fs.readFileSync("./data/organizationList.json");
-  return JSON.parse(organizationList);
-};
-
-// function for write file
-const writeFile = (organizationList) => {
-  fs.writeFileSync(
-    "./data/organizationList.json",
-    JSON.stringify(organizationList, null, 2)
-  );
-};
 
 function authorize(req, res, next) {
   // console.log("authorize middleware entered");
@@ -39,13 +26,6 @@ function authorize(req, res, next) {
       return res.status(401).json({ message: "token expired" });
     }
 
-    // const organization = readFile();
-    // const npoLocation = organization.find((org) => {
-    //   if (org.program_name === decoded.name) {
-    //     return org.location;
-    //   }
-    // });
-    // req.location = npoLocation;
     req.decoded = decoded;
     next();
   });
@@ -53,69 +33,85 @@ function authorize(req, res, next) {
 
 const users = {};
 
-singupAndLoginRouter.post("/signup", (req, res) => {
-  //auth
-  // const { username, name, type, location, website, description } = req.body;
-  const { username, name, password } = req.body;
+singupAndLoginRouter.post("/signup", async (req, res) => {
+  try {
+    const { username, program_name, password } = req.body;
+    users[username] = {
+      program_name,
+      password,
+    };
 
-  users[username] = {
-    name,
-    password,
-    // type,
-    // location,
-    // website,
-    // description,
-  };
-  // res.json({ success: "true" });
+    // need to find the solution for uppcase and lowercase
+    const exitingEmail = await User.findOne({
+      username,
+    });
 
-  const organizationList = readFile();
-  const newNpoObj = {
-    username: req.body.username,
-    password: req.body.password,
-    program_type: req.body.type,
-    id: uuidv4(),
-    program_name: req.body.name,
-    location: req.body.location,
-    image: "https://content.hostgator.com/img/weebly_image_sample.png",
-    description: req.body.description,
-    donations: [],
-    website: req.body.website,
-  };
+    if (exitingEmail) {
+      return res
+        .status(400)
+        .json({ error: "There is already a user with this email" });
+    } else {
+      // const hashedPassword = await bcrypt.hash(req.body.password, 12);
 
-  organizationList.push(newNpoObj);
-  writeFile(organizationList);
-  res.status(201).json(newNpoObj);
+      const newUser = new User({
+        id: uuidv4(),
+        username: req.body.username,
+        password: req.body.password,
+        // password: hashedPassword,
+        program_type: req.body.type,
+        program_name: req.body.name,
+        location: req.body.location,
+        image: "https://content.hostgator.com/img/weebly_image_sample.png",
+        description: req.body.description,
+        donations: [],
+        website: req.body.website,
+      });
+      const savedUser = await newUser.save();
+      return res.json(savedUser);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err.message);
+  }
 });
 
 singupAndLoginRouter.post("/login", (req, res) => {
   const { username, password } = req.body;
-  const organizationList = readFile();
-  let currUser = organizationList.find((user) => {
-    return user.username === username;
+
+  //console.log({ password, username });
+
+  User.findOne({ username }, (err, currUser) => {
+    if (err) {
+      console.log(err);
+    }
+
+    if (!currUser) {
+      res.status(401).json("not found");
+    }
+
+    if (currUser && currUser.password === password) {
+      const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
+        expiresIn: "24h",
+      });
+
+      res.json({ token });
+    }
   });
-  //const user = users[username];
-  if (!currUser) {
-    res.status(401).json("not found");
-  }
-
-  if (currUser && currUser.password === password) {
-    const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
-      expiresIn: "24h",
-    });
-
-    res.json({ token });
-  }
 });
 
 singupAndLoginRouter.get("/login/:username", (req, res) => {
   //console.log(req.params);
-  const organizationList = readFile();
-  let currUser = organizationList.find((user) => {
-    //console.log(user.username);
-    return user.username === req.params.username;
-  });
+  const currUser = req.params.username;
+
   //console.log(currUser);
-  res.json(currUser);
+
+  User.findOne({ username: currUser }, (err, currUserData) => {
+    if (err) {
+      console.log(err);
+    }
+
+    res.send(currUserData);
+  });
 });
 
 singupAndLoginRouter.get("/profile", authorize, (req, res) => {
