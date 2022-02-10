@@ -35,6 +35,7 @@ const UserSchema = new Schema(
     donations: {
       type: Array,
     },
+
     image: {
       type: String,
     },

@@ -5,28 +5,14 @@ const User = require("../models/User");
 
 const organizationRouter = express.Router();
 
-//function for read file
-// const readData = () => {
-//   const organizationData = fs.readFileSync("./data/organizationList.json");
-//   return JSON.parse(organizationData);
-// };
-
-// function for write file
-// const writeFile = (organizationData) => {
-//   fs.writeFileSync(
-//     "./data/organizationList.json",
-//     JSON.stringify(organizationData, null, 2)
-//   );
-// };
-
+//get all the organizations
 organizationRouter.get("/", (req, res) => {
   User.find({}, (err, organizationData) => {
     if (err) {
       console.log(err);
     }
 
-    console.log(req.query.search);
-    // console.log(organizationData);
+    //console.log(req.query.search);
     if (!req.query.search) return res.status(200).send(organizationData);
 
     const query = req.query.search.toLowerCase();
@@ -50,11 +36,6 @@ organizationRouter.get("/", (req, res) => {
 
     res.send(infoResults.concat(donationResults));
   });
-  // let organizationData = readData();
-
-  //console.log(req.query.search);
-
-  //return res.status(200).send(organizationData);
 });
 
 //get the single organization by Id
@@ -125,9 +106,7 @@ organizationRouter.delete("/:organizationId/item/:itemId", (req, res) => {
       return item.id === itemId;
     });
 
-    //console.log(targetItem);
     const TargetItemIndex = targetOrganization.donations.indexOf(targetItem);
-    //console.log(TargetItemIndex);
 
     if (targetItem) {
       targetOrganization.donations.splice(TargetItemIndex, 1);
@@ -145,33 +124,25 @@ organizationRouter.patch("/:organizationId/item/:itemId", async (req, res) => {
   const organizationId = req.params.organizationId;
   const itemId = req.params.itemId;
 
-  User.findOne({ id: organizationId }, (err, targetOrganization) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log(targetOrganization);
+  const newTargetOrganization = await User.findOne({ id: organizationId });
 
-    const targetItem = targetOrganization.donations.find((item) => {
-      return item.id === itemId;
-    });
+  // console.log(newTargetOrganization);
 
-    console.log(targetItem);
-
-    if (targetItem) {
-      targetItem.id = itemId;
-      targetItem.organizationID = organizationId;
-      targetItem.itemName = req.body.itemName;
-      targetItem.information = req.body.information;
-      targetItem.status = req.body.status;
-      targetItem.date = Date.now();
-      targetItem.image = req.body.image;
-
-      targetOrganization.save();
-      res.status(200).send(targetItem);
-    } else {
-      res.status(400).send("not found");
+  newTargetOrganization.donations.forEach((item) => {
+    if (item.id === itemId) {
+      item.id = itemId;
+      item.organizationID = organizationId;
+      item.itemName = req.body.itemName;
+      item.information = req.body.information;
+      item.status = req.body.status;
+      item.date = Date.now();
+      item.image = req.body.image;
     }
   });
+
+  await newTargetOrganization.save();
+  console.log(newTargetOrganization);
+  res.status(200).send("it worked");
 });
 
 //edit organization profile
