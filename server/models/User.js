@@ -32,9 +32,17 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    donations: {
-      type: Array,
-    },
+    donations: [
+      {
+        id: { type: String },
+        date: { type: Date },
+        organizationID: { type: String },
+        itemName: { type: String },
+        information: { type: String },
+        status: { type: String },
+        image: { type: String },
+      },
+    ],
 
     image: {
       type: String,
