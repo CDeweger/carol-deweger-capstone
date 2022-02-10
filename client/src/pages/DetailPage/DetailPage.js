@@ -33,7 +33,7 @@ class DetailPage extends Component {
     if (!this.state.targetOrganization) {
       return null;
     }
-    console.log(this.state.targetOrganization);
+    //console.log(this.state.targetOrganization);
     return (
       <div className="detailPage">
         <div className="detailPage__info">

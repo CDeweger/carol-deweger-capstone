@@ -1,13 +1,13 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+//import { Helmet } from "react-helmet";
 import "./About.scss";
 
 const About = () => {
   return (
     <div id="about" className="about">
-      <Helmet>
+      {/* <Helmet>
         <title>Donation Hub | About</title>
-      </Helmet>
+      </Helmet> */}
       <h1 className="about__heading">About Donation Hub</h1>
       <p className="about__description">
         Donation Hub is a platform to bring different non-profit organizations
