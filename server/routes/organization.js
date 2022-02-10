@@ -1,79 +1,65 @@
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
+const User = require("../models/User");
 
 const organizationRouter = express.Router();
 
-//function for read file
-const readData = () => {
-  const organizationData = fs.readFileSync("./data/organizationList.json");
-  return JSON.parse(organizationData);
-};
-
-// function for write file
-const writeFile = (organizationData) => {
-  fs.writeFileSync(
-    "./data/organizationList.json",
-    JSON.stringify(organizationData, null, 2)
-  );
-};
-
-//get all organization
-// organizationRouter.get("/", (req, res) => {
-//   let organizationData = readData();
-//   return res.status(200).send(organizationData);
-// });
-
+//get all the organizations
 organizationRouter.get("/", (req, res) => {
-  let organizationData = readData();
-
-  //console.log(req.query.search);
-
-  if (!req.query.search) return res.status(200).send(organizationData);
-
-  const query = req.query.search.toLowerCase();
-  const infoResults = organizationData.filter((organization) => {
-    if (
-      organization.program_type.toLowerCase().includes(query) ||
-      organization.program_name.toLowerCase().includes(query) ||
-      organization.location.toLowerCase().includes(query) ||
-      organization.description.toLowerCase().includes(query)
-    )
-      return organization;
-  });
-
-  const donationResults = organizationData.filter((organization) => {
-    for (let i = 0; i < organization.donations.length; i++) {
-      if (organization.donations[i].itemName.toLowerCase().includes(query)) {
-        if (!infoResults.includes(organization)) return organization;
-      }
+  User.find({}, (err, organizationData) => {
+    if (err) {
+      console.log(err);
     }
+
+    //console.log(req.query.search);
+    if (!req.query.search) return res.status(200).send(organizationData);
+
+    const query = req.query.search.toLowerCase();
+    const infoResults = organizationData.filter((organization) => {
+      if (
+        organization.program_type.toLowerCase().includes(query) ||
+        organization.program_name.toLowerCase().includes(query) ||
+        organization.location.toLowerCase().includes(query) ||
+        organization.description.toLowerCase().includes(query)
+      )
+        return organization;
+    });
+
+    const donationResults = organizationData.filter((organization) => {
+      for (let i = 0; i < organization.donations.length; i++) {
+        if (organization.donations[i].itemName.toLowerCase().includes(query)) {
+          if (!infoResults.includes(organization)) return organization;
+        }
+      }
+    });
+
+    res.send(infoResults.concat(donationResults));
   });
-
-  res.json(infoResults.concat(donationResults));
-
-  //return res.status(200).send(organizationData);
 });
 
 //get the single organization by Id
 organizationRouter.get("/:organizationId", (req, res) => {
   const organizationId = req.params.organizationId;
-  const tragetOrganizationData = readData().find((organization) => {
-    return organization.id === organizationId;
+  // const tragetOrganizationData = readData().find((organization) => {
+  //   return organization.id === organizationId;
+  // });
+  User.findOne({ id: organizationId }, (err, tragetOrganizationData) => {
+    if (err) {
+      console.log(err);
+    }
+    //console.log(tragetOrganizationData, organizationId);
+
+    if (tragetOrganizationData) {
+      res.status(200).json(tragetOrganizationData);
+    } else {
+      res.status(404).send("not fund");
+    }
   });
-
-  if (tragetOrganizationData) {
-    res.status(200).json(tragetOrganizationData);
-  } else {
-    res.status(404).send("not fund");
-  }
 });
-
 //create a new donation card
 
-organizationRouter.post("/item", (req, res) => {
-  let organizationData = readData();
-
+organizationRouter.post("/item", async (req, res) => {
   const newDonationObj = {
     id: uuidv4(),
     date: Date.now(),
@@ -88,15 +74,18 @@ organizationRouter.post("/item", (req, res) => {
   };
 
   const organizationID = req.body.organizationID;
-  organizationData.find((organization) => {
-    if (organization.id === organizationID) {
-      organization.donations.unshift(newDonationObj);
-      return;
-    }
-  });
 
-  writeFile(organizationData);
-  res.status(201).json(newDonationObj);
+  User.findOne({ id: organizationID }, (err, targetOrganization) => {
+    //console.log(newDonationObj);
+    if (err) {
+      console.log(err);
+    } else {
+      targetOrganization.donations.unshift(newDonationObj);
+      targetOrganization.save();
+    }
+
+    res.status(201).json(newDonationObj);
+  });
 });
 
 //delete a donation card
@@ -108,77 +97,74 @@ organizationRouter.delete("/:organizationId/item/:itemId", (req, res) => {
   const organizationId = req.params.organizationId;
   const itemId = req.params.itemId;
 
-  const organizationData = readData();
-  const targetOrganization = organizationData.find((organization) => {
-    return organization.id === organizationId;
+  User.findOne({ id: organizationId }, (err, targetOrganization) => {
+    if (err) {
+      console.log(err);
+    }
+
+    const targetItem = targetOrganization.donations.find((item) => {
+      return item.id === itemId;
+    });
+
+    const TargetItemIndex = targetOrganization.donations.indexOf(targetItem);
+
+    if (targetItem) {
+      targetOrganization.donations.splice(TargetItemIndex, 1);
+      targetOrganization.save();
+      res.status(204).json(targetItem);
+    } else {
+      res.status(400).json({ message: "item not found" });
+    }
   });
-
-  const targetItem = targetOrganization.donations.find((item) => {
-    return item.id === itemId;
-  });
-
-  const TargetItemIndex = targetOrganization.donations.indexOf(targetItem);
-  //console.log(TargetItemIndex);
-
-  if (targetItem) {
-    targetOrganization.donations.splice(TargetItemIndex, 1);
-    writeFile(organizationData);
-    res.status(204).json(targetItem);
-  } else {
-    res.status(400).json({ message: "item not found" });
-  }
 });
 
 //edit a donation card
 
-organizationRouter.patch("/:organizationId/item/:itemId", (req, res) => {
+organizationRouter.patch("/:organizationId/item/:itemId", async (req, res) => {
   const organizationId = req.params.organizationId;
   const itemId = req.params.itemId;
 
-  const organizationData = readData();
-  const targetOrganization = organizationData.find((organization) => {
-    return organization.id === organizationId;
+  const newTargetOrganization = await User.findOne({ id: organizationId });
+
+  // console.log(newTargetOrganization);
+
+  newTargetOrganization.donations.forEach((item) => {
+    if (item.id === itemId) {
+      item.id = itemId;
+      item.organizationID = organizationId;
+      item.itemName = req.body.itemName;
+      item.information = req.body.information;
+      item.status = req.body.status;
+      item.date = Date.now();
+      item.image = req.body.image;
+    }
   });
 
-  const targetItem = targetOrganization.donations.find((item) => {
-    return item.id === itemId;
-  });
-
-  if (targetItem) {
-    targetItem.id = itemId;
-    targetItem.organizationID = organizationId;
-    targetItem.itemName = req.body.itemName;
-    targetItem.information = req.body.information;
-    targetItem.status = req.body.status;
-    targetItem.date = Date.now();
-    targetItem.image = req.body.image;
-
-    writeFile(organizationData);
-    res.status(200).send(targetItem);
-  } else {
-    res.status(400).send("not found");
-  }
+  await newTargetOrganization.save();
+  console.log(newTargetOrganization);
+  res.status(200).send("it worked");
 });
+//edit organization profile
+organizationRouter.patch("/:id/edit", async (req, res) => {
+  const organizationId = req.params.id;
 
-organizationRouter.patch("/:id/edit", (req, res) => {
-  const organizationData = readData();
-  const itemId = req.params.id;
+  User.findOne({ id: organizationId }, (err, targetOrganization) => {
+    if (err) {
+      console.log(err);
+    }
 
-  // console.log(itemId);
+    if (targetOrganization) {
+      targetOrganization.location = req.body.location;
+      targetOrganization.website = req.body.website;
+      targetOrganization.description = req.body.description;
+      targetOrganization.image = req.body.image;
 
-  let targetItem = organizationData.find((item) => item.id === itemId);
-
-  // console.log(targetItem);
-  if (targetItem) {
-    targetItem.location = req.body.location;
-    targetItem.website = req.body.website;
-    targetItem.description = req.body.description;
-    targetItem.image = req.body.image;
-    writeFile(organizationData);
-    res.status(200).send(targetItem);
-  } else {
-    res.status(400).send("not found");
-  }
+      targetOrganization.save();
+      res.status(200).send(targetOrganization);
+    } else {
+      res.status(400).send("not found");
+    }
+  });
 });
 
 module.exports = organizationRouter;
