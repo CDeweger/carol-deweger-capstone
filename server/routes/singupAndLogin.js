@@ -99,26 +99,6 @@ singupAndLoginRouter.post("/login", async (req, res) => {
   } else {
     res.status(401).json({ error: "User does not exist" });
   }
-
-  //////// couldn't login
-  // bcrypt.compare(password, currUser.password, (err, success) => {
-  //   console.log(password, currUser.password);
-  //   if (!success) {
-  //     return res.status(403).json({
-  //       message: "Username/password combination is wrong",
-  //     });
-  //   }
-  //   const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
-  //     expiresIn: "24h",
-  //   });
-  //   res.json({ token });
-
-  ////// original code
-  // if (currUser && currUser.password === password) {
-  //   const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
-  //     expiresIn: "24h",
-  //   });
-  //});
 });
 
 singupAndLoginRouter.get("/login/:username", (req, res) => {
