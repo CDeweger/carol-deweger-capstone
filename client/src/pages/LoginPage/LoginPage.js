@@ -70,6 +70,9 @@ class LoginPage extends Component {
               </button>
               <Link className="loginPage-button__signup" to={"/signup"}>
                 Sign Up
+                <span className="loginPage-button__signup--msg">
+                  Don't have an account yet?
+                </span>
               </Link>
             </div>
           </form>
