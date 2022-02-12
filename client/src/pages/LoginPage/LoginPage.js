@@ -11,6 +11,8 @@ class LoginPage extends Component {
   state = {
     isLoggedIn: false,
     username: null,
+    password: null,
+    LoginError: false,
   };
 
   login = (e) => {
@@ -23,21 +25,23 @@ class LoginPage extends Component {
 
       .then((response) => {
         console.log(response);
+        sessionStorage.setItem("token", response.data.token);
 
         this.setState({
           isLoggedIn: true,
-          username: e.target.username.value,
+          [e.target.name]: e.target.value,
         });
 
-        sessionStorage.setItem("token", response.data.token);
+        //sessionStorage.setItem("token", response.data.token);
         this.props.history.push(`/profile`);
       })
 
       .catch((err) => {
         console.log(err);
+        this.setState({
+          LoginError: true,
+        });
       });
-
-    //this.getUserinfo(this.state.username);
   };
 
   renderLogin = () => {
@@ -53,6 +57,12 @@ class LoginPage extends Component {
             <div className="loginPage-group">
               <label htmlFor="password"> Password:</label>
               <input type="password" name="password" />
+            </div>
+            <div>
+              {" "}
+              {this.state.LoginError && (
+                <p>Please check your username and password.</p>
+              )}
             </div>
             <div className="loginPage-button">
               <button className="loginPage-button__login" type="submit">

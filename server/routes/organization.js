@@ -41,9 +41,6 @@ organizationRouter.get("/", (req, res) => {
 //get the single organization by Id
 organizationRouter.get("/:organizationId", (req, res) => {
   const organizationId = req.params.organizationId;
-  // const tragetOrganizationData = readData().find((organization) => {
-  //   return organization.id === organizationId;
-  // });
   User.findOne({ id: organizationId }, (err, tragetOrganizationData) => {
     if (err) {
       console.log(err);
