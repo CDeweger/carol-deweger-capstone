@@ -51,8 +51,8 @@ singupAndLoginRouter.post("/signup", async (req, res) => {
         .status(400)
         .json({ error: "There is already a user with this email" });
     } else {
-      const SALT_ROUNDS = 8;
-      const hashedPassword = await bcrypt.hash(req.body.password, SALT_ROUNDS);
+      const SALT = 8;
+      const hashedPassword = await bcrypt.hash(req.body.password, SALT);
 
       const newUser = new User({
         id: uuidv4(),
@@ -76,35 +76,49 @@ singupAndLoginRouter.post("/signup", async (req, res) => {
   }
 });
 
-singupAndLoginRouter.post("/login", (req, res) => {
+singupAndLoginRouter.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
-  //console.log({ password, username });
+  const user = await User.findOne({ username });
 
-  User.findOne({ username }, (err, currUser) => {
-    if (err) {
-      console.log(err);
+  if (user) {
+    const validPassword = await bcrypt.compare(password, user.password);
+
+    console.log(validPassword, password, user.password);
+    console.log(typeof password);
+    console.log(typeof user.password);
+
+    if (validPassword) {
+      const token = jwt.sign({ name: user.program_name }, JWT_SECRET, {
+        expiresIn: "24h",
+      });
+      res.json({ token });
+    } else {
+      res.status(400).json({ error: "Invalid Password" });
     }
+  } else {
+    res.status(401).json({ error: "User does not exist" });
+  }
 
-    if (!currUser) {
-      res.status(401).json("not found");
-    }
+  //////// couldn't login
+  // bcrypt.compare(password, currUser.password, (err, success) => {
+  //   console.log(password, currUser.password);
+  //   if (!success) {
+  //     return res.status(403).json({
+  //       message: "Username/password combination is wrong",
+  //     });
+  //   }
+  //   const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
+  //     expiresIn: "24h",
+  //   });
+  //   res.json({ token });
 
-    if (currUser) {
-      const validPassword = bcrypt.compare(password, currUser.password);
-      if (validPassword) {
-        const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
-          expiresIn: "24h",
-        });
-        res.json({ token });
-      }
-
-      // if (currUser && currUser.password === password) {
-      //   const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
-      //     expiresIn: "24h",
-      //   });
-    }
-  });
+  ////// original code
+  // if (currUser && currUser.password === password) {
+  //   const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
+  //     expiresIn: "24h",
+  //   });
+  //});
 });
 
 singupAndLoginRouter.get("/login/:username", (req, res) => {
