@@ -5,6 +5,7 @@ import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const signupURL = `${API_URL}signup`;
+const MIN_PASSWORD_LENGTH = 8;
 
 class SignUpPage extends Component {
   state = {
@@ -12,6 +13,45 @@ class SignUpPage extends Component {
     isLoggedIn: false,
     isLoginError: false,
     errorMessage: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    isFormValid: false,
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  isPasswordValid = () => {
+    if (this.state.password.length < MIN_PASSWORD_LENGTH) {
+      return false;
+    }
+
+    return true;
+  };
+
+  isConfirmPasswordValid = () => {
+    const { password, confirmPassword } = this.state;
+    return password === confirmPassword;
+  };
+
+  isFormValid = () => {
+    const { username, password, confirmPassword } = this.state;
+
+    if (!username || !password || !confirmPassword) {
+      return false;
+    }
+
+    if (!this.isPasswordValid()) {
+      return false;
+    }
+    if (!this.isConfirmPasswordValid()) {
+      return false;
+    }
+    return true;
   };
 
   signup = (e) => {
@@ -30,10 +70,18 @@ class SignUpPage extends Component {
         console.log(response);
         this.setState({
           isSignedUp: true,
+          isFormValid: true,
         });
         this.props.history.push("/login");
       })
-      .catch((err) => console.log(err));
+      // .catch((err) => console.log(err));
+      .catch((err) => {
+        if (this.isFormValid()) {
+          alert("success");
+        } else {
+          alert("Failed to sign up, you have errors in your form");
+        }
+      });
   };
 
   renderSignUp() {
@@ -101,6 +149,8 @@ class SignUpPage extends Component {
                 className="signup-form__input"
                 type="password"
                 name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
               />
             </div>
             <div className="signup-form__field">
@@ -111,6 +161,8 @@ class SignUpPage extends Component {
                 className="signup-form__input"
                 type="password"
                 name="confrimPassword"
+                value={this.state.confrimPassword}
+                onChange={this.handleChange}
               />
             </div>
           </div>
