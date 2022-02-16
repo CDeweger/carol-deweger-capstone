@@ -1,110 +1,99 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { setState, useState } from "react";
 import EditDonationCardModal from "../EditDonationCardModal/EditDonationCardModal";
 import DeleteDonationCardModal from "../DeleteDonationCardModal/DeleteDonationCardModal";
 import "./DonationCard.scss";
-const API_URL = process.env.REACT_APP_API_URL;
 
-class DonationCard extends Component {
-  state = {
-    showEditModal: false,
-    showDeleteModal: false,
+const DonationCard = (props) => {
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, SetShowDeleteModal] = useState(false);
+
+  const handleShowEditModal = () => {
+    setShowEditModal(true);
   };
 
-  showEditModal = () => {
-    this.setState({ showEditModal: true });
-    //this.props.histroy.push(`profile/${this.props.donationList.id}`);
+  const closeEditModal = () => {
+    setShowEditModal(false);
   };
 
-  closeEditModal = () => {
-    this.setState({ showEditModal: false });
+  const handleShowDeleteModal = () => {
+    SetShowDeleteModal(true);
   };
 
-  showDeleteModal = () => {
-    this.setState({ showDeleteModal: true });
+  const closeDeleteModal = () => {
+    SetShowDeleteModal(false);
   };
 
-  closeDeleteModal = () => {
-    this.setState({ showDeleteModal: false });
-  };
+  let editModal = <></>;
+  if (showEditModal) {
+    editModal = (
+      <EditDonationCardModal
+        closeEditModal={closeEditModal}
+        donationList={props.donationList}
+      />
+    );
+  }
 
-  render() {
-    console.log(this.props);
-    let editModal = <></>;
-    if (this.state.showEditModal) {
-      editModal = (
-        <EditDonationCardModal
-          closeEditModal={this.closeEditModal}
-          donationList={this.props.donationList}
-        />
-      );
-    }
+  let deleteModal = <></>;
+  if (showDeleteModal) {
+    deleteModal = (
+      <DeleteDonationCardModal
+        closeDeleteModal={closeDeleteModal}
+        donationList={props.donationList}
+      />
+    );
+  }
 
-    let deleteModal = <></>;
-    if (this.state.showDeleteModal) {
-      deleteModal = (
-        <DeleteDonationCardModal
-          closeDeleteModal={this.closeDeleteModal}
-          donationList={this.props.donationList}
-        />
-      );
-    }
-
-    return (
-      <>
-        {editModal}
-        {deleteModal}
-        <div className="donationList-card">
-          <div className="donationList-card__inner">
-            <div className="donationList-card__image-box">
-              <img
-                className="donationList-card__image-box--image"
-                src={this.props.donationList.image}
-              />
+  return (
+    <>
+      {editModal}
+      {deleteModal}
+      <div className="donationList-card">
+        <div className="donationList-card__inner">
+          <div className="donationList-card__image-box">
+            <img
+              className="donationList-card__image-box--image"
+              src={props.donationList.image}
+            />
+          </div>
+          <div className="donationList-card__info-box">
+            <div>
+              <h2 className="donationList-card__item">
+                {props.donationList.itemName}
+              </h2>
             </div>
-            <div className="donationList-card__info-box">
-              <div>
-                <h2 className="donationList-card__item">
-                  {this.props.donationList.itemName}
-                </h2>
-              </div>
-              <div className="donationList-card__status-date">
-                <p>
-                  Status:{" "}
-                  {this.props.donationList.status === "In Need" ? (
-                    <span className="donationList-card__in-need">In Need</span>
-                  ) : (
-                    <span className="donationList-card__surplus">Surplus</span>
-                  )}
-                </p>
-                <p className="donationList-card__date">
-                  Posted:{" "}
-                  {new Date(this.props.donationList.date).toLocaleDateString()}
-                </p>
-              </div>
-              <p>{this.props.donationList.information}</p>
-              <div className="donationList-card__buttons">
-                <button
-                  className="donationList-card__delete-button"
-                  onClick={this.showDeleteModal}
-                >
-                  Delete
-                </button>
-                <button
-                  className="donationList-card__edit-button"
-                  onClick={this.showEditModal}
-                >
-                  {/* <Link to={`profile/${this.props.donationList.id}`}>Edit</Link> */}
-                  Edit
-                </button>
-              </div>
+            <div className="donationList-card__status-date">
+              <p>
+                Status:{" "}
+                {props.donationList.status === "In Need" ? (
+                  <span className="donationList-card__in-need">In Need</span>
+                ) : (
+                  <span className="donationList-card__surplus">Surplus</span>
+                )}
+              </p>
+              <p className="donationList-card__date">
+                Posted: {new Date(props.donationList.date).toLocaleDateString()}
+              </p>
+            </div>
+            <p>{props.donationList.information}</p>
+            <div className="donationList-card__buttons">
+              <button
+                className="donationList-card__delete-button"
+                onClick={handleShowDeleteModal}
+              >
+                Delete
+              </button>
+              <button
+                className="donationList-card__edit-button"
+                onClick={handleShowEditModal}
+              >
+                Edit
+              </button>
             </div>
           </div>
         </div>
-      </>
-    );
-  }
-}
+      </div>
+    </>
+  );
+};
 
 export default DonationCard;
