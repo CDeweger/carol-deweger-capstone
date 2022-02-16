@@ -24,7 +24,7 @@ class ProfilePage extends Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         this.setState({
           userInfo: response.data,
           isLoading: false,
@@ -48,7 +48,7 @@ class ProfilePage extends Component {
   };
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     const { isLoading, userInfo } = this.state;
     return isLoading ? (
       <h1>Loading...</h1>
