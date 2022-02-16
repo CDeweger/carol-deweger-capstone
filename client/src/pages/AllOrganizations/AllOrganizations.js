@@ -1,53 +1,46 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 import AllOrganizationsCard from "../../components/AllOrganizationsCard/AllOrganizationsCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import { Redirect } from "react-router-dom";
-
 const API_URL = process.env.REACT_APP_API_URL;
 
-class AllOrganizations extends Component {
-  state = {
-    allOrganizations: [],
-    allOrganizationsList: null,
-    //targetOrganizations: null,
-  };
+const AllOrganizations = (props) => {
+  const [allOrganizations, setAllOrganizations] = useState([]);
+  const [allOrganizationsList, setAllOrganizationsList] = useState(null);
 
-  getAllOrganizationsList = () => {
+  const getAllOrganizationsList = () => {
     axios
       .get(`${API_URL}organization`)
       .then((res) => {
-        this.setState({
-          allOrganizations: res.data,
-          allOrganizationsList: res.data,
-        });
+        setAllOrganizations(res.data);
+        setAllOrganizationsList(res.data);
       })
       .catch((_err) => {
         console.log("error");
       });
   };
 
-  componentDidMount() {
-    this.getAllOrganizationsList();
-  }
+  useEffect(() => {
+    getAllOrganizationsList();
+  }, []);
 
-  componentDidUpdate(prevProps) {
-    if (!this.props.location.state) return;
-    if (this.props.location.state.id === prevProps.location.state.id) return;
+  // componentDidUpdate(prevProps) {
+  //   if (!this.props.location.state) return;
+  //   if (this.props.location.state.id === prevProps.location.state.id) return;
 
-    axios
-      .get(`${API_URL}organization`)
-      .then((res) => {
-        this.setState({
-          allOrganizations: res.data,
-          allOrganizationsList: res.data,
-        });
-      })
-      .catch((_err) => {
-        console.log("error");
-      });
-  }
+  //   axios
+  //     .get(`${API_URL}organization`)
+  //     .then((res) => {
+  //       this.setState({
+  //         allOrganizations: res.data,
+  //         allOrganizationsList: res.data,
+  //       });
+  //     })
+  //     .catch((_err) => {
+  //       console.log("error");
+  //     });
+  // }
 
   // handleSearch = (e) => {
   //   const query = e.target.value.toLowerCase();
@@ -64,48 +57,44 @@ class AllOrganizations extends Component {
   //   this.setState({ targetOrganizations: results });
   // };
 
-  handleSearchServer = (e) => {
+  const handleSearchServer = (e) => {
     const query = e.target.value.toLowerCase();
-    this.props.history.push({ search: `search=${query}` });
+    props.history.push({ search: `search=${query}` });
 
     axios
       .get(`${API_URL}organization/?search=${query}`)
       .then((res) => {
-        this.setState({
-          allOrganizations: res.data,
-        });
+        setAllOrganizations(res.data);
       })
       .catch((_err) => {
         console.log("error");
       });
   };
 
-  render() {
-    if (!this.state.allOrganizations) {
-      return null;
-    }
-
-    return (
-      <div className="FirstNationPage">
-        <Helmet>
-          <title>Donation Hub | Organizations</title>
-        </Helmet>
-        <h1 className="FirstNationPage__heading">Non-Profit Organizations</h1>
-        <SearchBar
-          placeholder="Search for donations, organizations and locations..."
-          handleSearch={this.handleSearchServer}
-        />
-        {this.state.allOrganizations.map((organization) => {
-          return (
-            <AllOrganizationsCard
-              key={organization.id}
-              allOrganizations={organization}
-            />
-          );
-        })}
-      </div>
-    );
+  if (!allOrganizations) {
+    return null;
   }
-}
+
+  return (
+    <div className="FirstNationPage">
+      <Helmet>
+        <title>Donation Hub | Organizations</title>
+      </Helmet>
+      <h1 className="FirstNationPage__heading">Non-Profit Organizations</h1>
+      <SearchBar
+        placeholder="Search for donations, organizations and locations..."
+        handleSearch={handleSearchServer}
+      />
+      {allOrganizations.map((organization) => {
+        return (
+          <AllOrganizationsCard
+            key={organization.id}
+            allOrganizations={organization}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export default AllOrganizations;
