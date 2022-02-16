@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import linkIcon from "../../assets/icons/external-link-icon.png";
 
-//import "./FirstNationCard.scss";
-
 const ShelterCard = (props) => {
   if (!props.shelterList.donations) {
     return null;
@@ -54,7 +52,6 @@ const ShelterCard = (props) => {
             className="button firstNationCard__learn-more-button"
             to={{
               pathname: `homeless-shelter/${props.shelterList.id}`,
-              // pathname: `/${props.shelterList.id}`,
             }}
           >
             Learn More

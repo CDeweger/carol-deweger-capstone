@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Submenu from "../Submenu/Submenu";
 import { HashLink } from "react-router-hash-link";
-
 import "./Header.scss";
 
 const Header = () => {
