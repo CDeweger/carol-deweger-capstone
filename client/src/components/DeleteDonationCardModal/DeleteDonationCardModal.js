@@ -4,16 +4,6 @@ import "./DeleteDonationCardModal.scss";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-// const DeleteDonationCardModal = () => {
-//   return (
-//     <div>
-
-//     </div>
-//   );
-// };
-
-// export default DeleteDonationCardModal;
-
 const DeleteDonationCardModal = (props) => {
   const handleCancel = () => {
     props.closeDeleteModal();
