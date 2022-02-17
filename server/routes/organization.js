@@ -5,14 +5,12 @@ const User = require("../models/User");
 
 const organizationRouter = express.Router();
 
-//get all the organizations
 organizationRouter.get("/", (req, res) => {
   User.find({}, (err, organizationData) => {
     if (err) {
       console.log(err);
     }
 
-    //console.log(req.query.search);
     if (!req.query.search) return res.status(200).send(organizationData);
 
     const query = req.query.search.toLowerCase();
