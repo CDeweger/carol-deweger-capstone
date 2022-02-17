@@ -7,7 +7,7 @@ import axios from "axios";
 const API_URL = process.env.REACT_APP_API_URL;
 const signupURL = `${API_URL}signup`;
 
-const SignUpPage = (props) => {
+const SignUpPage = () => {
   const [isSignedUp, setIsSignedUp] = useState(true);
 
   const signup = (e) => {
