@@ -1,50 +1,42 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ShelterCard from "../../components/ShelterCard/ShelterCard";
 import "./ShelterPage.scss";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-class ShelterPage extends Component {
-  state = {
-    shelterList: [],
-  };
+const ShelterPage = () => {
+  const [shelterList, setShelterList] = useState([]);
 
-  getshelterList = () => {
+  const getshelterList = () => {
     axios
       .get(`${API_URL}organization`)
       .then((res) => {
-        this.setState({
-          shelterList: res.data.filter(
-            (type) => type.program_type === "Homeless Shelter"
-          ),
-        });
+        setShelterList(
+          res.data.filter((type) => type.program_type === "Homeless Shelter")
+        );
       })
       .catch((_err) => {
         console.log("error");
       });
   };
 
-  componentDidMount() {
-    this.getshelterList();
+  useEffect(() => {
+    getshelterList();
+  }, []);
+
+  if (!shelterList) {
+    return null;
   }
 
-  render() {
-    console.log(this.state.shelterList);
-
-    if (!this.state.shelterList) {
-      return null;
-    }
-
-    return (
-      <div className="FirstNationPage">
-        <h1 className="FirstNationPage__heading">Homeless Shelter </h1>
-        {this.state.shelterList.map((shelter) => {
-          return <ShelterCard key={shelter.id} shelterList={shelter} />;
-        })}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="FirstNationPage">
+      <h1 className="FirstNationPage__heading">Homeless Shelter </h1>
+      {shelterList.map((shelter) => {
+        return <ShelterCard key={shelter.id} shelterList={shelter} />;
+      })}
+    </div>
+  );
+};
 
 export default ShelterPage;

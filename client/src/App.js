@@ -2,7 +2,6 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-import About from "./components/About/About";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
@@ -27,8 +26,6 @@ const App = () => {
         <Header />
         <Switch>
           <Route path="/" exact component={HomePage} />
-          {/* <Route path="/about" exact component={About} /> */}
-
           <Route path="/signup" exact component={SignUpPage} />
           <Route
             path="/login"

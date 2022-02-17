@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "./FeaturedNPO.scss";
 
 const FeaturedNPO = (props) => {
-  console.log(props);
-
   const randomNum = Math.floor(Math.random() * props.organizationList.length);
 
   return (

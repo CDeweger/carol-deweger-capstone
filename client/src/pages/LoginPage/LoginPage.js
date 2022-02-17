@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import axios from "axios";
@@ -7,13 +8,13 @@ import "./LoginPage.scss";
 const API_URL = process.env.REACT_APP_API_URL;
 const loginURL = `${API_URL}login`;
 
-class LoginPage extends Component {
-  state = {
-    isLoggedIn: false,
-    username: null,
-  };
+const LoginPage = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [LoginError, setLoginError] = useState(false);
 
-  login = (e) => {
+  const login = (e) => {
     e.preventDefault();
     axios
       .post(loginURL, {
@@ -21,31 +22,36 @@ class LoginPage extends Component {
         password: e.target.password.value,
       })
 
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        console.log(res);
+        sessionStorage.setItem("token", res.data.token);
 
-        this.setState({
-          isLoggedIn: true,
-          username: e.target.username.value,
-        });
+        setIsLoggedIn(true);
+        setUsername(e.target.value);
+        setPassword(e.target.value);
 
-        sessionStorage.setItem("token", response.data.token);
-        this.props.history.push(`/profile`);
+        history.push(`/profile`);
       })
 
       .catch((err) => {
         console.log(err);
-      });
 
-    //this.getUserinfo(this.state.username);
+        setLoginError(true);
+      });
   };
 
-  renderLogin = () => {
-    return (
+  const history = useHistory();
+
+  return (
+    <>
+      {" "}
+      <Helmet>
+        <title>Donation Hub | Login</title>
+      </Helmet>
       <div className="loginPage">
         <div className="loginPage-container">
           <h1>Login</h1>
-          <form onSubmit={this.login}>
+          <form onSubmit={login}>
             <div className="loginPage-group">
               <label htmlFor="username">Username:</label>
               <input type="email" name="username" />
@@ -54,35 +60,26 @@ class LoginPage extends Component {
               <label htmlFor="password"> Password:</label>
               <input type="password" name="password" />
             </div>
+            <div>
+              {" "}
+              {LoginError && <p>Please check your username and password.</p>}
+            </div>
             <div className="loginPage-button">
               <button className="loginPage-button__login" type="submit">
                 Login
               </button>
               <Link className="loginPage-button__signup" to={"/signup"}>
                 Sign Up
+                <span className="loginPage-button__signup--msg">
+                  Don't have an account yet?
+                </span>
               </Link>
             </div>
           </form>
         </div>
       </div>
-    );
-  };
-
-  render() {
-    const { isLoggedIn } = this.state;
-    if (!isLoggedIn)
-      return (
-        <>
-          {" "}
-          <Helmet>
-            <title>Donation Hub | Login</title>
-          </Helmet>
-          {this.renderLogin()};
-        </>
-      );
-
-    return null;
-  }
-}
+    </>
+  );
+};
 
 export default LoginPage;

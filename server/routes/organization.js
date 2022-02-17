@@ -5,14 +5,12 @@ const User = require("../models/User");
 
 const organizationRouter = express.Router();
 
-//get all the organizations
 organizationRouter.get("/", (req, res) => {
   User.find({}, (err, organizationData) => {
     if (err) {
       console.log(err);
     }
 
-    //console.log(req.query.search);
     if (!req.query.search) return res.status(200).send(organizationData);
 
     const query = req.query.search.toLowerCase();
@@ -41,9 +39,6 @@ organizationRouter.get("/", (req, res) => {
 //get the single organization by Id
 organizationRouter.get("/:organizationId", (req, res) => {
   const organizationId = req.params.organizationId;
-  // const tragetOrganizationData = readData().find((organization) => {
-  //   return organization.id === organizationId;
-  // });
   User.findOne({ id: organizationId }, (err, tragetOrganizationData) => {
     if (err) {
       console.log(err);

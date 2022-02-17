@@ -25,7 +25,7 @@
 .loginPage-button {
   margin-top: 2rem;
   margin-bottom: 0.5rem;
-  @include flex(space-between, center, _);
+  @include flex(space-between, flex-start, _);
 
   &__login {
     border: white 2px solid;
@@ -41,6 +41,10 @@
   }
   &__signup {
     @include font-regular;
+    @include flex(flex-end, flex-end, column);
+    &--msg {
+      font-size: 0.8rem;
+    }
     &:link {
       color: white;
     }
@@ -52,6 +56,7 @@
     }
     &:hover {
       color: $primary-green;
+      transform: scale(1.1);
     }
   }
 }

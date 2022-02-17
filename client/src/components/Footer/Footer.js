@@ -24,7 +24,6 @@ const Footer = () => {
             <Link className="footer-link footer-hover" to={"/organization"}>
               Organizations
             </Link>
-            {/* <Submenu /> */}
           </li>
           <li className="footer__nav-list--item footer-hover">
             {!isLoggedIn ? (

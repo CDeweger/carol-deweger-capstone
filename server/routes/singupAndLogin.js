@@ -2,7 +2,7 @@ const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 //const fs = require("fs");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
 const singupAndLoginRouter = express.Router();
@@ -51,13 +51,14 @@ singupAndLoginRouter.post("/signup", async (req, res) => {
         .status(400)
         .json({ error: "There is already a user with this email" });
     } else {
-      // const hashedPassword = await bcrypt.hash(req.body.password, 12);
+      const SALT = 8;
+      const hashedPassword = await bcrypt.hash(req.body.password, SALT);
 
       const newUser = new User({
         id: uuidv4(),
         username: req.body.username,
         password: req.body.password,
-        // password: hashedPassword,
+        password: hashedPassword,
         program_type: req.body.type,
         program_name: req.body.name,
         location: req.body.location,
@@ -75,28 +76,29 @@ singupAndLoginRouter.post("/signup", async (req, res) => {
   }
 });
 
-singupAndLoginRouter.post("/login", (req, res) => {
+singupAndLoginRouter.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
-  //console.log({ password, username });
+  const user = await User.findOne({ username });
 
-  User.findOne({ username }, (err, currUser) => {
-    if (err) {
-      console.log(err);
-    }
+  if (user) {
+    const validPassword = await bcrypt.compare(password, user.password);
 
-    if (!currUser) {
-      res.status(401).json("not found");
-    }
+    console.log(validPassword, password, user.password);
+    console.log(typeof password);
+    console.log(typeof user.password);
 
-    if (currUser && currUser.password === password) {
-      const token = jwt.sign({ name: currUser.program_name }, JWT_SECRET, {
+    if (validPassword) {
+      const token = jwt.sign({ name: user.program_name }, JWT_SECRET, {
         expiresIn: "24h",
       });
-
       res.json({ token });
+    } else {
+      res.status(400).json({ error: "Invalid Password" });
     }
-  });
+  } else {
+    res.status(401).json({ error: "User does not exist" });
+  }
 });
 
 singupAndLoginRouter.get("/login/:username", (req, res) => {

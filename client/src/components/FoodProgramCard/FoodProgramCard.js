@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import linkIcon from "../../assets/icons/external-link-icon.png";
 
-// import "./FirstNationCard.scss";
-
 const FoodProgramCard = (props) => {
   if (!props.foodProgramList.donations) {
     return null;
@@ -51,7 +49,6 @@ const FoodProgramCard = (props) => {
             className="button firstNationCard__learn-more-button"
             to={{
               pathname: `first-nation/${props.foodProgramList.id}`,
-              // pathname: `/${props.foodProgramList.id}`,
             }}
           >
             Learn More
