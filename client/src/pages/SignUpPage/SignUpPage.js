@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import "./SignUpPage.scss";
@@ -13,10 +13,14 @@ const SignUpPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
+  //form validation
   const [signupError, setSignupError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [usernameError, setUsernameError] = useState(false);
 
   const signup = (e) => {
     e.preventDefault();
+
     axios
       .post(signupURL, {
         username: e.target.username.value,
@@ -28,9 +32,14 @@ const SignUpPage = () => {
         password: e.target.password.value,
       })
       .then((_res) => {
+        setSignupError(false);
+        //setPasswordError(false);
         history.push("/login");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setSignupError(true);
+        console.log(err);
+      });
   };
 
   const history = useHistory();
@@ -46,16 +55,19 @@ const SignUpPage = () => {
   };
 
   const isFormValid = () => {
-    if (!username || !password || !confirmPassword) {
-      setSignupError(true);
+    if (!username) {
+      setUsernameError(true);
+      return false;
     }
 
     if (!isPasswordValid()) {
       setSignupError(true);
+      return false;
     }
 
     if (!isConfirmPasswordValid()) {
       setSignupError(true);
+      return false;
     }
     return true;
   };
@@ -136,10 +148,17 @@ const SignUpPage = () => {
         <div className="signup-form__field">
           <button className="signup-form__button">Sign Up</button>
         </div>
-        {setSignupError && (
-          <p className="signup-form__error">
-            Please check your password and confrim password.
-          </p>
+        {signupError && (
+          <>
+            <p className="signup-form__error">
+              Please check your username password and confrim password.
+            </p>
+            <p className="signup-form__note">
+              Password should be at least{" "}
+              <span className="signup-form__note--highlight">8 characters</span>
+              .
+            </p>
+          </>
         )}
       </form>
     </div>

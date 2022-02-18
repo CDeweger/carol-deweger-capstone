@@ -79,4 +79,13 @@
     text-align: center;
     margin-top: 1rem;
   }
+  &__note {
+    color: $primary-green;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    &--highlight {
+      border-bottom: solid 2px white;
+    }
+  }
 }
