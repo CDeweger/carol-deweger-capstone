@@ -6,9 +6,14 @@ import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const signupURL = `${API_URL}signup`;
+const MIN_PASSWORD_LENGTH = 8;
 
 const SignUpPage = () => {
   const [isSignedUp, setIsSignedUp] = useState(true);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [signupError, setSignupError] = useState(false);
 
   const signup = (e) => {
     e.preventDefault();
@@ -29,6 +34,31 @@ const SignUpPage = () => {
   };
 
   const history = useHistory();
+
+  const isPasswordValid = () => {
+    if (password.length < MIN_PASSWORD_LENGTH) {
+      return false;
+    }
+  };
+
+  const isConfirmPasswordValid = () => {
+    return password === confirmPassword;
+  };
+
+  const isFormValid = () => {
+    if (!username || !password || !confirmPassword) {
+      setSignupError(true);
+    }
+
+    if (!isPasswordValid()) {
+      setSignupError(true);
+    }
+
+    if (!isConfirmPasswordValid()) {
+      setSignupError(true);
+    }
+    return true;
+  };
 
   if (!isSignedUp) return null;
 
@@ -106,6 +136,11 @@ const SignUpPage = () => {
         <div className="signup-form__field">
           <button className="signup-form__button">Sign Up</button>
         </div>
+        {setSignupError && (
+          <p className="signup-form__error">
+            Please check your password and confrim password.
+          </p>
+        )}
       </form>
     </div>
   );
