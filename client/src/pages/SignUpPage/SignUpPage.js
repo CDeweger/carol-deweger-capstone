@@ -15,8 +15,6 @@ const SignUpPage = () => {
   const [username, setUsername] = useState("");
   //form validation
   const [signupError, setSignupError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [usernameError, setUsernameError] = useState(false);
 
   const signup = (e) => {
     e.preventDefault();
@@ -43,6 +41,11 @@ const SignUpPage = () => {
   };
 
   const history = useHistory();
+
+  const handleChange = (e) => {
+    setPassword(e.target.value);
+    setConfirmPassword(e.target.value);
+  };
 
   const isPasswordValid = () => {
     if (password.length < MIN_PASSWORD_LENGTH) {
@@ -132,6 +135,8 @@ const SignUpPage = () => {
               className="signup-form__input"
               type="password"
               name="password"
+              value={password}
+              onChange={handleChange}
             />
           </div>
           <div className="signup-form__field">
@@ -142,6 +147,8 @@ const SignUpPage = () => {
               className="signup-form__input"
               type="password"
               name="confrimPassword"
+              value={confirmPassword}
+              onChange={handleChange}
             />
           </div>
         </div>
