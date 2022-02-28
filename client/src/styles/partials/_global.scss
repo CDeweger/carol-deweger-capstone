@@ -1,22 +1,10 @@
 @use "./mixins" as *;
 @use "./colors" as *;
 
-// * {
-//   box-sizing: border-box;
-// }
-
-// h1,
-// h2 {
-//   @include font-bold;
-// }
-
 a {
   text-decoration: none;
   @include font-regular;
 }
-// a:hover {
-//   color: $primary-green;
-// }
 
 ul {
   list-style-type: none;

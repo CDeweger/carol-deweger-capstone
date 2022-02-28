@@ -15,7 +15,7 @@ const SignUpPage = () => {
   const [username, setUsername] = useState("");
   //form validation
   const [signupError, setSignupError] = useState(false);
-
+  // const [usernameError, setUsernameError] = useState(false);
   const signup = (e) => {
     e.preventDefault();
 
@@ -58,10 +58,10 @@ const SignUpPage = () => {
   };
 
   const isFormValid = () => {
-    if (!username) {
-      setUsernameError(true);
-      return false;
-    }
+    // if (!username) {
+    //   setUsernameError(true);
+    //   return false;
+    // }
 
     if (!isPasswordValid()) {
       setSignupError(true);
@@ -108,7 +108,7 @@ const SignUpPage = () => {
               </option>
               <option>Homeless Shelter</option>
               <option>Free/Low Cost Food Program</option>
-              <option>First Nation</option>
+              <option>First Nations</option>
             </select>
           </div>
           <div className="signup-form__field">
