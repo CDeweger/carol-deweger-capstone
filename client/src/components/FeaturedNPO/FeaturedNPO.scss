@@ -5,14 +5,28 @@
 @use "../../styles/partials/typography" as *;
 
 .featuredNPO {
-  width: 80vw;
-  margin: auto;
+  @include mobile {
+    width: 95vw;
+    text-align: center;
+  }
+  @include tablet {
+    width: 80vw;
+    margin: auto;
+    margin-top: 10rem;
+    text-align: left;
+  }
 
   @include flex(center, center, _);
   margin-top: 12rem;
   &__info {
-    width: 50%;
-    margin-right: 3rem;
+    @include mobile {
+      width: 100%;
+      margin: 0;
+    }
+    @include tablet {
+      width: 50%;
+      margin-right: 3rem;
+    }
   }
 
   &__link-container {
@@ -20,6 +34,12 @@
   }
 
   &__img-box {
+    @include mobile {
+      display: none;
+    }
+    @include tablet {
+      display: block;
+    }
     width: 30rem;
     height: 25rem;
     &--img {
@@ -29,6 +49,34 @@
       border-color: 2px solid red;
       object-fit: cover;
       @include img-card;
+    }
+    &--img-mobile {
+      @include mobile {
+        display: none;
+      }
+      @include tablet {
+        display: block;
+      }
+    }
+  }
+
+  &__img-box-mobile {
+    @include mobile {
+      width: 95vw;
+      border-radius: 20px;
+    }
+    @include tablet {
+      display: none;
+    }
+    &--img {
+      @include mobile {
+        object-fit: cover;
+        width: 100%;
+        border-radius: 10px;
+      }
+      @include tablet {
+        display: none;
+      }
     }
   }
   &__learn-more-button {

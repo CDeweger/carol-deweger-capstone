@@ -8,7 +8,6 @@ const FirstNationCard = (props) => {
   if (!props.firstNationList.donations) {
     return null;
   }
-  console.log(props);
   return (
     <div className="firstNationCard">
       <div className="firstNationCard__img-box">

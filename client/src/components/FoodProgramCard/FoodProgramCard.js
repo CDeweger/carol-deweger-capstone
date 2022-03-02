@@ -6,7 +6,6 @@ const FoodProgramCard = (props) => {
   if (!props.foodProgramList.donations) {
     return null;
   }
-  console.log(props);
   return (
     <div className="firstNationCard">
       <div className="firstNationCard__img-box">

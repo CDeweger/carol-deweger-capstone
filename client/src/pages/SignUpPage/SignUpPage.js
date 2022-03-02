@@ -15,7 +15,6 @@ const SignUpPage = () => {
   const [username, setUsername] = useState("");
   //form validation
   const [signupError, setSignupError] = useState(false);
-  // const [usernameError, setUsernameError] = useState(false);
   const signup = (e) => {
     e.preventDefault();
 

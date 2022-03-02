@@ -9,6 +9,13 @@ const FeaturedNPO = (props) => {
     <div className="featuredNPO">
       <div className="featuredNPO__info">
         <h1>{props.organizationList[randomNum].program_name}</h1>
+        <div className="featuredNPO__img-box-mobile">
+          <img
+            className="featuredNPO__img-box-mobile--img "
+            src={props.organizationList[randomNum].image}
+          />
+        </div>
+
         <p>
           <b>Program type:</b>&nbsp;
           {props.organizationList[randomNum].program_type}
@@ -17,6 +24,7 @@ const FeaturedNPO = (props) => {
         <p>
           <b>Location:</b>&nbsp;{props.organizationList[randomNum].location}
         </p>
+
         <div className="featuredNPO__link-container">
           <Link
             className="button featuredNPO__learn-more-button "
@@ -30,7 +38,7 @@ const FeaturedNPO = (props) => {
       </div>
       <div className="featuredNPO__img-box">
         <img
-          className="featuredNPO__img-box--img"
+          className="featuredNPO__img-box--img featuredNPO__img-box--img-mobile"
           src={props.organizationList[randomNum].image}
         />
       </div>

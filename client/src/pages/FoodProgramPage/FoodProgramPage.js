@@ -26,7 +26,7 @@ const FoodProgramPage = () => {
     getFoodProgramList();
   }, []);
 
-  if (foodProgramList) {
+  if (!foodProgramList) {
     return null;
   }
 
