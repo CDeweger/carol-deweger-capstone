@@ -5,11 +5,17 @@
 @use "../../styles/partials/typography" as *;
 
 .loginPage {
-  //margin-top: 10rem;
-  width: 20rem;
-  margin: auto;
-  color: white;
-  background-color: black;
+  @include mobile {
+    width: 98vw;
+    margin: auto;
+    color: white;
+    background-color: black;
+    margin-bottom: 5rem;
+  }
+
+  @include tablet {
+    width: 20rem;
+  }
 }
 
 .loginPage-container {
