@@ -8,14 +8,17 @@
   margin: auto;
   margin-top: 5rem;
   margin-bottom: 10rem;
-  width: 80%;
+  width: 90%;
   text-align: center;
   &__category {
     margin-top: 2rem;
-    width: 60vw;
+    width: 90vw;
     margin: auto;
     @include flex(center, _, _);
     flex-wrap: wrap;
+    @include tablet {
+      width: 60vw;
+    }
   }
   &__button {
     margin-top: 1rem;

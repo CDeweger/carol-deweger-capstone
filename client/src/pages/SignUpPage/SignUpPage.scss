@@ -5,12 +5,17 @@
 @use "../../styles/partials/typography" as *;
 
 .signupPage {
-  border: 1px black solid;
-  padding: 2rem 0;
-  margin: auto;
-  margin-top: 13rem;
-  width: 38rem;
-  background-color: black;
+  @include mobile {
+    width: 90vw;
+    padding: 2rem 0;
+    margin: auto;
+    margin-top: 13rem;
+    background-color: black;
+  }
+  @include tablet {
+    width: 38rem;
+  }
+  //border: 1px black solid;
   &__heading {
     color: white;
     margin: 0 auto;
@@ -23,19 +28,32 @@
   text-align: left;
 
   &__group {
-    @include flex(_, _, _);
+    @include mobile {
+      @include flex(_, flex-start, column);
+    }
+    @include tablet {
+      @include flex(_, _, row);
+    }
   }
 
   &__field {
     width: 14rem;
     margin: auto;
+    //margin-left: 2.5rem;
     @include flex(_, flex-start, column);
+    @include tablet {
+      margin: auto;
+    }
     &--website {
       // @include flex(flex-start, _, _);
-      margin: 0 0 0 2.5rem;
+      @include tablet {
+        margin: 0 0 0 2.5rem;
+      }
     }
     &--description {
-      margin: 0 0 0 2.5rem;
+      @include tablet {
+        margin: 0 0 0 2.5rem;
+      }
       // width: 20rem;
     }
   }
@@ -54,8 +72,14 @@
     border-radius: 5px;
     border: none;
     &--description {
-      height: 8rem;
-      width: 33rem;
+      @include mobile {
+        width: 14rem;
+        height: 10rem;
+      }
+      @include tablet {
+        height: 8rem;
+        width: 33rem;
+      }
     }
   }
   &__button {

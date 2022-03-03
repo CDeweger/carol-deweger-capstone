@@ -6,7 +6,7 @@
 
 .header-title {
   margin: auto;
-  width: 50%;
+  width: 90%;
   margin-top: 1.2rem;
   margin-bottom: -1.5rem;
   text-align: center;
@@ -32,7 +32,6 @@
   background-color: white;
   &__nav {
     margin-top: 3rem;
-    // margin-bottom: 2rem;
   }
   &__nav-list {
     @include flex(center, _, _);

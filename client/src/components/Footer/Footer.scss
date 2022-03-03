@@ -5,45 +5,51 @@
 @use "../../styles/partials/typography" as *;
 
 .footer {
-  width: 100vw;
-  height: 6rem;
-  background-color: black;
-  color: white;
-  &:hover {
-    color: $primary-green;
-  }
-  &:visited {
-    color: white;
-  }
-
-  &__nav-list {
+  @include mobile {
     display: none;
   }
-
-  &__title {
-    color: $primary-green;
-    width: 12rem;
-    margin: auto;
-    padding-top: 1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  &__author {
-    width: 10rem;
-    margin: auto;
-    text-align: center;
-    margin-top: 3rem;
-  }
   @include tablet {
-    height: 12rem;
-    margin-top: 10rem;
+    display: block;
+    width: 100vw;
+    height: 6rem;
+    background-color: black;
+    color: white;
+    &:hover {
+      color: $primary-green;
+    }
+    &:visited {
+      color: white;
+    }
 
     &__nav-list {
-      @include flex(space-evenly, _, _);
-      width: 40vw;
+      display: none;
+    }
+
+    &__title {
+      color: $primary-green;
+      width: 12rem;
       margin: auto;
-      padding-top: 4rem;
+      padding-top: 1rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    &__author {
+      width: 10rem;
+      margin: auto;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    @include tablet {
+      height: 12rem;
+      margin-top: 10rem;
+
+      &__nav-list {
+        @include flex(space-evenly, _, _);
+        width: 80vw;
+        margin: auto;
+        padding-top: 4rem;
+      }
     }
   }
 }

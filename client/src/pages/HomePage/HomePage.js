@@ -31,7 +31,7 @@ const HomePage = () => {
   }
 
   return (
-    <div>
+    <div className="homepage">
       <Helmet>
         <title>Donation Hub | Home</title>
       </Helmet>

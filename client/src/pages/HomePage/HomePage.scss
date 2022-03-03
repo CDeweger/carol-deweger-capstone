@@ -4,6 +4,10 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
+.homepage {
+  @include flex(_, space-between, column);
+}
+
 .about {
   width: 80vw;
   margin: auto;
