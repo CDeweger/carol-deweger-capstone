@@ -11,10 +11,9 @@
 }
 .donationList {
   @include flex(_, center, column);
-
   width: 90vw;
   margin: auto;
-  @include desktop {
+  @include tablet {
     @include flex(space-evenly, center, row);
     flex-wrap: wrap;
   }

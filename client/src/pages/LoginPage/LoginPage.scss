@@ -5,13 +5,11 @@
 @use "../../styles/partials/typography" as *;
 
 .loginPage {
-  @include mobile {
-    width: 85vw;
-    margin: auto;
-    color: white;
-    background-color: black;
-    margin-bottom: 5rem;
-  }
+  width: 85vw;
+  margin: auto;
+  color: white;
+  background-color: black;
+  margin-bottom: 5rem;
 
   @include tablet {
     width: 20rem;
@@ -49,7 +47,10 @@
     @include font-regular;
     @include flex(flex-end, flex-end, column);
     &--msg {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
+      @include tablet {
+        font-size: 0.8rem;
+      }
     }
     &:link {
       color: white;
