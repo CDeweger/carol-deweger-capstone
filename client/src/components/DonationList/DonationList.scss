@@ -10,11 +10,14 @@
   text-align: center;
 }
 .donationList {
-  @include flex(space-evenly, center, _);
-  flex-wrap: wrap;
-  //align-content: space-between;
+  @include flex(_, center, column);
+
   width: 90vw;
   margin: auto;
+  @include desktop {
+    @include flex(space-evenly, center, row);
+    flex-wrap: wrap;
+  }
 }
 
 .donationList-card {

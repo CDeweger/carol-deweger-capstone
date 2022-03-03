@@ -17,7 +17,9 @@ const ShelterCard = (props) => {
       </div>
       <div className="firstNationCard__info">
         {/* mobile img display */}
-        <h2>{props.shelterList.program_name}</h2>
+        <h2 className="firstNationCard__info--title">
+          {props.shelterList.program_name}
+        </h2>
         <div className="firstNationCard__img-box--mobile">
           <img
             className="firstNationCard__img-box--img-mobile"
@@ -25,8 +27,10 @@ const ShelterCard = (props) => {
             alt={props.shelterList.program_name}
           />
         </div>
-
-        <p>
+        <p className="firstNationCard__type">
+          <b>Program type:</b> {props.shelterList.program_type}
+        </p>
+        <p className="firstNationCard__location">
           <b>Location:</b>
           {props.shelterList.location}
         </p>

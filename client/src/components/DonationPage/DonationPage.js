@@ -86,6 +86,14 @@ const DonationPage = (props) => {
           </div>
           <div className="donation-page__profile-info">
             <h1>{currUser.program_name}</h1>
+            {/* mobile img display */}
+            <div className="donation-page__img-box-mobile">
+              <img
+                className="donation-page__img-box-mobile--img-mobile"
+                src={currUser.image}
+              />
+            </div>
+
             <p>
               <b>Program type:</b> {currUser.program_type}
             </p>

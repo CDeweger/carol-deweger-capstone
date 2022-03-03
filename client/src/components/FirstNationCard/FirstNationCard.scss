@@ -10,19 +10,19 @@
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px black solid;
-  @include tablet {
+  @include desktop {
     @include flex(_, center, _);
     width: 80vw;
   }
   &__img-box {
     width: 30%;
     display: none;
-    @include tablet {
+    @include desktop {
       display: block;
     }
     &--img {
       display: none;
-      @include tablet {
+      @include desktop {
         display: block;
         width: 100%;
         object-fit: cover;
@@ -34,6 +34,10 @@
     &--mobile {
       width: 80vw;
       @include tablet {
+        width: 50vw;
+        margin: auto;
+      }
+      @include desktop {
         display: none;
       }
     }
@@ -42,16 +46,34 @@
       object-fit: cover;
       border-radius: 10px;
       @include tablet {
+        margin: auto;
+      }
+      @include desktop {
         display: none;
       }
     }
   }
 
+  &__type {
+    @include tablet {
+      text-align: center;
+    }
+  }
+  &__location {
+    @include tablet {
+      text-align: center;
+    }
+  }
   &__info {
     width: 90%;
     margin-left: 2rem;
     @include tablet {
-      width: 70%;
+      width: 90%;
+    }
+    &--title {
+      @include tablet {
+        text-align: center;
+      }
     }
     &--need {
       color: red;

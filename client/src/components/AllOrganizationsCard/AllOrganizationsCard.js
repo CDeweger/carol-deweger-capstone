@@ -16,7 +16,9 @@ const AllOrganizationsCard = (props) => {
         />
       </div>
       <div className="firstNationCard__info">
-        <h2>{props.allOrganizations.program_name}</h2>
+        <h2 className="firstNationCard__info--title">
+          {props.allOrganizations.program_name}
+        </h2>
         {/* mobile img display */}
         <div className="firstNationCard__img-box--mobile">
           <img
@@ -25,10 +27,10 @@ const AllOrganizationsCard = (props) => {
             alt={props.allOrganizations.program_name}
           />
         </div>
-        <p>
+        <p className="firstNationCard__type">
           <b>Program type:</b> {props.allOrganizations.program_type}
         </p>
-        <p>
+        <p className="firstNationCard__location">
           <b>Location:</b> {props.allOrganizations.location}
         </p>
         <p>{props.allOrganizations.description}</p>

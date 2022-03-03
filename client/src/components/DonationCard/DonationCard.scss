@@ -5,21 +5,27 @@
 @use "../../styles/partials/typography" as *;
 
 .donationList-card {
-  width: 40%;
+  width: 90vw;
   border: black 2px solid;
   border-radius: 15px;
   margin: 1rem;
-  // @include img-card;
+  @include tablet {
+    width: 40%;
+  }
 
   &__inner {
-    @include flex(_, center, row);
     padding: 1rem;
-    // :hover {
-    //   transform: scale(1.2);
-    // }
+    @include desktop {
+      @include flex(_, center, row);
+      padding: 1rem;
+    }
   }
   &__buttons {
     @include flex(space-between, _, _);
+    object-fit: contain;
+    @include desktop {
+      @include flex(space-between, _, _);
+    }
   }
   &__delete-button {
     background-color: white;
@@ -59,12 +65,16 @@
     }
   }
   &__info-box {
-    // width: 65%;
-    width: 20rem;
-    margin-left: 1rem;
+    width: 100%;
+    //width: 20rem;
+    @include desktop {
+      margin-left: 1rem;
+    }
   }
   &__status-date {
-    @include flex(space-between, center, _);
+    @include desktop {
+      @include flex(space-between, center, _);
+    }
   }
   &__item {
     margin-bottom: 0;

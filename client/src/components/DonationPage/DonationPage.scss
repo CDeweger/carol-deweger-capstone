@@ -8,23 +8,67 @@
   margin-top: 13rem;
   &__profile {
     @include flex(center, center, _);
-    width: 80vw;
+    width: 90vw;
     margin: auto;
-  }
-  &__img-box {
-    width: 40vw;
-    &--img {
-      width: 40vw;
-      object-fit: cover;
-      @include img-card;
+
+    @include desktop {
+      width: 80vw;
     }
   }
+  &__img-box-mobile {
+    width: 90vw;
+
+    @include tablet {
+      width: 60vw;
+      margin: auto;
+    }
+    @include desktop {
+      display: none;
+    }
+    &--img-mobile {
+      object-fit: cover;
+      width: 100%;
+      margin: auto;
+      @include img-card;
+      @include desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__img-box {
+    display: none;
+    @include desktop {
+      display: block;
+      width: 40vw;
+    }
+    &--img {
+      display: none;
+      @include desktop {
+        display: block;
+        width: 40vw;
+        object-fit: cover;
+        @include img-card;
+      }
+    }
+  }
+
   &__profile-info {
-    margin-left: 6rem;
+    @include tablet {
+      width: 80vw;
+      text-align: center;
+    }
+    @include desktop {
+      margin-left: 6rem;
+      text-align: left;
+    }
   }
   &__new-post {
-    width: 45vw;
+    width: 90vw;
     margin: auto;
+    @include desktop {
+      width: 45vw;
+    }
   }
   &__title {
     text-align: center;
@@ -34,23 +78,31 @@
     @include flex(_, _, column);
   }
   &__item-status {
-    @include flex(space-between, _, _);
+    @include tablet {
+      @include flex(space-between, _, _);
+    }
   }
   &__item {
-    width: 48%;
+    @include tablet {
+      width: 48%;
+    }
   }
   &__item-input {
     @include input;
   }
   &__status {
-    width: 48%;
+    @include tablet {
+      width: 48%;
+    }
   }
   &__status-select {
     @include input;
     height: 1.9rem;
   }
   &__image-upload {
-    @include flex(space-between, center, _);
+    @include tablet {
+      @include flex(space-between, center, _);
+    }
   }
 
   &__choose-image {
@@ -99,16 +151,16 @@
   }
 
   &__create-button {
-    //width: 20%;
-    //margin: auto;
-    //margin-top: 1rem;
     @include button;
     &:hover {
       transform: scale(1.2);
     }
   }
   &__link-box {
-    @include flex(flex-end, _, _);
+    @include flex(center, _, _);
+    @include tablet {
+      @include flex(flex-end, _, _);
+    }
   }
   &__edit-link {
     color: $mint-blue;
