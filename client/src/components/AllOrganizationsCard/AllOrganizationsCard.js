@@ -17,6 +17,14 @@ const AllOrganizationsCard = (props) => {
       </div>
       <div className="firstNationCard__info">
         <h2>{props.allOrganizations.program_name}</h2>
+        {/* mobile img display */}
+        <div className="firstNationCard__img-box--mobile">
+          <img
+            className="firstNationCard__img-box--img-mobile"
+            src={props.allOrganizations.image}
+            alt={props.allOrganizations.program_name}
+          />
+        </div>
         <p>
           <b>Program type:</b> {props.allOrganizations.program_type}
         </p>
@@ -29,9 +37,9 @@ const AllOrganizationsCard = (props) => {
           {props.allOrganizations.donations.map((donation) => {
             if (donation.status === "In Need") {
               return (
-                <span className="firstNationCard__donation-tag--in-need">
+                <p className="firstNationCard__donation-tag--in-need">
                   {donation.itemName}
-                </span>
+                </p>
               );
             }
           })}
@@ -41,9 +49,9 @@ const AllOrganizationsCard = (props) => {
           {props.allOrganizations.donations.map((donation) => {
             if (donation.status === "Surplus") {
               return (
-                <span className="firstNationCard__donation-tag--surplus">
+                <p className="firstNationCard__donation-tag--surplus">
                   {donation.itemName}
-                </span>
+                </p>
               );
             }
           })}

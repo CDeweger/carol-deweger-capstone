@@ -16,7 +16,16 @@ const ShelterCard = (props) => {
         />
       </div>
       <div className="firstNationCard__info">
+        {/* mobile img display */}
         <h2>{props.shelterList.program_name}</h2>
+        <div className="firstNationCard__img-box--mobile">
+          <img
+            className="firstNationCard__img-box--img-mobile"
+            src={props.shelterList.image}
+            alt={props.shelterList.program_name}
+          />
+        </div>
+
         <p>
           <b>Location:</b>
           {props.shelterList.location}
@@ -27,9 +36,9 @@ const ShelterCard = (props) => {
           {props.shelterList.donations.map((donation) => {
             if (donation.status === "In Need") {
               return (
-                <span className="firstNationCard__donation-tag--in-need">
+                <p className="firstNationCard__donation-tag--in-need">
                   {donation.itemName}
-                </span>
+                </p>
               );
             }
           })}
@@ -39,9 +48,9 @@ const ShelterCard = (props) => {
           {props.shelterList.donations.map((donation) => {
             if (donation.status === "Surplus") {
               return (
-                <span className="firstNationCard__donation-tag--surplus">
+                <p className="firstNationCard__donation-tag--surplus">
                   {donation.itemName}
-                </span>
+                </p>
               );
             }
           })}

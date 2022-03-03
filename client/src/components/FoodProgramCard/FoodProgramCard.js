@@ -17,16 +17,31 @@ const FoodProgramCard = (props) => {
       </div>
       <div className="firstNationCard__info">
         <h2>{props.foodProgramList.program_name}</h2>
-        <p>Location:{props.foodProgramList.location}</p>
+        {/* mobile img display */}
+        <div className="firstNationCard__img-box--mobile">
+          <img
+            className="firstNationCard__img-box--img-mobile"
+            src={props.foodProgramList.image}
+            alt={props.foodProgramList.program_name}
+          />
+        </div>
+        <p>
+          <b>Program type:</b> {props.foodProgramList.program_type}
+        </p>
+
+        <p>
+          <b>Location:</b>
+          {props.foodProgramList.location}
+        </p>
         <p>{props.foodProgramList.description}</p>
         <p className="firstNationCard__info--need">
           Donations in need:
           {props.foodProgramList.donations.map((donation) => {
             if (donation.status === "In Need") {
               return (
-                <span className="firstNationCard__donation-tag--in-need">
+                <p className="firstNationCard__donation-tag--in-need">
                   {donation.itemName}
-                </span>
+                </p>
               );
             }
           })}
@@ -36,9 +51,9 @@ const FoodProgramCard = (props) => {
           {props.foodProgramList.donations.map((donation) => {
             if (donation.status === "Surplus") {
               return (
-                <span className="firstNationCard__donation-tag--surplus">
+                <p className="firstNationCard__donation-tag--surplus">
                   {donation.itemName}
-                </span>
+                </p>
               );
             }
           })}

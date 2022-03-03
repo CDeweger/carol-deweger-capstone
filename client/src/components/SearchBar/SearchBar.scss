@@ -9,22 +9,38 @@
   margin: auto;
   margin-bottom: 6rem;
   margin-top: -4rem;
+  @include tablet {
+    width: 30rem;
+    margin: auto;
+    margin-bottom: 6rem;
+    margin-top: -4rem;
+  }
 }
 
 .searchBar-form {
   position: relative;
+  // width: 20rem;
+  // margin: auto;
+
+  @include tablet {
+  }
 
   &__input {
-    width: 30rem;
-    margin: auto;
+    width: 20rem;
+
+    @include tablet {
+      width: 30rem;
+      margin: auto;
+    }
   }
 }
 
 .searchBar-icon {
-  content: url("../../assets/icons/search-24px.svg");
-  position: relative;
-  top: 30px;
-  // z-index: 1;
-  right: -460px;
-  cursor: pointer;
+  @include tablet {
+    content: url("../../assets/icons/search-24px.svg");
+    position: relative;
+    top: 30px;
+    right: -460px;
+    cursor: pointer;
+  }
 }
