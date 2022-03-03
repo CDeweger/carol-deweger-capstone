@@ -6,7 +6,7 @@
 
 .loginPage {
   @include mobile {
-    width: 98vw;
+    width: 85vw;
     margin: auto;
     color: white;
     background-color: black;
@@ -49,7 +49,7 @@
     @include font-regular;
     @include flex(flex-end, flex-end, column);
     &--msg {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
     &:link {
       color: white;

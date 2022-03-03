@@ -15,7 +15,6 @@
   @include tablet {
     width: 38rem;
   }
-  //border: 1px black solid;
   &__heading {
     color: white;
     margin: 0 auto;
@@ -39,13 +38,11 @@
   &__field {
     width: 14rem;
     margin: auto;
-    //margin-left: 2.5rem;
     @include flex(_, flex-start, column);
     @include tablet {
       margin: auto;
     }
     &--website {
-      // @include flex(flex-start, _, _);
       @include tablet {
         margin: 0 0 0 2.5rem;
       }
@@ -54,7 +51,6 @@
       @include tablet {
         margin: 0 0 0 2.5rem;
       }
-      // width: 20rem;
     }
   }
 
@@ -63,8 +59,6 @@
     font-size: 0.8rem;
     margin-bottom: 0.4rem;
     margin-top: 1rem;
-    // width: 10rem;
-    // margin-right: auto;
   }
   &__input {
     width: 14rem;
