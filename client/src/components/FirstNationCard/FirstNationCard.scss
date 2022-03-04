@@ -58,10 +58,16 @@
     @include tablet {
       text-align: center;
     }
+    @include desktop {
+      text-align: left;
+    }
   }
   &__location {
     @include tablet {
       text-align: center;
+    }
+    @include desktop {
+      text-align: left;
     }
   }
   &__info {
@@ -73,6 +79,9 @@
     &--title {
       @include tablet {
         text-align: center;
+      }
+      @include desktop {
+        text-align: left;
       }
     }
     &--need {
