@@ -113,7 +113,7 @@ const EditDonationCardModal = (props) => {
               </button>
             </div>
             <div className="edit-modal__preview-info">
-              <div>
+              <div className="edit-modal__image-group">
                 <p className="edit-modal__preview-label">Image preview</p>
                 {!changePreviewImg ? (
                   <div className="edit-modal__preview-image-box">

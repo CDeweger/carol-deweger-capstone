@@ -70,7 +70,7 @@ const EditOrganization = (props) => {
       <form onSubmit={handleSubmit}>
         <div className="edit-profile-body">
           <div className="edit-profile-body__image">
-            <p>Image preview</p>
+            <p className="edit-profile-body__image-preview">Image preview</p>
 
             {!changePreviewImg ? (
               <div className="edit-profile__image-box">

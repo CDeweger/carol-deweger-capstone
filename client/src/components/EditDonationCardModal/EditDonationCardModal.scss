@@ -15,12 +15,17 @@
 
   &__container {
     background-color: white;
-    width: 60%;
-    // height: 38rem;
-    height: 80%;
-    margin: auto;
-    margin-top: 5rem;
     border-radius: 10px;
+    width: 90vw;
+    height: auto;
+    margin: auto;
+    margin-top: 2rem;
+    @include desktop {
+      width: 60%;
+      height: auto;
+      margin: auto;
+      margin-top: 5rem;
+    }
   }
   &__inner-container {
     padding: 2rem 0;
@@ -33,21 +38,31 @@
     margin-top: 0;
   }
   &__item-status {
-    @include flex(space-between, _, _);
+    @include tablet {
+      @include flex(space-between, _, _);
+    }
   }
   &__item {
-    width: 48%;
+    width: 100%;
+    @include tablet {
+      width: 48%;
+    }
   }
 
   &__status {
-    width: 48%;
+    width: 100%;
+    @include tablet {
+      width: 48%;
+    }
     &--select {
       height: 1.9rem;
     }
   }
   &__image-upload {
-    margin-top: 1rem;
-    @include flex(space-between, center, _);
+    @include tablet {
+      margin-top: 1rem;
+      @include flex(space-between, center, _);
+    }
   }
   &__choose-image {
     border-bottom: 2px solid black;
@@ -60,42 +75,62 @@
     @include flex(_, _, column);
   }
 
-  &__preview-image-box {
-    width: 10rem;
-    height: 10rem;
-    // object-fit: contain;
-    // height: 30%;
-    // width: 30%;
-  }
   &__preview-info {
-    @include flex(space-between, flex-start, _);
-    margin-top: 1rem;
+    @include tablet {
+      @include flex(space-between, flex-start, _);
+      margin-top: 1rem;
+    }
   }
   &__preview-label {
-    margin-top: 0;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
+    @include tablet {
+      width: 50%;
+      margin-top: 0;
+    }
+  }
+  &__image-group {
+    @include tablet {
+      width: 50%;
+    }
+  }
+  &__preview-image-box {
+    @include tablet {
+      width: 90%;
+      height: 10rem;
+    }
   }
   &__preview-image {
-    height: 100%;
-    width: auto;
+    width: 100%;
+    margin: auto;
     border-radius: 5px;
     @include img-card;
     object-fit: contain;
+
+    @include tablet {
+      width: 100%;
+      height: 10rem;
+      object-fit: contain;
+    }
   }
   &__upload-button {
+    margin-top: 1rem;
     @include button;
   }
   &__more-info {
-    width: 48%;
+    width: 100%;
+    margin-top: 1rem;
+    @include tablet {
+      margin-top: 0;
+      width: 48%;
+    }
     &--input {
       height: 9.5rem;
-      // height: 50%;
+      @include tablet {
+        width: 100%;
+      }
     }
   }
-  // &__preview-upload {
-  //   width: 40vw;
-  //   height: 10vw;
-  // }
   &__buttons {
     margin-top: 2rem;
     @include flex(space-between, _, _);

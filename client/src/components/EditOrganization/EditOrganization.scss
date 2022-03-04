@@ -5,6 +5,8 @@
 @use "../../styles/partials/typography" as *;
 
 .edit-profile {
+  @include tablet {
+  }
   &__edit-title {
     text-align: center;
     margin: auto;
@@ -17,9 +19,11 @@
     text-align: center;
   }
   &__image-box {
-    height: 40vh;
-    width: 40vw;
-    @include img-card;
+    @include tablet {
+      height: 40vh;
+      width: 40vw;
+      @include img-card;
+    }
   }
   &__image {
     height: 100%;
@@ -28,16 +32,23 @@
     border-radius: 10px;
     @include img-card;
   }
+
   &__button-box {
     @include flex(center, center, _);
   }
   &__update-button {
-    margin-top: 5rem;
-    // width: 8rem;
-    // margin: auto;
+    margin-top: 1.5rem;
+
+    @include tablet {
+      margin-top: 5rem;
+    }
   }
   &__cancel-button {
-    margin-top: 5rem;
+    margin-top: 1.5rem;
+
+    @include tablet {
+      margin-top: 5rem;
+    }
     padding: 0.7rem 2rem;
     background-color: white;
     border: black 1px solid;
@@ -58,22 +69,31 @@
 }
 
 .edit-profile-body {
-  //border: 1px solid red;
-  width: 90vw;
-  margin: auto;
-  margin-top: 2rem;
-  @include flex(center, center, _);
+  width: 95vw;
+  @include tablet {
+    width: 90vw;
+    margin: auto;
+    margin-top: 2rem;
+    @include flex(center, center, _);
+  }
 
   &__image {
-    @include flex(center, center, column);
-    // border: springgreen 1px solid;
-    width: 50%;
+    @include tablet {
+      @include flex(center, center, column);
+      width: 50%;
+    }
+  }
+  &__image-preview {
+    text-align: center;
   }
 
   &__info {
-    //border: steelblue 1px solid;
     @include flex(_, _, column);
-    width: 50%;
+
+    @include tablet {
+      @include flex(_, _, column);
+      width: 50%;
+    }
   }
   &__input {
     @include input;
